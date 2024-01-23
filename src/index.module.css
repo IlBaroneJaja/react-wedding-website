@@ -1,0 +1,163 @@
+body {
+  font-family: 'kalam', cursive;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'italianno', cursive;
+  font-size: 5em;
+}
+
+h2, h3, h4, h5 {
+  font-family: 'kalam', cursive;
+}
+
+p {
+  font-size: 1.167em;
+  font-family: 'raleway', cursive;
+}
+
+iframe {
+  padding: 1em;
+}
+
+.pContent {
+  font-family: 'raleway', cursive;
+  font-size: 1.167em;
+  font-weight: bold;
+}
+
+.text-content-centered {
+  font-family: 'raleway', cursive;
+  font-size: 1.167em;
+  font-weight: bold;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto; /* Center the div itself */
+  padding: 1em;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: center;
+  width: 16em;
+  padding-top: 4em;
+}
+
+.contentLeft {
+  max-width: 100%; /* Adjust for responsiveness */
+  text-align: left;
+  padding: 0 20px; /* Add some padding on the sides */
+}
+
+.contentLeft p {
+  text-align: justify;
+  line-height: 1.5;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Media query for tablets and smaller screens */
+@media screen and (max-width: 768px) {
+  .contentLeft {
+    padding: 10px; /* Remove padding on smaller screens */
+  }
+}
+
+/* First content section in the foreground */
+.content-section {
+  height: 200vh;
+  min-height: 100vh;
+  padding-top: 50vh; /* Adjust for spacing */
+  padding-bottom: 50px; /* Add some bottom padding to the content */
+  background-color: #449696; /* Change to the desired background color (green in this case) */
+  color: white;
+  position: relative;
+  z-index: 1; /* Set a higher z-index to bring it to the foreground */
+  align-items: center;
+  justify-content: center;
+}
+
+.otherSections {
+  height: 150vh;
+  padding-top: 10vh; /* Adjust for spacing */
+  padding-bottom: 50px; /* Add some bottom padding to the content */
+  background-color: #FFD700; /* Change to the desired background color (goldenrod in this case) */
+  color: white;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Set a minimum height to cover the viewport */
+}
+
+/* Custom Styles */
+
+.stickyImage {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  left: 0;
+}
+
+.text-on-top-of-image {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 1;
+}
+
+
+.text-overlay {
+  position: relative; /* Position the text overlay */
+  top: 10%; /* Adjust the top position */
+  left: 50%; /* Adjust the left position */
+  transform: translate(-50%, -50%); /* Center the text */
+  text-align: center; /* Align text to the center */
+  color: white; /* Text color */
+}
+
+.text-on-top-of-image {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 1; /* Ensure the intro content is on top */
+}
+
+/* Adjust padding for smaller screens */
+@media (max-width: 768px) {
+  section {
+    padding: 30px 15px;
+  }
+
+  .simpleImageSection {
+    padding: 0;
+  }
+
+  /* Smaller font size for smaller screens */
+  h1, h2, h3 {
+    font-size: 1.5em;
+  }
+}
+
+/* Customize colors for each section */
+section {
+  background-color: #12592b;
+}
+
+/* Hide the section by reducing opacity */
+.hidden {
+  opacity: 0;
+}

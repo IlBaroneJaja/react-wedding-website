@@ -1,0 +1,59 @@
+/* Navbar CSS */
+
+
+/* Navbar Styling */
+.navbar {
+    background-color: transparent;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 500px;
+}
+
+.navbarBrand {
+    font-weight: bold;
+    font-size: 24px;
+    color: #000000; /* Brand color when navbar is transparent */
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-color: #586c44;
+    transition: transform 0.3s ease-in-out;
+    color: #fff;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    transform: rotate(90deg);
+}
+
+/* Navbar Link Styling */
+.navbar-nav .nav-link {
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    color: #000 !important; /* Black text color */
+    font-size: 16px;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Center Align Navbar */
+@media (min-width: 768px) {
+    .navbar-nav {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
