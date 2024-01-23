@@ -1,17 +1,70 @@
 /* swiper.css */
 
-#photoSlider {
+.photoSlider {
     text-align: center;
     background-color: #6c757d;
     overflow: hidden;
     padding: 0;
 }
 
-.swiperContainer {
-    width: 100%; /* Adjust the width as needed */
-    margin: 0; /* Center the slider */
+.triangleButtons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.swiperSlide img {
-    width: 100%; /* Ensure images fill the slide container */
+.triangleButton {
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    color: #ffffff; /* Green color */
+    border: none;
+    font-size: 48px;
+    cursor: pointer; /* Remove outline on focus */
+    outline: none;
 }
+
+.triangleButton:focus, .triangleButton:active {
+    outline: none; /* Remove outline on focus */
+}
+
+.triangleButton:hover {
+    background-color: transparent;
+    outline: none;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 50px; /* Adjust the distance from the bottom as needed */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.slick-dot {
+    width: 10px; /* Adjust the dot size as needed */
+    height: 10px;
+    margin: 0 5px; /* Adjust the distance between dots as needed */
+    background-color: #ccc; /* Customize dot color */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a transition effect */
+}
+
+.slick-dot.slick-active {
+    background-color: #4CAF50; /* Customize active dot color */
+}
+
+@media screen and (max-width: 768px) {
+    .triangleButton {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+    }
+}
+

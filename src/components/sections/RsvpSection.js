@@ -1,10 +1,10 @@
 import React from 'react';
-import "../../index.module.css";
+import sharedStyles from "../../index.module.css";
 
 const RsvpSection = () => {
     return (
-        <section id="rsvps" className="otherSections">
-            <div className="text-overlay">
+        <section id="rsvps" className={sharedStyles.otherSections}>
+            <div className={sharedStyles["text-overlay"]}>
                 <p>Contenu pour les confirmation de présence</p>
                 <h1>Event Itineraries</h1>
             </div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import "../../index.module.css";
-
+import sharedStyles from "../../index.module.css";
 const GiftRegistriesSection = () => {
     return (
         <section id="gift-registries" className="otherSections">

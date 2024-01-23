@@ -72,11 +72,10 @@ button:hover {
 
 /* First content section in the foreground */
 .content-section {
-  height: 200vh;
+  height: auto;
   min-height: 100vh;
   padding-top: 50vh; /* Adjust for spacing */
   padding-bottom: 50px; /* Add some bottom padding to the content */
-  background-color: #449696; /* Change to the desired background color (green in this case) */
   color: white;
   position: relative;
   z-index: 1; /* Set a higher z-index to bring it to the foreground */
@@ -88,7 +87,6 @@ button:hover {
   height: 150vh;
   padding-top: 10vh; /* Adjust for spacing */
   padding-bottom: 50px; /* Add some bottom padding to the content */
-  background-color: #FFD700; /* Change to the desired background color (goldenrod in this case) */
   color: white;
   font-size: 1.5em;
   display: flex;

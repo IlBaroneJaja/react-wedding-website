@@ -1,10 +1,10 @@
-.background-image {
+.backgroundImage {
     position: absolute;
     z-index: 0; /* Set a lower z-index for the background image */
     height: 150vh;
 }
 
-.timeline-image {
+.timelineImage {
     position: absolute;
     top: 30%;
     left: 50%;

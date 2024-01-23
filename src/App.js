@@ -13,8 +13,13 @@ import DressCodeSection from "./components/sections/DressCodeSection";
 import FixedImage3Section from "./components/sections/FixedImage3Section";
 import RsvpSection from "./components/sections/RsvpSection";
 import {useEffect, useRef} from "react";
-import {Power1, TimelineMax} from 'gsap';
+import {gsap} from "gsap";
 import ScrollMagic from 'scrollmagic';
+// import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min';
+// import 'scrollmagic-plugin-gsap3';
+import {Power1} from 'gsap';
+
+gsap.registerPlugin(ScrollMagic);
 
 
 function App() {
@@ -28,22 +33,32 @@ function App() {
     const dressCodeSectionRef = useRef(null);
     const fixedImage3SectionRef = useRef(null);
     const rsvpSectionRef = useRef(null);
+    const controller = new ScrollMagic.Controller();
 
 
     useEffect(() => {
-        // Initialize ScrollMagic here and set up scenes as needed
-        const controller = new ScrollMagic.Controller();
-
-        // Set up scenes based on your requirements
-        // For example:
-        new ScrollMagic.Scene({
+        // Create a scene to pin the background image
+        const pinScene = new ScrollMagic.Scene({
             triggerElement: '#intro-section',
-            triggerHook: 0.5,
+            triggerHook: 0,
+            duration: '200%' // Adjust duration as needed
         })
-            .setClassToggle('#intro-section', 'active') // Add or remove class when scrolling
+            .setPin('.introImage')
             .addTo(controller);
 
-        // Set up scenes for other sections as needed
+        // Use gsap instead of TweenMax
+        const tweenOtherSections = gsap.to('.otherSections', {duration: 1, y: '0%', ease: 'none'});
+
+        // Create a scene to trigger moving the content sections downwards
+        const scene = new ScrollMagic.Scene({
+            triggerElement: '#itineraries', // Trigger at the content sections
+            triggerHook: 0.5, // Trigger when content sections are at the middle of the viewport
+            duration: '50%' // Move content sections downwards over 50% of their height
+        });
+
+        // Tween the y position
+        scene.setTween(tweenOtherSections)
+            .addTo(controller);
 
         return () => {
             // Clean up ScrollMagic on component unmount if needed
@@ -60,6 +75,7 @@ function App() {
                 ease: Power1.easeInOut,
             });
 
+
             new ScrollMagic.Scene({
                 triggerElement: targetRef.current,
                 triggerHook: 0.5,
@@ -69,33 +85,21 @@ function App() {
         }
     };
 
-    const getSectionRef = (section) => {
-        switch (section) {
-            case '#intro-section':
-                return introRef;
-            case '#itineraries':
-                return itinerariesRef;
-            case '#travel-info':
-                return travelInfoSectionRef;
-            case '#photoSlider':
-                return photoSliderSectionRef;
-            case '#accommodations':
-                return accommodationsSectionRef;
-            case '#fixed-image-2':
-                return fixedImage2SectionRef;
-            case '#gift-registries':
-                return giftRegistriesSectionRef;
-            case '#dress-code':
-                return dressCodeSectionRef;
-            case '#fixed-image-3':
-                return fixedImage3SectionRef;
-            case '#rsvps':
-                return rsvpSectionRef;
-            // Add cases for other sections
-            default:
-                return null;
-        }
+    const sectionRefs = {
+        '#intro-section': introRef,
+        '#itineraries': itinerariesRef,
+        '#travel-info': travelInfoSectionRef,
+        '#photoSlider': photoSliderSectionRef,
+        '#accommodations': accommodationsSectionRef,
+        '#fixed-image-2': fixedImage2SectionRef,
+        '#gift-registries': giftRegistriesSectionRef,
+        '#dress-code': dressCodeSectionRef,
+        '#fixed-image-3': fixedImage3SectionRef,
+        '#rsvps': rsvpSectionRef,
+        // Add entries for other sections
     };
+
+    const getSectionRef = (section) => sectionRefs[section] || null;
 
     return (
         <div>
