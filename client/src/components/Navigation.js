@@ -1,7 +1,10 @@
 import React from 'react';
 import styles from './Navigation.module.css';
+import {Link, useLocation} from "react-router-dom";
 
 const Navigation = () => {
+    const location = useLocation();
+
     return (
         <nav className={`navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top ${styles.navbar}`}>
             <div className={styles.container}>
@@ -34,6 +37,9 @@ const Navigation = () => {
                         <li className="nav-item">
                             <a href="#rsvps" className={`nav-link ${styles["nav-link"]}`}>RSVP's</a>
                         </li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/page1">Page 1</Link></li>
+                        <li><Link to="/page2">Page 2</Link></li>
                     </ul>
                 </div>
             </div>
