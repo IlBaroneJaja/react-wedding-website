@@ -1,12 +1,13 @@
 import React from 'react';
 import sharedStyles from "../../index.module.css";
 import styles from "./IntroSection.module.css";
+import withScroll from "../WithScroll";
 
 
 // Event Itineraries Content
-const IntroSection = () => {
+const IntroSection = React.forwardRef(({ id }, ref) => {
     return (
-        <section id="intro-section" className={styles.introSection}>
+        <section ref={ref} id={id} className={styles.introSection}>
             <div className={styles.parallaxEffect}>
                 <div id="intro-content" className={styles.introContent}>
                     <p className={styles.introTitle}>Yasmina & Alessandro</p>
@@ -25,6 +26,6 @@ const IntroSection = () => {
             </div>
         </section>
     );
-}
+});
 
-export default IntroSection;
+export default withScroll(IntroSection);

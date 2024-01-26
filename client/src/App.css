@@ -1,0 +1,18 @@
+.fadeEnter {
+    opacity: 0;
+}
+
+.fadeEnterActive {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+}
+
+.fadeExit {
+    opacity: 1;
+}
+
+.fadeExitActive {
+    opacity: 0;
+    /* Add a background color to check if the class is applied */
+    transition: opacity 500ms ease-in-out;
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import IntroSection from '../components/sections/IntroSection';
 import ItinerariesSection from '../components/sections/ItinerariesSection';
 import TravelInfoSection from '../components/sections/TravelInfoSection';
@@ -9,8 +9,24 @@ import GiftRegistriesSection from '../components/sections/GiftRegistriesSection'
 import DressCodeSection from '../components/sections/DressCodeSection';
 import FixedImage3Section from '../components/sections/FixedImage3Section';
 import RsvpSection from '../components/sections/RsvpSection';
+import {useLocation} from "react-router-dom";
 
 function Home() {
+    const location = useLocation();
+    const targetSectionRef = useRef(null);
+
+    useEffect(() => {
+        const urlSearchParams = new URLSearchParams(location.search);
+        const scrollToSection = urlSearchParams.get('scrollToSection') === 'true';
+
+        if (location.hash === '#travel-info' && scrollToSection) {
+            // Scroll to the target section
+            if (targetSectionRef.current) {
+                targetSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [location]);
+
     return (
         <div>
             <IntroSection id="intro-section" />

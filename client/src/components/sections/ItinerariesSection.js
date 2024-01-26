@@ -1,13 +1,17 @@
 // ItinerariesSection.js
 import React from 'react';
 import sharedStyles from '../../index.module.css';
+import { Link } from 'react-router-dom';
 import { Element } from 'react-scroll';
+import withScroll from "../WithScroll";
+import { scrollToTop } from '../../utils/ScrollUtils';
 
 
-const ItinerariesSection = () => {
+
+const ItinerariesSection = React.forwardRef(({ id }, ref) => {
     return (
         <Element name="itineraries">
-            <section id="itineraries" className={sharedStyles["content-section"]}
+            <section ref={ref} id={id} className={sharedStyles["content-section"]}
                      style={{padding: "50px", textAlign: "center"}}>
                 <h1>Itinéraires et directions</h1>
                 <div className={sharedStyles["text-content-centered"]}>
@@ -20,10 +24,9 @@ const ItinerariesSection = () => {
                     Adresse: <a target="_blank" href="https://maps.app.goo.gl/mK2fjZWn3TByGbuK8" rel="noreferrer">Pl.
                     Albert Ier 2, 1400 Nivelles</a><br/>
 
-                    <button type="button" className="btn btn-info" data-bs-toggle="modal"
-                            data-bs-target="#itinerariesDetailsModal">More details
-                        Details
-                    </button>
+                    <Link to="/page1" className="btn btn-info" onClick={scrollToTop}>
+                        Go to Page 1
+                    </Link>
                     Parking: se garer soit à la commune directement (peu de place, paiement à la borne
                     directement) <br/>
 
@@ -44,6 +47,6 @@ const ItinerariesSection = () => {
             </section>
         </Element>
     );
-}
+});
 
-export default ItinerariesSection;
+export default withScroll(ItinerariesSection);

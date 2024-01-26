@@ -1,45 +1,78 @@
 import React from 'react';
 import styles from './Navigation.module.css';
-import {Link, useLocation} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
+import {scrollToTop} from "../utils/ScrollUtils";
+
 
 const Navigation = () => {
-    const location = useLocation();
+
+    const smoothScrollTo = (target) => {
+        const targetElement = document.querySelector(target);
+        if (targetElement) {
+            const offsetTop = targetElement.offsetTop;
+
+            // Using smooth scrolling animation
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth',
+            });
+
+            // If you want to update the URL with the hash after scrolling
+            window.history.pushState(null, null, target);
+        }
+    };
+
+    const handleNavLinkClick = (target) => {
+        scrollToTop(); // Scroll to top for NavLink clicks
+        smoothScrollTo(target);
+    };
+
+    const navigationItems = [
+        { section: 'intro-section', header: 'Home' },
+        { section: 'itineraries', header: 'Itinéraires' },
+        { section: 'travel-info', header: 'Infos utiles' },
+        { section: 'accommodations', header: 'Hébergements' },
+        { section: 'gift-registries', header: 'Liste de mariage' },
+        { section: 'dress-code', header: 'Dress code' },
+        { section: 'rsvps', header: "RSVP's" },
+    ];
 
     return (
         <nav className={`navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top ${styles.navbar}`}>
             <div className={styles.container}>
                 <a href="#intro-section" className={styles.navbarBrand}></a>
-                <button className={`navbar-toggler ${styles["navbar-toggler"]}`} type="button" data-toggle="collapse"
-                        data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button
+                    className={`navbar-toggler ${styles["navbar-toggler"]}`}
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
                     <span className={`navbar-toggler-icon ${styles["navbar-toggler-icon"]}`}></span>
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul className={`navbar-nav ${styles["navbar-nav"]} ml-auto`}>
-                        <li className="nav-item">
-                            <a href="#intro-section" className={`nav-link ${styles["nav-link"]}`}>Home</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#itineraries" className={`nav-link ${styles["nav-link"]}`}>Itinéraire</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#travel-info" className={`nav-link ${styles["nav-link"]}`}>Infos utiles</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#accommodations" className={`nav-link ${styles["nav-link"]}`}>Hébergements</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#gift-registries" className={`nav-link ${styles["nav-link"]}`}>Liste de mariage</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#dress-code" className={`nav-link ${styles["nav-link"]}`}>Dress code</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#rsvps" className={`nav-link ${styles["nav-link"]}`}>RSVP's</a>
-                        </li>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/page1">Page 1</Link></li>
-                        <li><Link to="/page2">Page 2</Link></li>
+
+                        {navigationItems.map(({section, header}) => (
+                            <li className="nav-item" key={section}>
+                                <NavLink
+                                    to={{
+                                        pathname: '/',
+                                        hash: `#${section}`,
+                                        state: { scrollToSection: true },
+                                    }}
+                                    onClick={() => handleNavLinkClick(`#${section}`)}
+                                    className={`nav-link ${styles["nav-link"]}`}
+                                >
+                                    {header}
+                                </NavLink>
+                            </li>
+                        ))}
+                        {/*<li><Link to="/" onClick={scrollToTop}>Home</Link></li>*/}
+                        <li><Link to="/page1" onClick={scrollToTop} className={`nav-link ${styles["nav-link"]}`}>Page 1</Link></li>
+                        <li><Link to="/page2" onClick={scrollToTop} className={`nav-link ${styles["nav-link"]}`}>Page 2</Link></li>
                     </ul>
                 </div>
             </div>

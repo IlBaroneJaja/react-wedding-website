@@ -3,10 +3,11 @@ import sharedStyles from "../../index.module.css";
 import styles from "./TravelInfoSection.module.css"
 import timelineBgPhoto from "../../images/flower_background_section.png";
 import timelinePhoto from "../../images/transparent_timeline_google.png";
+import withScroll from '../WithScroll';
 
-const TravelInfoSection = () => {
+const TravelInfoSection = React.forwardRef(({ id }, ref) => {
     return (
-        <section id="travel-info" className={styles["sticky-timeline-background"]}>
+        <section ref={ref} id={id} className={styles["sticky-timeline-background"]}>
             <div className={sharedStyles["text-on-top-of-image"]} style={{color: "black"}}>
                 <h1>Planning de la journée</h1>
             </div>
@@ -16,6 +17,6 @@ const TravelInfoSection = () => {
                  className={`${sharedStyles.stickyImage} ${styles.timelineImage}`}/>
         </section>
     );
-}
+});
 
-export default TravelInfoSection;
+export default withScroll(TravelInfoSection);
