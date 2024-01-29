@@ -1,14 +1,14 @@
 import React, {useEffect, useRef} from 'react';
-import IntroSection from '../components/sections/IntroSection';
-import ItinerariesSection from '../components/sections/ItinerariesSection';
-import TravelInfoSection from '../components/sections/TravelInfoSection';
-import PhotoSliderSection from '../components/sections/PhotoSliderSection';
-import AccommodationsSection from '../components/sections/AccommodationsSection';
-import FixedImage2Section from '../components/sections/FixedImage2Section';
-import GiftRegistriesSection from '../components/sections/GiftRegistriesSection';
-import DressCodeSection from '../components/sections/DressCodeSection';
-import FixedImage3Section from '../components/sections/FixedImage3Section';
-import RsvpSection from '../components/sections/RsvpSection';
+import IntroSection from '../components/root-page/sections/IntroSection';
+import ItinerariesSection from '../components/root-page/sections/ItinerariesSection';
+import TravelInfoSection from '../components/root-page/sections/TravelInfoSection';
+import PhotoSliderSection from '../components/root-page/sections/PhotoSliderSection';
+import AccommodationsSection from '../components/root-page/sections/AccommodationsSection';
+import FixedImage2Section from '../components/root-page/sections/FixedImage2Section';
+import GiftRegistriesSection from '../components/root-page/sections/GiftRegistriesSection';
+import DressCodeSection from '../components/root-page/sections/DressCodeSection';
+import FixedImage3Section from '../components/root-page/sections/FixedImage3Section';
+import RsvpSection from '../components/root-page/sections/RsvpSection';
 import {useLocation} from "react-router-dom";
 
 function Home() {

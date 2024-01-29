@@ -1,11 +1,11 @@
 // pages/Page1.js
 import React from 'react';
-import ItinerariesSection from "../components/sections/ItinerariesSection";
+import ItineraryMoreDetails from "../components/other-pages/ItineraryMoreDetails";
 
 
 function Page1() {
     return (
-        <ItinerariesSection id="itineraries"/>
+        <ItineraryMoreDetails id="itineraryMoreDetails"/>
     );
 }
 

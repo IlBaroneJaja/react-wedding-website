@@ -1,7 +1,7 @@
 import React from 'react';
-import sharedStyles from "../../index.module.css";
+import sharedStyles from "../../../index.module.css";
 import styles from "./DressCodeSection.module.css";
-import withScroll from "../WithScroll";
+import withScroll from "../../WithScroll";
 
 const DressCodeSection = React.forwardRef(({ id }, ref) => {
     return (

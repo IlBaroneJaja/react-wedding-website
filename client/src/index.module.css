@@ -22,9 +22,8 @@ p {
 }
 
 iframe {
-  padding: 1em;
+  border-width: 0;
 }
-
 .pContent {
   font-family: 'raleway', cursive;
   font-size: 1.167em;
@@ -76,7 +75,8 @@ button:hover {
   min-height: 100vh;
   padding-top: 50vh; /* Adjust for spacing */
   padding-bottom: 50px; /* Add some bottom padding to the content */
-  color: white;
+  color: #ffffff;
+  /*color: black;*/
   position: relative;
   z-index: 1; /* Set a higher z-index to bring it to the foreground */
   align-items: center;
@@ -152,7 +152,13 @@ button:hover {
 
 /* Customize colors for each section */
 section {
-  background-color: #12592b;
+  /* Blanc */
+  /*background-color: #ededed;*/
+  /* Céladon */
+  background-color: #83a697;
+  /* Sépia */
+  /*background-color: #a98c78;*/
+  /*background-color: rgba(105, 100, 89, 0.07);*/
 }
 
 /* Hide the section by reducing opacity */

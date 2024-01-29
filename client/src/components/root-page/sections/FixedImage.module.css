@@ -7,7 +7,7 @@
     object-fit: cover;
     position: relative;
     z-index: -1;
-    background-image: url('../../images/photo_aless_yas.jpg'); /* Replace with your image path */
+    background-image: url('../../../images/photo_aless_yas.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Uncomment this line for a parallax effect */

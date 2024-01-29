@@ -1,9 +1,9 @@
 import React from 'react';
-import sharedStyles from "../../index.module.css";
+import sharedStyles from "../../../index.module.css";
 import styles from "./TravelInfoSection.module.css"
-import timelineBgPhoto from "../../images/flower_background_section.png";
-import timelinePhoto from "../../images/transparent_timeline_google.png";
-import withScroll from '../WithScroll';
+import timelineBgPhoto from "../../../images/flower_background_section.png";
+import timelinePhoto from "../../../images/transparent_timeline_google.png";
+import withScroll from '../../WithScroll';
 
 const TravelInfoSection = React.forwardRef(({ id }, ref) => {
     return (

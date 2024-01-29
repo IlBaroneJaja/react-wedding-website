@@ -15,13 +15,13 @@
 
 .parallaxEffect{
     width: 100%;
-    height: 130vh;
+    height: 160vh;
     object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 0;
-    background-image: url('../../images/ile_delbe_2.JPG');
+    background-image: url('../../../images/shooting_photo/5ccf35f2-8981-4b3b-90a0-edbd6dd56ba9.jpeg ');
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;

@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from "./FixedImage.module.css";
-import sharedStyles from "../../index.module.css";
-import image from "../../images/aless_yas_portugal_mer.jpg";
-import withScroll from "../WithScroll";
+import sharedStyles from "../../../index.module.css";
+import image from "../../../images/aless_yas_portugal_mer.jpg";
+import withScroll from "../../WithScroll";
 
 const FixedImage3Section = React.forwardRef(({ id }, ref) => {
     return (
