@@ -10,6 +10,9 @@ import DressCodeSection from '../components/root-page/sections/DressCodeSection'
 import FixedImage3Section from '../components/root-page/sections/FixedImage3Section';
 import RsvpSection from '../components/root-page/sections/RsvpSection';
 import {useLocation} from "react-router-dom";
+import CountDownTimer from "../utils/CountDownTimer";
+import CountdownSection from "../utils/CountDownTimer";
+import Countdown from "../utils/CountDownTimer";
 
 function Home() {
     const location = useLocation();
@@ -39,6 +42,7 @@ function Home() {
             <DressCodeSection id="dress-code" />
             <FixedImage3Section id="fixed-image-3" />
             <RsvpSection id="rsvps" />
+            <Countdown id="count-down"/>
         </div>
     );
 }
