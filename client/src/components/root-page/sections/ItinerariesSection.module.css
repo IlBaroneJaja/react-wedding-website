@@ -1,0 +1,33 @@
+.column img {
+    display: block; /* Ensure the image behaves as a block element */
+    margin: 0 auto; /* Center the image horizontally within its container */
+    max-width: 100%; /* Make sure the image does not exceed the width of its container */
+    height: 400px; /* Allow the image to scale proportionally based on width */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    object-fit: cover;
+    width: 100%;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Center the columns horizontally */
+    align-items: center; /* Center the columns vertically */
+    flex-wrap: wrap; /* Allow columns to wrap to the next line on smaller screens */
+}
+
+.column {
+    width: 50%; /* Each column takes 50% of the container width */
+    padding: 20px; /* Add padding as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .column {
+        width: 100%; /* Each column takes 100% width on screens smaller than 768px */
+    }
+}

@@ -36,6 +36,21 @@
     height: auto;
 }
 
+.churchImage {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    width: 50%;
+    max-width: 50%;
+    display: block;
+    height: auto;
+}
+
+.videoClass {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 0 !important;
+}
+
 .collapsibleContent {
 
 }

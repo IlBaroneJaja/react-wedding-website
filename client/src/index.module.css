@@ -30,12 +30,17 @@ iframe {
   font-weight: bold;
 }
 
+.weddingDate{
+  font-family: 'raleway', cursive;
+  font-size: 2em;
+}
+
 .text-content-centered {
   font-family: 'raleway', cursive;
   font-size: 1.167em;
   font-weight: bold;
   text-align: center;
-  width: 50%;
+
   margin: 0 auto; /* Center the div itself */
   padding: 1em;
 }
