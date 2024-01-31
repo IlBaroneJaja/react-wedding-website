@@ -28,7 +28,7 @@ const ItinerariesSection = React.forwardRef(({id}, ref) => {
 
                             <img src={municipalityImage} alt="Hotel de ville de Nivelles"
                                  id="hotel_de_ville"/><br/>
-                            <Link to="/page1" className="btn btn-info"
+                            <Link to="/itineraryDetails" className="btn btn-info"
                                   style={{marginTop: '1em', marginBottom: '1em', padding: '10px'}}
                                   onClick={scrollToTop}>
                                 Plus d'info
@@ -44,7 +44,7 @@ const ItinerariesSection = React.forwardRef(({id}, ref) => {
                             <img src={churchImage} alt="Eglise de Nivelles"
                                  id="eglise"/><br/>
 
-                            <Link to="/page1" className="btn btn-info"
+                            <Link to="/itineraryDetails" className="btn btn-info"
                                   style={{marginTop: '1em', marginBottom: '1em', padding: '10px'}}
                                   onClick={scrollToTop}>
                                 Plus d'info
@@ -63,7 +63,7 @@ const ItinerariesSection = React.forwardRef(({id}, ref) => {
                             <img src={castleImage} alt="Chateau de la Rocq"
                                  id="chateau"/><br/>
 
-                            <Link to="/page1" className="btn btn-info"
+                            <Link to="/itineraryDetails" className="btn btn-info"
                                   style={{marginTop: '1em', marginBottom: '1em', padding: '10px'}}
                                   onClick={scrollToTop}>
                                 Plus d'info

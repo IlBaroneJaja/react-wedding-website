@@ -71,8 +71,8 @@ const Navigation = () => {
                             </li>
                         ))}
                         {/*<li><Link to="/" onClick={scrollToTop}>Home</Link></li>*/}
-                        <li><Link to="/page1" onClick={scrollToTop} className={`nav-link ${styles["nav-link"]}`}>Page 1</Link></li>
-                        <li><Link to="/page2" onClick={scrollToTop} className={`nav-link ${styles["nav-link"]}`}>Page 2</Link></li>
+                        <li><Link to="/itineraryDetails" onClick={scrollToTop} className={`nav-link ${styles["nav-link"]}`}>Page 1</Link></li>
+                        <li><Link to="/accommodationDetails" onClick={scrollToTop} className={`nav-link ${styles["nav-link"]}`}>Page 2</Link></li>
                     </ul>
                 </div>
             </div>

@@ -5,7 +5,7 @@ import withScroll from "../../WithScroll";
 
 const DressCodeSection = React.forwardRef(({ id }, ref) => {
     return (
-        <section ref={ref} id={id} className={`${sharedStyles.otherSections} ${styles.dressCodeBgImage}`}>
+        <section ref={ref} id={id} className={`${sharedStyles.otherSections}`}>
             <div className={sharedStyles["text-overlay"]}>
                 <p>Contenu pour le dress code</p>
                 <h1>Event Itineraries</h1>

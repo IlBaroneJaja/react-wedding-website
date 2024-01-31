@@ -6,17 +6,14 @@ import withScroll from "../WithScroll";
 import itineraryToCastleImage from "../../images/itineraire_chateau.jpg";
 import churchImage from "../../images/collegiale_nivelles.jpg";
 
-import {CheckCircleFill, ExclamationTriangleFill, QuestionCircleFill, XCircleFill} from 'react-bootstrap-icons';
+import {CheckCircleFill, ExclamationTriangleFill, XCircleFill} from 'react-bootstrap-icons';
 
 
 const ItineraryMoreDetails = React.forwardRef(({id}, ref) => {
     return (
         <Element name="itineraryMoreDetails">
             <section ref={ref} id={id} className={styles.itineraryMoreDetailsPageContent}>
-                {/*{sections.map((section, index) => (*/}
-                {/*    <CollapsibleContent className={styles.collapsibleContent} key={index} title={section.title} content={section.content} />*/}
-                {/*))}*/}
-                <h1 style={{paddingTop: "50px"}}>Itinéraires: infos</h1>
+                <h1 style={{paddingTop: "100px"}}>Itinéraires: infos</h1>
                 <div>
                     Afin de vous faciliter la tâche, nous avons expliqué la démarche à suivre pour
                     repérer au mieux les différentes addresses de la journée.

@@ -13,15 +13,6 @@ app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
 });
 
-// app.get('/page1', (req, res) => {
-//     res.sendFile(path.join('client', 'dist', 'page1.html'));
-// });
-//
-//
-// app.get('/page2', (req, res) => {
-//     res.sendFile(path.join('client', 'dist', 'page2.html'));
-// });
-
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

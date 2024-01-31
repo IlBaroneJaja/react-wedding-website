@@ -1,0 +1,28 @@
+body {
+    font-family: 'kalam', cursive;
+    color: black;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'kalam', cursive;
+    font-weight: bold;
+}
+
+h2, h3, h4, h5 {
+    font-family: 'kalam', cursive;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.167em;
+    font-family: 'raleway', cursive;
+}
+
+iframe {
+    border-width: 0;
+}
