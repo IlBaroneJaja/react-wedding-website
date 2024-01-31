@@ -69,7 +69,7 @@ const ItineraryMoreDetails = React.forwardRef(({id}, ref) => {
                 <img src={churchImage} className={styles.churchImage} alt="Collégiale Sainte Gertrude" />
 
 
-                <h2>Château de la Rocq</h2>
+                <h2 id="castleTitle">Château de la Rocq</h2>
                 <h4>Comment accéder au château ?</h4>
                 <div>
                     Le château se situe à Arquennes (entité de Seneffe).<br/>

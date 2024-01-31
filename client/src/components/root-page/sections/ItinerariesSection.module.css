@@ -1,4 +1,4 @@
-.column img {
+.columnImg {
     display: block; /* Ensure the image behaves as a block element */
     margin: 0 auto; /* Center the image horizontally within its container */
     max-width: 100%; /* Make sure the image does not exceed the width of its container */

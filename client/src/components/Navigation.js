@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Navigation.module.css';
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {scrollToTop} from "../utils/ScrollUtils";
 
 
@@ -70,9 +70,8 @@ const Navigation = () => {
                                 </NavLink>
                             </li>
                         ))}
-                        {/*<li><Link to="/" onClick={scrollToTop}>Home</Link></li>*/}
-                        <li><Link to="/itineraryDetails" onClick={scrollToTop} className={`nav-link ${styles["nav-link"]}`}>Page 1</Link></li>
-                        <li><Link to="/accommodationDetails" onClick={scrollToTop} className={`nav-link ${styles["nav-link"]}`}>Page 2</Link></li>
+                        {/*<li><Link to="/itineraryDetails" onClick={scrollToTop} className={`nav-link ${styles["nav-link"]}`}>Page 1</Link></li>*/}
+                        {/*<li><Link to="/accommodationsDetails" onClick={scrollToTop} className={`nav-link ${styles["nav-link"]}`}>Page 2</Link></li>*/}
                     </ul>
                 </div>
             </div>

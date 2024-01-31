@@ -15,7 +15,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/itineraryDetails" element={<ItineraryMoreDetailsPage />} />
-                    <Route path="/accommodationDetails" element={<AccommodationsMoreDetailsPage />} />
+                    <Route path="/accommodationsDetails" element={<AccommodationsMoreDetailsPage />} />
                     {/* Add more routes for additional pages */}
                 </Routes>
                 <Footer />

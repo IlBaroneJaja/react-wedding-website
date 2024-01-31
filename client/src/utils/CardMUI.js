@@ -40,9 +40,11 @@ const StyledCardMedia = styled(CardMedia)({
 });
 
 
-const MultiActionAreaCard = ({title, image, content}) => {
+const MultiActionAreaCard = ({title, image, content, url, isTargetBlank, customStyles}) => {
+    const target = isTargetBlank ? "_blank" : "_self";
+
     return (
-        <StyledCard sx={{maxWidth: 500, maxHeight: 500}}>
+        <StyledCard sx={{...customStyles, maxWidth: 500, maxHeight: 500}}>
             <StyledCardActionArea>
                 <StyledCardMedia
                     component="img"
@@ -60,7 +62,7 @@ const MultiActionAreaCard = ({title, image, content}) => {
                 </StyledCardContent>
             </StyledCardActionArea>
             <CardActions>
-                <Button href="/itineraryDetails" size="small" color="primary">
+                <Button href={url} size="small" color="primary" target={target}>
                     Détails
                 </Button>
             </CardActions>
