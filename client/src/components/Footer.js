@@ -8,7 +8,7 @@ const Footer = () => {
                 #YasminaWillSayIDo
             </div>
             <div className={styles.copyright}>
-                &copy; 2024 Yasmina & Alessandro. All rights reserved.
+                &copy; COPYRIGHT © 2024 MARIAGE-YASMINA-ALESSANDRO.BE - ALL RIGHTS RESERVED.
             </div>
         </footer>
     );
