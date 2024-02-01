@@ -1,1 +1,1 @@
-web: cd client && echo "=== Current Working Directory ===" && pwd && echo "=== Changing to client directory ===" && npm install && npm run build && npm start --prefix server
+web: cd /app/client && echo "=== Current Working Directory (Before) ===" && pwd && echo "=== Changing to client directory ===" && npm install && npm run build && cd /app/server && echo "=== Current Working Directory (After) ===" && pwd && echo "=== Starting server ===" && npm start
