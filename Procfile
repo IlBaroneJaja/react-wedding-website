@@ -1,1 +1,1 @@
-web: npm start -C client
+web: npm ci --silent && npm start -C client
