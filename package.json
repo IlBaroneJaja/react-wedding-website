@@ -5,7 +5,8 @@
     "start": "npm run start:client-server",
     "start:client-server": "concurrently \"npm run start:client\" \"npm run start:server\"",
     "start:client": "cd client && npm start",
-    "start:server": "cd server && npm start"
+    "start:server": "cd server && npm start",
+    "postinstall": "cd client && npm install --only=production"
   },
   "devDependencies": {
     "concurrently": "^6.2.2"
