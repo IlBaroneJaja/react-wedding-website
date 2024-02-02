@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const {enforceHttps} = require("./middlewares/forcehttps");
 const app = express();
 
+app.use(enforceHttps);
 app.use(cors()); // Enable CORS
 
 // Serve static files from the 'client/build' directory

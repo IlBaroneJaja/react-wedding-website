@@ -95,10 +95,10 @@ const ItineraryMoreDetails = React.forwardRef(({id}, ref) => {
                      id="direction_chateau"/>
 
                 <div>
-                    Cette vidéo explicative permettra de mieux voir le chemin à suivre au départ de la place du village
-                    d'Arquennes,
-                    située à <a target="_blank" href="https://maps.app.goo.gl/JuAM7uXwSmRygsdC6" rel="noreferrer">Pl.
-                    Albert Ier 5, 7181 Seneffe</a><br/>
+                    Le plus simple est de prendre <a target="_blank" href="https://maps.app.goo.gl/hsqcKdNehXRwzgyn6" rel="noreferrer">ce point</a> de repère
+                    situé au croisement entre la rue "Ham. de la Rocq, l'Avenue du vignoble et la rue Omer Lion. À ce croisement,
+                    vous y retrouverez le panneau blanc tel qu'indiqué sur l'image ci-dessous. Suivre les panneaux "Château de la Rocq".
+                    Vous croiserez un autre panneau à l'entrée du domaine, prenez sur votre gauche et toujours suivre le même panneau.<br/>
                 </div>
 
             </section>
