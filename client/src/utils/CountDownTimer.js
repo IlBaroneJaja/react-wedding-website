@@ -8,7 +8,6 @@ const daySeconds = 86400;
 
 const timerProps = {
     isPlaying: true,
-    size: 120,
     strokeWidth: 6
 };
 
@@ -39,7 +38,8 @@ const Countdown = () => {
     const days = Math.ceil(remainingTime / daySeconds);
     const daysDuration = days * daySeconds;
 
-
+    const screenSize = window.innerWidth;
+    const countdownSize = screenSize > 768 ? 120 : 90;
 
     return (
         <section className={styles.countDownSection}>
@@ -54,6 +54,7 @@ const Countdown = () => {
             <div className={styles.countDownTimer}>
                 <CountdownCircleTimer
                     {...timerProps}
+                    size={countdownSize}
                     colors="url(#gradient-1)"
                     duration={daysDuration}
                     initialRemainingTime={remainingTime}
@@ -66,6 +67,7 @@ const Countdown = () => {
                 </CountdownCircleTimer>
                 <CountdownCircleTimer
                     {...timerProps}
+                    size={countdownSize}
                     colors="url(#gradient-1)"
                     duration={daySeconds}
                     initialRemainingTime={remainingTime % daySeconds}
@@ -81,6 +83,7 @@ const Countdown = () => {
                 </CountdownCircleTimer>
                 <CountdownCircleTimer
                     {...timerProps}
+                    size={countdownSize}
                     colors="url(#gradient-1)"
                     duration={hourSeconds}
                     initialRemainingTime={remainingTime % hourSeconds}
@@ -96,6 +99,7 @@ const Countdown = () => {
                 </CountdownCircleTimer>
                 <CountdownCircleTimer
                     {...timerProps}
+                    size={countdownSize}
                     colors="url(#gradient-1)"
                     duration={minuteSeconds}
                     initialRemainingTime={remainingTime % minuteSeconds}

@@ -4,12 +4,6 @@
     font-weight: bold;
 }
 
-.weddingDate {
-    font-family: 'raleway', cursive;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
 .text-content-centered {
     font-family: 'raleway', cursive;
     font-size: 1.167em;
@@ -25,6 +19,11 @@
     justify-content: center;
     width: 16em;
     padding-top: 4em;
+
+    @media screen and (max-width: 768px) {
+        /*width: 10em;*/
+        /*padding-top: 4em; !* Adjust the padding for smaller screens *!*/
+    }
 }
 
 .contentLeft {
@@ -85,12 +84,12 @@ button:hover {
 
 .text-on-top-of-image {
     position: absolute;
-    top: 25%;
+    top: 10%; /* Adjust the top position as needed */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     text-align: center;
     color: black;
-    z-index: 1;
+    z-index: 2; /* Ensure text is above backgroundImage */
 }
 
 
@@ -104,7 +103,7 @@ button:hover {
 
 /* Adjust padding for smaller screens */
 @media (max-width: 768px) {
-    section {
+    section:not([id^="section-fixed-image"]):not([id*="PhotoSlider"]) {
         padding: 30px 15px;
     }
 

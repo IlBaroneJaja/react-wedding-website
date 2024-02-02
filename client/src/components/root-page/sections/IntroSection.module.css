@@ -1,16 +1,22 @@
 .introTitle {
-    font-family: 'Ma Shan Zheng', cursive;
+    font-family: 'tangerine', cursive;
     font-size: 6em;
-    padding-top: 110%;
+    font-weight: bold;
+    padding-top: 120%;
     white-space: nowrap;
 
     /*font-family: 'bungee', cursive;
     font-size: 4em;
-    !*font-weight: bold;*!
+    font-weight: bold;
     padding-top: 120%;
-    !*white-space: nowrap;*!
+    white-space: nowrap;
     color: black;*/
 
+    @media screen and (max-width: 768px) {
+        /* font divided by 1.5 */
+        font-size: 4em; /* Adjust the font size for smaller screens */
+
+    }
 }
 
 .introSection {
@@ -18,6 +24,19 @@
     height: 130vh;
     position: relative;
     overflow: hidden;
+}
+
+.weddingDate {
+    font-family: 'tangerine', cursive;
+    font-size: 2.4em;
+    font-weight: bold;
+    text-align: right;
+
+    @media screen and (max-width: 768px) {
+        font-size: 1.6em; /* Adjust the font size for smaller screens */
+
+    }
+
 }
 
 .parallaxEffect {
@@ -50,4 +69,9 @@
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+        padding: 8px 16px; /* Adjust the padding for smaller screens */
+        font-size: 0.8em; /* Adjust the font size for smaller screens */
+    }
 }

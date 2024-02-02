@@ -12,7 +12,7 @@ const IntroSection = React.forwardRef(({ id }, ref) => {
                 <div id="intro-content" className={styles.introContent}>
                     <p className={styles.introTitle}>Yasmina & Alessandro</p>
 
-                    <div className={sharedStyles.weddingDate}> 03.05.2024 | Château de la Rocq</div>
+                    <div className={styles.weddingDate}>Château La Rocq | 03.05.2024 </div>
                     <div className={sharedStyles.contentWrapper}>
                         <div className={sharedStyles.contentLeft}>
                             <p className={sharedStyles.pContent}>

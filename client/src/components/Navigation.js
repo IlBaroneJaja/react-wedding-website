@@ -30,7 +30,7 @@ const Navigation = () => {
     const navigationItems = [
         { section: 'intro-section', header: 'Home' },
         { section: 'itineraries', header: 'Itinéraires' },
-        { section: 'travel-info', header: 'Infos utiles' },
+        { section: 'timeline-info', header: 'Planning' },
         { section: 'accommodations', header: 'Hébergements' },
         { section: 'gift-registries', header: 'Liste de mariage' },
         { section: 'dress-code', header: 'Dress code' },

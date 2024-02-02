@@ -42,13 +42,15 @@ const StyledCardMedia = styled(CardMedia)({
 
 const MultiActionAreaCard = ({title, image, content, url, isTargetBlank, customStyles}) => {
     const target = isTargetBlank ? "_blank" : "_self";
+    const screenSize = window.innerWidth;
+    const height = screenSize > 768 ? 300 : 240;
 
     return (
         <StyledCard sx={{...customStyles, maxWidth: 500, maxHeight: 500}}>
             <StyledCardActionArea>
                 <StyledCardMedia
                     component="img"
-                    height="300"
+                    height={height}
                     image={image}
                     alt={title}
                 />

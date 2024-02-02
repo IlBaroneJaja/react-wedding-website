@@ -12,7 +12,10 @@
 }
 
 .countDownTimer > div {
-    margin: 0 2vw; /* Add padding between the circles */
+    flex-grow: 1; /* Allow circles to stretch horizontally */
+    max-width: calc(33.33% - 10px); /* Adjust based on the number of circles and spacing */
+    box-sizing: border-box;
+    margin: 0 2vw;
 }
 
 .time {
@@ -26,10 +29,17 @@
     background-color: #d7e5db;
     font-size: 1.2em;
     min-height: 40vh; /* Set a minimum height to cover the viewport */
+    max-width: 100%; /* Ensure the container takes up the full width of the screen */
+    box-sizing: border-box; /* Include padding and border in the total width/height of the element */
+    margin: 0; /* Remove any default margin */
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .countDownTimer > div {
+        margin: 0 1vw; /* Adjust margin for smaller screens */
+    }
+
     .time {
-        font-size: 2.4vw; /* Adjust font size for smaller screens */
+        font-size: 4vw; /* Adjust font size for smaller screens */
     }
 }
