@@ -2,7 +2,7 @@ import React from 'react';
 import sharedStyles from "../../../index.module.css";
 import styles from "./TimelineSection.module.css"
 import timelineBgPhoto from "../../../images/flower_background_section.png";
-import timelinePhoto from "../../../images/transparent_timeline_google.png";
+import timelinePhoto from "../../../images/transparent_timeline_municipality.png";
 import withScroll from '../../WithScroll';
 
 const TimelineSection = React.forwardRef(({id}, ref) => {

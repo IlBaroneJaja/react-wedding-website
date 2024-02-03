@@ -1,16 +1,43 @@
 /* Navbar CSS */
 
+.logoAndWord {
+    float: left;
+    height: 50px;
+    object-fit: contain;
+}
 
 /* Navbar Styling */
 .navbar {
-    background-color: transparent;
+    background-color: #fdf9f4;
+    -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75);
+    -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+    box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
 }
 
-.container {
+.mainContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
+    width: 100%; /* Ensure full width */
+}
+
+.namesContainer  {
+
+    font-family: 'kalam', cursive;
+    font-weight: bold;
+    display: flex; /* Use flex to align items horizontally */
+    align-items: center; /* Align items vertically */
+}
+
+span[id="names"] {
+    margin: 0 10px;
+    font-size: 18pt;
+}
+
+.navContainer {
+    float: right;
+    justify-content: space-between; /* Align children to the beginning and end */
+    align-items: center;
 }
 
 .navbarBrand {
