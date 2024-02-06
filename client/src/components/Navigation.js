@@ -40,14 +40,10 @@ const Navigation = () => {
 
     return (
         <div>
-
-
             <nav className={`navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top ${styles.navbar}`}>
                 <div className={`${styles.mainContainer}`}>
                     <div className={styles.namesContainer}>
-                        <span id="names">Yasmina</span><img src={logo_and_word} alt=" & "
-                                                            className={styles.logoAndWord}/><span
-                        id="names">Alessandro</span>
+                        <span id="names">Yasmina</span><span id="andWord">and</span><span id="names">Alessandro</span>
                     </div>
                     <div className={`${styles.navContainer}`}>
                         <a href="#intro-section" className={styles.navbarBrand}></a>

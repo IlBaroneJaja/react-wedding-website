@@ -6,6 +6,10 @@
     object-fit: contain;
 }
 
+.andWord {
+
+}
+
 /* Navbar Styling */
 .navbar {
     background-color: #fdf9f4;
@@ -22,16 +26,23 @@
 }
 
 .namesContainer  {
-
     font-family: 'kalam', cursive;
-    font-weight: bold;
-    display: flex; /* Use flex to align items horizontally */
-    align-items: center; /* Align items vertically */
+    /*font-weight: bold;*/
+    color: #6c757d;
+    display: flex;
+    align-items: center;
 }
 
 span[id="names"] {
     margin: 0 10px;
-    font-size: 18pt;
+    font-size: 14pt;
+}
+
+span[id="andWord"] {
+    font-family: 'tangerine', cursive;
+    font-weight: bold;
+    color: #E6A4B4;
+    font-size: 24pt;
 }
 
 .navContainer {
@@ -52,7 +63,7 @@ span[id="names"] {
 }
 
 .navbar-toggler-icon {
-    background-color: #586c44;
+    background-color: #6c757d;
     transition: transform 0.3s ease-in-out;
     color: #fff;
 }
