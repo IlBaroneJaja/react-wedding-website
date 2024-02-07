@@ -8,7 +8,7 @@
     "http-errors": "^2.0.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js --optimize_for_size --max-old-space-size=1024 --inspect"
   },
   "devDependencies": {
     "cookie-parser": "^1.4.6",
