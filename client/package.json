@@ -29,8 +29,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start-client": "webpack serve --mode production",
-    "build": "set NODE_ENV=production && npm ci --omit=dev --no-audit --no-fund && webpack --mode production && (cd ../server && npm ci --omit=dev --no-audit --no-fund)",
+    "start-client": "react-scripts start",
+    "build": "set PORT=8080 & set NODE_ENV=production && react-scripts build && (cd ../server && npm install)",
     "test": "jest",
     "eject": "react-scripts eject",
     "start-react": "set PORT=8080 && react-scripts start",
