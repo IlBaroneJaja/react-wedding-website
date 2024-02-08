@@ -4,10 +4,10 @@
   "scripts": {
     "start": "npm run start:client-server",
     "start:client-server": "concurrently \"npm run start:client\" \"npm run start:server\"",
-    "start:client": "cd client && npm start",
+    "start:client": "cd client && npm run build",
     "start:server": "cd server && npm start"
   },
-  "devDependencies": {
-    "concurrently": "^6.2.2"
+  "dependencies": {
+    "concurrently": "^6.5.1"
   }
 }
