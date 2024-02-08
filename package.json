@@ -8,6 +8,6 @@
     "start:server": "cd server && npm start"
   },
   "devDependencies": {
-    "concurrently": "^6.2.2"
+    "concurrently": "^6.5.1"
   }
 }
