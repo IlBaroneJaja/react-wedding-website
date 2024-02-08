@@ -29,8 +29,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start-client": "react-scripts start",
-    "build": "set PORT=8080 & set NODE_ENV=production && react-scripts build && (cd ../server && npm install)",
+    "start-client": "set PORT=8080 && react-scripts start",
+    "build": "set NODE_ENV=production && react-scripts build && (cd ../server && npm install)",
     "test": "jest",
     "eject": "react-scripts eject",
     "start-react": "set PORT=8080 && react-scripts start",
