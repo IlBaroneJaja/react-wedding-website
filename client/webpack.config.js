@@ -12,7 +12,7 @@ module.exports = (env, argv) => {
         entry: './src/index.js', // Update with your entry file
         output: {
             filename: 'bundle.js',
-            path: path.resolve(__dirname, 'build'),
+            path: path.resolve(__dirname, 'client', 'build'),
         },
         // Your other configuration settings...
 

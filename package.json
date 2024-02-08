@@ -2,7 +2,7 @@
   "name": "react-wedding-website",
   "version": "1.0.0",
   "scripts": {
-    "start": "cd server && node server.js --optimize_for_size --max-old-space-size=1024 --inspect"
+    "start": "cd server && set PORT=3000 &&  node server.js --optimize_for_size --max-old-space-size=1024 --inspect"
   },
   "dependencies": {
     "concurrently": "^6.5.1",
