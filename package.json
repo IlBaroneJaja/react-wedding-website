@@ -2,7 +2,8 @@
   "name": "react-wedding-website",
   "version": "1.0.0",
   "scripts": {
-    "start": "cd server && set PORT=3000 &&  node server.js --optimize_for_size --max-old-space-size=1024 --inspect"
+    "start": "cd server && set NODE_ENV=production && set PORT=3000 && node server.js --optimize_for_size --max-old-space-size=1024 --inspect",
+    "heroku-postbuild": "cd client && npm install && react-scripts build && (cd ../server && npm install)"
   },
   "dependencies": {
     "concurrently": "^6.5.1",
