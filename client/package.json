@@ -31,6 +31,8 @@
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "set NODE_ENV= && webpack --mode production",
+    "postinstall": "npm run heroku-postbuild",
+    "heroku-postbuild": "cd /app/client && npm ci --omit=dev --no-audit --no-fund && npm run build && cd /app/server && npm ci --omit=dev --no-audit --no-fund && npm prune --production",
     "test": "jest",
     "eject": "react-scripts eject",
     "start-react": "set PORT=8080 && react-scripts start",
