@@ -1,5 +1,6 @@
 .itineraryMoreDetailsPageContent  {
     height: auto;
+    width: 100%;
     min-height: 100vh;
     position: relative;
     z-index: 1;
@@ -23,7 +24,10 @@
 }
 
 .itineraryMoreDetailsPageContent :is(iframe,img) {
-    margin-left: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 100%;
+
 }
 
 .directionImage {
