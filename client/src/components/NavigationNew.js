@@ -125,7 +125,7 @@ const NavigationNew = () => {
     ];
 
     return (
-        <Navbar expand="lg" variant="light" bg="light" fixed="top" expanded={false}
+        <Navbar expand="lg" variant="light" bg="light" fixed="top" expanded={false} className="position-sticky top-0"
                 style={{paddingTop: 0, paddingBottom: 0, fontFamily: "kalam, cursive"}}>
             <Container fluid>
                 <Navbar.Brand href="#">

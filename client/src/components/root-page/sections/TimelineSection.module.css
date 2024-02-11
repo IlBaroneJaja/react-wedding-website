@@ -1,5 +1,6 @@
 .stickyTimelineBackground {
     position: relative;
+    height: 100vh;
     width: 100%;
     max-width: 100%;
     text-align: center;
@@ -7,6 +8,7 @@
     justify-content: center;
     display: flex;
     flex-direction: column; /* Ensure a vertical layout */
+    background-color: #BED1CF;
 }
 
 .content {

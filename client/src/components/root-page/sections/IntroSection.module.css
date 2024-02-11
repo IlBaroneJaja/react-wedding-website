@@ -40,19 +40,19 @@
 }
 
 .rsvpButton {
-    background-color: #E6A4B4;
+    background-color: #E6A4B4 !important;
     color: #fff;
 }
 
 .parallaxEffect {
-    width: 100%;
-    height: 130vh;
-    min-height: 100vh;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
+    /*width: 100%;*/
+    /*height: 80vh;*/
+    /*min-height: 100vh;*/
+    /*!*object-fit: cover;*!*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*z-index: 0;*/
     background-image: url('../../../images/shooting_photo/shooting_photo_couverture_site.JPG');
     /* Create the parallax scrolling effect */
     background-attachment: fixed;

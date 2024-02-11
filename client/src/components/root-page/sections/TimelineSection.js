@@ -14,7 +14,7 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
                     <img src={timelinePhoto} alt="timeline" className={styles.timelineImage} />
                 </div>
             </div>
-            <img src={timelineBgPhoto} alt="timeline_background" className={`${sharedStyles.stickyImage} ${styles.backgroundImage}`} />
+            {/*<img src={timelineBgPhoto} alt="timeline_background" className={`${sharedStyles.stickyImage} ${styles.backgroundImage}`} />*/}
         </section>
     );
 });

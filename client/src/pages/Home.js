@@ -33,7 +33,6 @@ function Home() {
 
     return (
         <div>
-            <IntroSection id="intro-section" />
             <ItinerariesSection id="itineraries" />
             <TimelineSection id="timeline-info" />
             <PhotoSliderSection id="photoSlider" />
