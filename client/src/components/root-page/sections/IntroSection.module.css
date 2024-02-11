@@ -1,16 +1,9 @@
 .introTitle {
-    font-family: 'tangerine', cursive;
-    font-size: 6em;
+    font-family: 'kalam', cursive;
     font-weight: bold;
-    padding-top: 120%;
+    /*padding-top: 160%;*/
     white-space: nowrap;
-
-    /*font-family: 'bungee', cursive;
-    font-size: 4em;
-    font-weight: bold;
-    padding-top: 120%;
-    white-space: nowrap;
-    color: black;*/
+    color: white;
 
     @media screen and (max-width: 768px) {
         /* font divided by 1.5 */
@@ -26,52 +19,56 @@
     overflow: hidden;
 }
 
-.weddingDate {
-    font-family: 'tangerine', cursive;
-    font-size: 6em;
+.introContent {
+    color: white;
     font-weight: bold;
-    text-align: right;
+    text-align: justify;
+}
 
-    @media screen and (max-width: 768px) {
-        font-size: 1.6em; /* Adjust the font size for smaller screens */
+.weddingLocation {
+    font-family: 'kalam', cursive;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    color:white;
 
-    }
+    /*@media screen and (max-width: 768px) {*/
+    /*    font-size: 1.6em; !* Adjust the font size for smaller screens *!*/
 
+    /*}*/
+
+}
+
+.rsvpButton {
+    background-color: #E6A4B4;
+    color: #fff;
 }
 
 .parallaxEffect {
     width: 100%;
     height: 130vh;
+    min-height: 100vh;
     object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 0;
-    background-image: url('../../../images/shooting_photo/84e24c37-66ca-476a-b3a7-93436a8858c9.jpeg ');
+    background-image: url('../../../images/shooting_photo/shooting_photo_couverture_site.JPG');
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
 
-.introContent {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 1; /* Ensure the intro content is on top */
-}
+    @media (max-width: 576px) {
+        .parallaxEffect {
+            min-height: 300px;
+        }
+    }
 
-.rsvpButton {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-
-    @media screen and (max-width: 768px) {
-        padding: 8px 16px; /* Adjust the padding for smaller screens */
-        font-size: 0.8em; /* Adjust the font size for smaller screens */
+    @media (max-width: 576px) {
+        .parallaxEffect {
+            min-height: 130vh;
+        }
     }
 }

@@ -4,12 +4,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from "./PhotoSliderSection.module.css";
 
-import swiperPhoto1 from '../../../images/shooting_photo/5ccf35f2-8981-4b3b-90a0-edbd6dd56ba9.jpeg';
-import swiperPhoto2 from '../../../images/shooting_photo/76fc2807-46b3-483f-aea1-486bb0d44eab.jpeg';
-import swiperPhoto3 from '../../../images/shooting_photo/221aa811-2afa-4945-9475-5844c14a4c5a.jpeg';
+import swiperPhoto1 from '../../../images/shooting_photo/shooting_porte_chateau.JPG';
+import swiperPhoto2 from '../../../images/shooting_photo/shooting_pose_mur.JPG';
+import swiperPhoto3 from '../../../images/shooting_photo/shooting_regard_enlace.jpg';
+import swiperPhoto4 from '../../../images/shooting_photo/shooting_saut_allee_bois.jpg';
+
 
 const PhotoSwiper = () => {
-    const photos = [swiperPhoto1, swiperPhoto2, swiperPhoto3];
+    const photos = [swiperPhoto1, swiperPhoto2, swiperPhoto3, swiperPhoto4];
     const [isHovered, setIsHovered] = useState(false);
     const sliderRef = useRef(null);
 

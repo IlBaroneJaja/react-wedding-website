@@ -10,9 +10,9 @@ import DressCodeSection from '../components/root-page/sections/DressCodeSection'
 import RsvpSection from '../components/root-page/sections/RsvpSection';
 import {useLocation} from "react-router-dom";
 import Countdown from "../utils/CountDownTimer";
-import image2 from "../images/aless_yas_portugal_mer.jpg";
-import image3 from "../images/shooting_photo/bc2dfa1c-9c85-46ba-9bdb-cc1d8e91acc5.jpeg";
-import image4 from "../images/aless_yas_belgique_meuse.jpg";
+import image2 from "../images/shooting_photo/shooting_assis_chateau.JPG";
+import image3 from "../images/shooting_photo/shooting_marche_escaliers.JPG";
+import image4 from "../images/shooting_photo/shooting_parc_au_dessus.JPG";
 
 
 function Home() {

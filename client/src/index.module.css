@@ -17,6 +17,7 @@
 .contentWrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 16em;
     padding-top: 4em;
 
