@@ -13,6 +13,8 @@ import Countdown from "../utils/CountDownTimer";
 import image2 from "../images/shooting_photo/shooting_assis_chateau.JPG";
 import image3 from "../images/shooting_photo/shooting_marche_escaliers.JPG";
 import image4 from "../images/shooting_photo/shooting_parc_au_dessus.JPG";
+import TimelineSectionNew from "../components/root-page/sections/TimelineSectionNew";
+import NavigationNew from "../components/NavigationNew";
 
 
 function Home() {
@@ -33,8 +35,13 @@ function Home() {
 
     return (
         <div>
-            <ItinerariesSection id="itineraries" />
+            <div>
+                <IntroSection id="intro-section"/>
+            </div>
+
+            {/*<ItinerariesSection id="itineraries" />*/}
             <TimelineSection id="timeline-info" />
+            {/*<TimelineSectionNew id="timeline-info" />*/}
             <PhotoSliderSection id="photoSlider" />
             <AccommodationsSection id="accommodations" />
             <FixedImage2Section id="fixed-image" image={image2} index={2} />

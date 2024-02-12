@@ -12,10 +12,7 @@ function App() {
     return (
         <Router>
             <div>
-                <div className="vh-100">
-                    <NavigationNew/>
-                    <IntroSection id="intro-section"/>
-                </div>
+                <NavigationNew/>
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/itineraryDetails" element={<ItineraryMoreDetailsPage/>}/>

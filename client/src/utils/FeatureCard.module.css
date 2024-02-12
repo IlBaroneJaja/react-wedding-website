@@ -1,0 +1,18 @@
+.featureImage {
+    height: 15rem;
+    width: 15rem;
+    object-fit: cover;
+    border: solid #d8dcd7;
+    border-width: 15px !important;
+    transition: transform 0.3s ease-in-out;
+}
+.featureImageContainer:hover .featureImage {
+    transform: scale(1.2); /* Adjust the scale factor based on your preference */
+}
+
+
+.featureTitle {
+    background-color: #BED1CF;
+    color: white;
+    padding: 10px;
+}

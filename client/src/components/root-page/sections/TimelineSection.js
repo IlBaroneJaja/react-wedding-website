@@ -1,20 +1,65 @@
 import React from 'react';
-import sharedStyles from "../../../index.module.css";
 import styles from "./TimelineSection.module.css"
-import timelineBgPhoto from "../../../images/flower_background_section.png";
-import timelinePhoto from "../../../images/transparent_timeline_municipality.png";
+import profilePicture from "../../../images/shooting_photo/shooting_assis_chateau.JPG";
+import church from "../../../images/collegiale_nivelles.jpg";
+import castle from "../../../images/chateau_la_rocq.jpg";
+import champagne from "../../../images/champagne.png";
 import withScroll from '../../WithScroll';
+import FeatureCards, {generateFeatureDataItem} from "../../../utils/FeatureCards";
+import {CgDetailsMore} from "react-icons/cg";
+import {FaMapMarked} from "react-icons/fa";
 
-const TimelineSection = React.forwardRef(({id}, ref) => {
+const TimelineSection = React.forwardRef(({id, featuresCount}, ref) => {
+    const featureData = [
+        generateFeatureDataItem(
+            profilePicture,
+            "Mariage civil",
+            "13h30 - 14h30",
+            "Pl. Albert Ier 2, 1400 Nivelles",
+            "https://maps.app.goo.gl/QYokwRJQTkn8r23x7",
+            <FaMapMarked />,
+            "/itineraryDetails",
+            <CgDetailsMore />
+
+        ),
+        generateFeatureDataItem(
+            church,
+            "Mariage religieux",
+            "14h30 - 16h",
+            "Grand'Place 4, 1400 Nivelles",
+            "https://maps.app.goo.gl/K8ZSwspxg4TmsnV27",
+            <FaMapMarked />,
+            "/itineraryDetails",
+            <CgDetailsMore />
+        ),
+        generateFeatureDataItem(
+            castle,
+            "Réception",
+            "17h - 23h",
+            "Rue Omer Lion, 7181 Seneffe",
+            "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
+            <FaMapMarked />,
+            "/itineraryDetails",
+            <CgDetailsMore />
+        ),
+        generateFeatureDataItem(
+            champagne,
+            "Soirée",
+            "23h - Infinite",
+            "Rue Omer Lion, 7181 Seneffe",
+            "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
+            <FaMapMarked />,
+            "/itineraryDetails",
+            <CgDetailsMore />
+        ),
+    ];
+
     return (
         <section ref={ref} id={id} className={styles.stickyTimelineBackground}>
-            <div className={styles.content}>
-                <div className={`${styles.timelineContainer} ${styles.timelineContainerAdjusted}`}>
-                    <h1 style={{paddingTop: "20px"}}>Planning de la journée</h1>
-                    <img src={timelinePhoto} alt="timeline" className={styles.timelineImage} />
-                </div>
+            <div className="container px-4 py-3 vh-100" id="timelineContainer">
+                <h2 className="mt-3 mb-5 border-bottom text-center">Planning de la journée - 3 mai 2024</h2>
+                <FeatureCards featureCardsProps={featureData}/>
             </div>
-            {/*<img src={timelineBgPhoto} alt="timeline_background" className={`${sharedStyles.stickyImage} ${styles.backgroundImage}`} />*/}
         </section>
     );
 });
