@@ -1,7 +1,7 @@
 import React from 'react';
 import withScroll from "../../WithScroll";
 import styles from "./Accommodations.module.css";
-import castleImage from "../../../images/chateau_la_rocq.jpg";
+import castleImage from "../../../images/chateau_la_rocq_square.jpg";
 import airbnbLogo from "../../../images/airbnb_logo.png";
 import FeatureCards, {generateFeatureDataItem} from "../../../utils/FeatureCards";
 import {FaMapMarked} from "react-icons/fa";
@@ -32,7 +32,7 @@ const AccommodationsSection = React.forwardRef(({id}, ref) => {
     ];
     return (
         <section ref={ref} id={id} className={` ${styles.section}`}>
-            <div className="container px-4 py-3 vh-100" id="timelineContainer">
+            <div className="container px-4 py-3" id="timelineContainer">
                 <h2 className="mt-3 mb-5 border-bottom text-center">Liste des hébergements</h2>
                 <FeatureCards featureCardsProps={featureData}/>
             </div>

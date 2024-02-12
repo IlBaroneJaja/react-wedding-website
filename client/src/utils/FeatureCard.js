@@ -14,7 +14,7 @@ const FeatureCard = ({featureProps}) => {
         <div className="feature col text-center">
             <div
                 className={`feature-icon d-block-flex align-items-center justify-content-center fs-2 mb-3 ${styles.featureImageContainer}`}>
-                <div style={{width: "15rem", margin: "0 auto", paddingBottom: "15px"}}>
+                <div style={{display: "inline-block", margin: "0 auto", paddingBottom: "15px", maxWidth: "250px", width: "100%", position: "relative", }}>
                     <img
                         className={`rounded-circle shadow-5-strong ${styles.featureImage}`}
                         alt="commune"
@@ -22,7 +22,7 @@ const FeatureCard = ({featureProps}) => {
                         src={pictureUrl}
                     />
                 </div>
-                <div className="mx-auto pt-3" style={{width: "15rem", textAlign: "center"}}>
+                <div className="mx-auto pt-3" style={{display: "block", width: "100%", maxWidth: "250px", textAlign: "center"}}>
                     <h3 className={`fs-4 text-body-emphasis ${styles.featureTitle}`} style={{backgroundColor: headerBackgroundColor}}>
                         {title}
                     </h3>

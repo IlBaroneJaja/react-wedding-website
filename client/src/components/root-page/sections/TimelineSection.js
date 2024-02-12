@@ -1,18 +1,18 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import styles from "./TimelineSection.module.css"
-import profilePicture from "../../../images/shooting_photo/shooting_assis_chateau.JPG";
-import church from "../../../images/collegiale_nivelles.jpg";
-import castle from "../../../images/chateau_la_rocq.jpg";
-import champagne from "../../../images/champagne.png";
+import weddingSignature from "../../../images/wedding_signature.jpg";
+import church from "../../../images/collegiale_nivelles_square.jpg";
+import castle from "../../../images/chateau_la_rocq_square.jpg";
+import party from "../../../images/party_square.jpg";
 import withScroll from '../../WithScroll';
 import FeatureCards, {generateFeatureDataItem} from "../../../utils/FeatureCards";
-import {CgDetailsMore} from "react-icons/cg";
+import {CgDetailsMore, CgInfinity} from "react-icons/cg";
 import {FaMapMarked} from "react-icons/fa";
 
-const TimelineSection = React.forwardRef(({id, featuresCount}, ref) => {
+const TimelineSection = React.forwardRef(({id}, ref) => {
     const featureData = [
         generateFeatureDataItem(
-            profilePicture,
+            weddingSignature,
             "Mariage civil",
             "13h30 - 14h30",
             "Pl. Albert Ier 2, 1400 Nivelles",
@@ -43,9 +43,9 @@ const TimelineSection = React.forwardRef(({id, featuresCount}, ref) => {
             <CgDetailsMore />
         ),
         generateFeatureDataItem(
-            champagne,
+            party,
             "Soirée",
-            "23h - Infinite",
+            <Fragment>"23h - "<CgInfinity /></Fragment>,
             "Rue Omer Lion, 7181 Seneffe",
             "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
             <FaMapMarked />,
@@ -56,8 +56,8 @@ const TimelineSection = React.forwardRef(({id, featuresCount}, ref) => {
 
     return (
         <section ref={ref} id={id} className={styles.stickyTimelineBackground}>
-            <div className="container px-4 py-3 vh-100" id="timelineContainer">
-                <h2 className="mt-3 mb-5 border-bottom text-center">Planning de la journée - 3 mai 2024</h2>
+            <div className="container px-4 py-3" id="timelineContainer">
+                <h2 className="mt-3 mb-5 border-bottom text-center">Agenda des festivités</h2>
                 <FeatureCards featureCardsProps={featureData}/>
             </div>
         </section>

@@ -95,9 +95,9 @@ const NavigationNew = () => {
     const navigationItems = [
         {section: 'intro-section', header: 'Home'},
         {
-            section: 'itineraries', header: 'Itinéraires', dropdownItems: [
+            section: 'itineraries', header: 'Infos', dropdownItems: [
                 {
-                    title: "Lieux",
+                    title: "Agenda",
                     href: "/",
                 },
                 {
@@ -106,7 +106,7 @@ const NavigationNew = () => {
                 }
             ]
         },
-        {section: 'timeline-info', header: 'Planning'},
+        {section: 'timeline-info', header: 'Agenda'},
         {
             section: 'accommodations', header: 'Hébergements', dropdownItems: [
                 {

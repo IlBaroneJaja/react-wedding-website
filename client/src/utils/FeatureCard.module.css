@@ -1,6 +1,9 @@
 .featureImage {
-    height: 15rem;
-    width: 15rem;
+    /*height: 15rem;*/
+    /*width: 15rem;*/
+    width: 100%;
+
+    height: auto;
     object-fit: cover;
     border: solid #d8dcd7;
     border-width: 15px !important;
@@ -9,7 +12,6 @@
 .featureImageContainer:hover .featureImage {
     transform: scale(1.2); /* Adjust the scale factor based on your preference */
 }
-
 
 .featureTitle {
     background-color: #BED1CF;
