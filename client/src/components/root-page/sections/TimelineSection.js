@@ -16,8 +16,10 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
             "Mariage civil",
             "13h30 - 14h30",
             "Pl. Albert Ier 2, 1400 Nivelles",
+            "",
             "https://maps.app.goo.gl/QYokwRJQTkn8r23x7",
             <FaMapMarked />,
+            "",
             "/itineraryDetails",
             <CgDetailsMore />
 
@@ -27,8 +29,10 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
             "Mariage religieux",
             "14h30 - 16h",
             "Grand'Place 4, 1400 Nivelles",
+            "",
             "https://maps.app.goo.gl/K8ZSwspxg4TmsnV27",
             <FaMapMarked />,
+            "",
             "/itineraryDetails",
             <CgDetailsMore />
         ),
@@ -37,18 +41,22 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
             "Réception",
             "17h - 23h",
             "Rue Omer Lion, 7181 Seneffe",
+            "",
             "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
             <FaMapMarked />,
+            "",
             "/itineraryDetails",
             <CgDetailsMore />
         ),
         generateFeatureDataItem(
             party,
             "Soirée",
-            <Fragment>"23h - "<CgInfinity /></Fragment>,
+            <Fragment>23h - <CgInfinity /></Fragment>,
             "Rue Omer Lion, 7181 Seneffe",
+            "",
             "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
             <FaMapMarked />,
+            "",
             "/itineraryDetails",
             <CgDetailsMore />
         ),
