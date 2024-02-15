@@ -2,7 +2,7 @@ import React from 'react';
 import withScroll from "../../WithScroll";
 import styles from "./Accommodations.module.css";
 import castleImage from "../../../images/chateau_la_rocq_square.jpg";
-import airbnbLogo from "../../../images/airbnb_logo.png";
+import airbnbLogo from "../../../images/airbnb_logo_light2.png";
 import FeatureCards, {generateFeatureDataItem} from "../../../utils/FeatureCards";
 import {FaMapMarked} from "react-icons/fa";
 import {CgDetailsMore} from "react-icons/cg";

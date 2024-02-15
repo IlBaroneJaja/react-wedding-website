@@ -1,13 +1,17 @@
 .navbar * {
     font-family: 'kalam', cursive;
     /*font-weight: bold;*/
-    color: #6c757d;
+    color: white;
+}
+
+.customNavbar {
+    background-color: #B99470 !important;
 }
 
 .namesContainer  {
     font-family: 'kalam', cursive;
     /*font-weight: bold;*/
-    color: #6c757d;
+    color: white;
     display: flex;
     align-items: center;
 }
@@ -15,7 +19,7 @@
 span[id="andWord"] {
     font-family: 'tangerine', cursive;
     font-weight: bold;
-    color: #E6A4B4;
+    color: #395144;
     font-size: 24pt;
 }
 

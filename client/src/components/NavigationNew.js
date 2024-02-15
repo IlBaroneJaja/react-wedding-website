@@ -9,6 +9,38 @@ const NavigationNew = () => {
     const [showOffcanvas, setShowOffcanvas] = React.useState(false);
     const [isNavbarHidden, setIsNavbarHidden] = React.useState(false);
 
+    const navigationItems = [
+        {section: 'intro-section', header: 'Home', isExternalSection: false},
+        {
+            section: 'timeline-info', header: 'Infos', dropdownItems: [
+                {
+                    title: "Agenda",
+                    href: "/",
+                },
+                {
+                    title: "Détails itinéraires",
+                    href: "/itineraryDetails"
+                }
+            ]
+        },
+        {
+            section: 'accommodations', header: 'Hébergements', dropdownItems: [
+                {
+                    title: "Types",
+                    href: "/"
+                },
+                {
+                    title: "Détails hébergements",
+                    href: "/accommodationsDetails"
+                }
+            ]
+        },
+        {section: 'our-story', header: 'Notre histoire', isExternalSection: true},
+        {section: 'gift-registries', header: 'Liste de mariage', isExternalSection: false},
+        {section: 'dress-code', header: 'Dress code', isExternalSection: false},
+        {section: 'rsvps', header: "RSVP's", isExternalSection: false},
+    ];
+
     const handleToggleOffcanvas = () => {
         setShowOffcanvas((prev) => !prev);
         setIsNavbarHidden(!isNavbarHidden);
@@ -48,83 +80,57 @@ const NavigationNew = () => {
     };
 
     const createNavigationBody = (items, clickHandler) => {
-        return items.map(({section, header, dropdownItems}) => (
-            <React.Fragment key={section}>
-                {dropdownItems?.length > 0 ? (
-                    <NavDropdown title={header} id="basic-nav-dropdown">
-                        {dropdownItems.map(({title, href}) => (
-                                <React.Fragment key={title}>
-                                    {href === "/" ? (
-                                        <NavDropdown.Item
-                                            href={`/#${section}`}
-                                            to={{
-                                                pathname: '/',
-                                                hash: `#${section}`,
-                                                state: {scrollToSection: true},
-                                            }}
-                                            onClick={() => clickHandler(`#${section}`)}
-                                        >
-                                            {title}
-                                        </NavDropdown.Item>
-                                    ) : (
-                                        <NavDropdown.Item href={href}>{title}</NavDropdown.Item>
-                                    )}
-                                </React.Fragment>
-                            )
-                        )}
-                    </NavDropdown>
-                ) : (
-                    <Nav.Item key={section}>
-                        <NavLink
-                            to={{
-                                pathname: '/',
-                                hash: `#${section}`,
-                                state: {scrollToSection: true},
-                            }}
-                            onClick={() => clickHandler(`#${section}`)}
-                            className={`nav-link`}
-                        >
-                            {header}
-                        </NavLink>
-                    </Nav.Item>
-                )}
-            </React.Fragment>
-        ));
+        return items.map(({section, header, isExternalSection, dropdownItems}) => {
+            // Tells if the section is pointing to an external page different from the main page.
+            return (
+                <React.Fragment key={section}>
+                    {dropdownItems?.length > 0 ? (
+                        <NavDropdown title={header} id="basic-nav-dropdown">
+                            {dropdownItems.map(({title, href}) => {
+                                    return (
+                                        <React.Fragment key={title}>
+                                            {href === "/" ? (
+                                                <NavDropdown.Item
+                                                    href={`/#${section}`}
+                                                    to={{
+                                                        pathname: '/',
+                                                        hash: `#${section}`,
+                                                        state: {scrollToSection: true},
+                                                    }}
+                                                    onClick={() => clickHandler(`#${section}`)}
+                                                >
+                                                    {title}
+                                                </NavDropdown.Item>
+                                            ) : (
+                                                <NavDropdown.Item href={href}>{title}</NavDropdown.Item>
+                                            )}
+                                        </React.Fragment>
+                                    );
+                                }
+                            )}
+                        </NavDropdown>
+                    ) : (
+                        <Nav.Item key={section}>
+                            <NavLink
+                                to={{
+                                    pathname: isExternalSection ? `/${section}` : '/',
+                                    hash: isExternalSection ? '' : `#${section}`,
+                                    state: {scrollToSection: true},
+                                }}
+                                onClick={() => clickHandler(`#${section}`)}
+                                className={`nav-link`}
+                            >
+                                {header}
+                            </NavLink>
+                        </Nav.Item>
+                    )}
+                </React.Fragment>
+            );
+        });
     };
 
-    const navigationItems = [
-        {section: 'intro-section', header: 'Home'},
-        {
-            section: 'timeline-info', header: 'Infos', dropdownItems: [
-                {
-                    title: "Agenda",
-                    href: "/",
-                },
-                {
-                    title: "Détails itinéraires",
-                    href: "/itineraryDetails"
-                }
-            ]
-        },
-        {
-            section: 'accommodations', header: 'Hébergements', dropdownItems: [
-                {
-                    title: "Types",
-                    href: "/"
-                },
-                {
-                    title: "Détails hébergements",
-                    href: "/accommodationsDetails"
-                }
-            ]
-        },
-        {section: 'gift-registries', header: 'Liste de mariage'},
-        {section: 'dress-code', header: 'Dress code'},
-        {section: 'rsvps', header: "RSVP's"},
-    ];
-
     return (
-        <Navbar expand="lg" variant="light" bg="light" fixed="top" expanded={false} className="position-sticky top-0"
+        <Navbar expand="lg" variant="dark" bg="dark" fixed="top" expanded={false} className={`${styles.customNavbar} position-sticky top-0`}
                 style={{paddingTop: 0, paddingBottom: 0, fontFamily: "kalam, cursive"}}>
             <Container fluid>
                 <Navbar.Brand href="#">

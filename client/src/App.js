@@ -7,6 +7,7 @@ import ItineraryMoreDetailsPage from './pages/ItineraryMoreDetailsPage';
 import AccommodationsMoreDetailsPage from './pages/AccommodationsMoreDetailsPage';
 import NavigationNew from "./components/NavigationNew";
 import IntroSection from "./components/root-page/sections/IntroSection";
+import StoryPage from "./components/other-pages/Story";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/" element={<Home/>}/>
                     <Route path="/itineraryDetails" element={<ItineraryMoreDetailsPage/>}/>
                     <Route path="/accommodationsDetails" element={<AccommodationsMoreDetailsPage/>}/>
+                    <Route path="/our-story" element={<StoryPage/>} />
                     {/* Add more routes for additional pages */}
                 </Routes>
                 <Footer/>

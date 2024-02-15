@@ -39,9 +39,7 @@ function Home() {
                 <IntroSection id="intro-section"/>
             </div>
 
-            {/*<ItinerariesSection id="itineraries" />*/}
             <TimelineSection id="timeline-info" />
-            {/*<TimelineSectionNew id="timeline-info" />*/}
             <PhotoSliderSection id="photoSlider" />
             <AccommodationsSection id="accommodations" />
             <FixedImage2Section id="fixed-image" image={image2} index={2} />

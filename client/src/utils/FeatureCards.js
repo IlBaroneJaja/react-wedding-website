@@ -25,8 +25,8 @@ const FeatureCards = ({featureCardsProps}) => {
 
 export const generateFeatureDataItem = (pictureUrl, title, content1, content2, linkText, linkUrl, icon, linkText2, linkUrl2, icon2) => {
     return {
-        picture: { pictureUrl, circleColor: "#d8dcd7" },
-        header: { title, headerBackgroundColor: "#BED1CF" },
+        picture: { pictureUrl, circleColor: "#A9B388" },
+        header: { title, headerBackgroundColor: "#A9B388" },
         content: (
             <Fragment>
                 <p>{content1}</p>
