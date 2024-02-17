@@ -18,7 +18,7 @@ const ItineraryMoreDetails = React.forwardRef(({id}, ref) => {
                     Afin de vous faciliter la tâche, nous avons expliqué la démarche à suivre pour
                     repérer au mieux les différentes addresses de la journée.
                 </div>
-                <h2>Hôtel de ville de Nivelles</h2>
+                <h2 id="municipalityHeading">Hôtel de ville de Nivelles</h2>
                 <h4>Comment accéder à la commune ?</h4>
                 <div>
                     La commune où nous célébrerons notre mariage civil se situe sur la place Albert Ier.<br/>
@@ -58,7 +58,7 @@ const ItineraryMoreDetails = React.forwardRef(({id}, ref) => {
                        rel="noreferrer">ici</a>
                 </div>
 
-                <h2>Collégiale Sainte-Gertrude</h2>
+                <h2 id="churchHeading">Collégiale Sainte-Gertrude</h2>
                 <h4>Comment accéder à l'Église ?</h4>
                 <div>
                     La collégiale Sainte-Gertrude où nous célébrerons notre mariage religieux se situe juste à côté de

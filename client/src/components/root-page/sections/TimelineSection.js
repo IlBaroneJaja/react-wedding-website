@@ -20,7 +20,7 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
             "https://maps.app.goo.gl/QYokwRJQTkn8r23x7",
             <FaMapMarked />,
             "",
-            "/itineraryDetails",
+            "/itineraryDetails#castleTitle",
             <CgDetailsMore />
 
         ),
@@ -33,7 +33,7 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
             "https://maps.app.goo.gl/K8ZSwspxg4TmsnV27",
             <FaMapMarked />,
             "",
-            "/itineraryDetails",
+            "/itineraryDetails#municipalityHeading",
             <CgDetailsMore />
         ),
         generateFeatureDataItem(
@@ -45,7 +45,7 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
             "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
             <FaMapMarked />,
             "",
-            "/itineraryDetails",
+            "/itineraryDetails#municipalityHeading",
             <CgDetailsMore />
         ),
         generateFeatureDataItem(
@@ -57,7 +57,7 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
             "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
             <FaMapMarked />,
             "",
-            "/itineraryDetails",
+            "/itineraryDetails#municipalityHeading",
             <CgDetailsMore />
         ),
     ];

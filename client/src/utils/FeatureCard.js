@@ -42,7 +42,7 @@ const FeatureCard = ({featureProps}) => {
                 </div>
                 <div className="row pt-1">
                     <a href={linkUrl2}
-                       className="icon-link justify-content-center" rel="noreferrer">
+                       className="icon-link justify-content-center" rel="noreferrer" >
                         {icon2}
                         {linkText2}
                     </a>

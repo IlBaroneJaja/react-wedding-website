@@ -4,8 +4,9 @@
     color: white;
 }
 
-.customNavbar {
-    background-color: #B99470 !important;
+.customNavbar *:not(span[id="andWord"]) {
+    background-color: #A9B388 !important;
+    color: white !important;
 }
 
 .namesContainer  {
@@ -23,7 +24,7 @@ span[id="andWord"] {
     font-size: 24pt;
 }
 
-span[id="names"] {
+.names {
     margin: 0 10px;
     font-size: 14pt;
 }

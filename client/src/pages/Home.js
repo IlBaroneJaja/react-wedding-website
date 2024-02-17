@@ -1,6 +1,5 @@
 import React, {useEffect, useRef} from 'react';
 import IntroSection from '../components/root-page/sections/IntroSection';
-import ItinerariesSection from '../components/root-page/sections/ItinerariesSection';
 import TimelineSection from '../components/root-page/sections/TimelineSection';
 import PhotoSliderSection from '../components/root-page/sections/PhotoSliderSection';
 import AccommodationsSection from '../components/root-page/sections/AccommodationsSection';
@@ -13,8 +12,6 @@ import Countdown from "../utils/CountDownTimer";
 import image2 from "../images/shooting_photo/shooting_assis_chateau.JPG";
 import image3 from "../images/shooting_photo/shooting_marche_escaliers.JPG";
 import image4 from "../images/shooting_photo/shooting_parc_au_dessus.JPG";
-import TimelineSectionNew from "../components/root-page/sections/TimelineSectionNew";
-import NavigationNew from "../components/NavigationNew";
 
 
 function Home() {

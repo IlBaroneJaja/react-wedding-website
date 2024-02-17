@@ -4,42 +4,11 @@ import {Navbar, Nav, Container, Offcanvas, NavDropdown} from 'react-bootstrap';
 import styles from "./NavigationNew.module.css";
 import {NavLink} from "react-router-dom";
 import {scrollToTop} from "../utils/ScrollUtils";
+import navigationItems from "../constants/NavigationConstants";
 
 const NavigationNew = () => {
     const [showOffcanvas, setShowOffcanvas] = React.useState(false);
     const [isNavbarHidden, setIsNavbarHidden] = React.useState(false);
-
-    const navigationItems = [
-        {section: 'intro-section', header: 'Home', isExternalSection: false},
-        {
-            section: 'timeline-info', header: 'Infos', dropdownItems: [
-                {
-                    title: "Agenda",
-                    href: "/",
-                },
-                {
-                    title: "Détails itinéraires",
-                    href: "/itineraryDetails"
-                }
-            ]
-        },
-        {
-            section: 'accommodations', header: 'Hébergements', dropdownItems: [
-                {
-                    title: "Types",
-                    href: "/"
-                },
-                {
-                    title: "Détails hébergements",
-                    href: "/accommodationsDetails"
-                }
-            ]
-        },
-        {section: 'our-story', header: 'Notre histoire', isExternalSection: true},
-        {section: 'gift-registries', header: 'Liste de mariage', isExternalSection: false},
-        {section: 'dress-code', header: 'Dress code', isExternalSection: false},
-        {section: 'rsvps', header: "RSVP's", isExternalSection: false},
-    ];
 
     const handleToggleOffcanvas = () => {
         setShowOffcanvas((prev) => !prev);
@@ -55,7 +24,8 @@ const NavigationNew = () => {
     const smoothScrollTo = (target) => {
         const targetElement = document.querySelector(target);
         if (targetElement) {
-            const offsetTop = targetElement.offsetTop;
+            // Note: substract size of the navbar to see the first line of the section
+            const offsetTop = targetElement.offsetTop - 58;
 
             // Using smooth scrolling animation
             window.scrollTo({
@@ -65,6 +35,14 @@ const NavigationNew = () => {
 
             // If you want to update the URL with the hash after scrolling
             window.history.pushState(null, null, target);
+
+            setTimeout(() => {
+                const newOffsetTop = targetElement.offsetTop - 58;
+                window.scrollTo({
+                    top: newOffsetTop,
+                    behavior: 'instant',
+                });
+            }, 500);
         }
     };
 
@@ -130,12 +108,12 @@ const NavigationNew = () => {
     };
 
     return (
-        <Navbar expand="lg" variant="dark" bg="dark" fixed="top" expanded={false} className={`${styles.customNavbar} position-sticky top-0`}
+        <Navbar expand="lg" variant="light" bg="light" fixed="top" expanded={false} className={`${styles.customNavbar} position-sticky top-0`}
                 style={{paddingTop: 0, paddingBottom: 0, fontFamily: "kalam, cursive"}}>
             <Container fluid>
                 <Navbar.Brand href="#">
                     <div className={styles.namesContainer}>
-                        <span id="names">Yasmina</span><span id="andWord">and</span><span id="names">Alessandro</span>
+                        <span className={styles.names}>Yasmina</span><span id="andWord">and</span><span className={styles.names}>Alessandro</span>
                     </div>
                 </Navbar.Brand>
                 <Navbar.Toggle onClick={handleToggleOffcanvas} aria-controls="offcanvasNavbar"/>
