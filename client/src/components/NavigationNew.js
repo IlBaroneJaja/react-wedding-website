@@ -1,14 +1,22 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Navbar, Nav, Container, Offcanvas, NavDropdown} from 'react-bootstrap';
+import {Navbar, Nav, Container, Offcanvas, NavDropdown, Dropdown} from 'react-bootstrap';
 import styles from "./NavigationNew.module.css";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {scrollToTop} from "../utils/ScrollUtils";
 import navigationItems from "../constants/NavigationConstants";
+import {RiShieldUserFill} from "react-icons/ri";
 
-const NavigationNew = () => {
+const NavigationNew = ({isLoggedIn, setIsLoggedIn}) => {
     const [showOffcanvas, setShowOffcanvas] = React.useState(false);
     const [isNavbarHidden, setIsNavbarHidden] = React.useState(false);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        // Implement your login logic here
+        setIsLoggedIn(false);
+        navigate("/");
+    };
 
     const handleToggleOffcanvas = () => {
         setShowOffcanvas((prev) => !prev);
@@ -120,6 +128,16 @@ const NavigationNew = () => {
                 <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                     <Nav className="me-0">
                         {createNavigationBody(navigationItems, handleNavLinkClick)}
+                        <Dropdown align="end">
+                            <Dropdown.Toggle id="userDropdown" className="btn" variant="transparent">
+                                <RiShieldUserFill />
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="#/profile">Profile</Dropdown.Item>
+                                <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </Nav>
                 </Navbar.Collapse>
                 <Offcanvas

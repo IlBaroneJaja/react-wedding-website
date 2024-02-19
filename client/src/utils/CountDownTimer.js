@@ -43,7 +43,6 @@ const Countdown = () => {
 
     return (
         <section className={styles.countDownSection}>
-            <hr />
             <svg>
                 <defs>
                     <linearGradient id="gradient-1" x1="1" y1="0" x2="0" y2="0">

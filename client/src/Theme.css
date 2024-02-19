@@ -20,7 +20,8 @@ h2, h3, h4, h5 {
 
 p {
     font-size: 1.167em;
-    font-family: 'raleway', cursive;
+    font-weight: 100;
+    font-family: 'JetBrains+Mono', cursive;
 }
 
 iframe {

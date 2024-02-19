@@ -24,9 +24,10 @@
 
 .countDownSection {
     height: 40vh;
-    color: #000000;
+    color: white;
     position: relative;
-    /*background-color: #BED1CF;*/
+    background-color: transparent;
+    outline: none;
     font-size: 1.2em;
     min-height: 40vh; /* Set a minimum height to cover the viewport */
     max-width: 100%; /* Ensure the container takes up the full width of the screen */
