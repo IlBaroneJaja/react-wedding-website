@@ -29,13 +29,3 @@ span[id="andWord"] {
     font-size: 14pt;
 }
 
-#userDropdown:focus {
-    outline: none;
-    border: 5px solid transparent;
-}
-
-#userDropdown.btn-success:focus,
-#userDropdown.btn-success:active {
-    --bs-btn-hover-border-color: transparent;
-}
-

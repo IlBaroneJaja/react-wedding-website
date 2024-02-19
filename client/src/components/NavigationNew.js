@@ -5,7 +5,7 @@ import styles from "./NavigationNew.module.css";
 import {NavLink, useNavigate} from "react-router-dom";
 import {scrollToTop} from "../utils/ScrollUtils";
 import navigationItems from "../constants/NavigationConstants";
-import {RiShieldUserFill} from "react-icons/ri";
+import {RiLogoutBoxLine, RiShieldUserFill} from "react-icons/ri";
 
 const NavigationNew = ({isLoggedIn, setIsLoggedIn}) => {
     const [showOffcanvas, setShowOffcanvas] = React.useState(false);
@@ -156,6 +156,11 @@ const NavigationNew = ({isLoggedIn, setIsLoggedIn}) => {
                         <Nav className="justify-content-end flex-grow-1">
                             {createNavigationBody(navigationItems, handleOffcanvasLinkClick)}
                         </Nav>
+                        <div style={{ position: 'absolute', bottom: 0, right: 0, marginBottom: '1rem', marginRight: '1rem' }}>
+                            <button className="btn btn-outline-danger ml-auto" onClick={handleLogout}>
+                                <RiLogoutBoxLine /> Logout
+                            </button>
+                        </div>
                     </Offcanvas.Body>
                 </Offcanvas>
             </Container>
