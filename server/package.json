@@ -17,7 +17,7 @@
     "lowdb-adapter": "^0.1.3"
   },
   "scripts": {
-    "start": "node -r server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
