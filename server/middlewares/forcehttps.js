@@ -5,4 +5,4 @@ const enforceHttps = (req, res, next) => {
     next();
 };
 
-module.exports = {enforceHttps}
+export default enforceHttps;

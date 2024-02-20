@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "firstName": "Alessandro",
+      "lastName": "Vassalli",
+      "email": "vassallialessandro@gmail.com",
+      "password": "$2b$10$BjQOgfA66NECrXLB4U.XH.BsmldhnUKGuQmA3mG/dvVTBPi7IMafm",
+      "allergyInfo": "None"
+    },
+    {
+      "firstName": "Yasmina",
+      "lastName": "Najib",
+      "email": "yasmina94.najib@gmail.com",
+      "password": "$2b$10$jP4Ucm4fvv9t2uqv0L1eEuYgVZwQzv.MHFar3hPOG0M/0qY6yd5d6",
+      "allergyInfo": "None"
+    }
+  ]
+}

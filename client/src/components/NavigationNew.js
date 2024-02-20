@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar, Nav, Container, Offcanvas, NavDropdown, Dropdown} from 'react-bootstrap';
 import styles from "./NavigationNew.module.css";
@@ -6,16 +6,28 @@ import {NavLink, useNavigate} from "react-router-dom";
 import {scrollToTop} from "../utils/ScrollUtils";
 import navigationItems from "../constants/NavigationConstants";
 import {RiLogoutBoxLine, RiShieldUserFill} from "react-icons/ri";
+import {AuthContext} from "./authentication/AuthProvider";
 
-const NavigationNew = ({isLoggedIn, setIsLoggedIn}) => {
+const NavigationNew = () => {
     const [showOffcanvas, setShowOffcanvas] = React.useState(false);
     const [isNavbarHidden, setIsNavbarHidden] = React.useState(false);
     const navigate = useNavigate();
+    const { isLoggedIn, login, logout } = useContext(AuthContext);
+
 
     const handleLogout = () => {
         // Implement your login logic here
-        setIsLoggedIn(false);
-        navigate("/");
+
+        const user = localStorage.getItem('user');
+
+        logout();
+        if (user) {
+            localStorage.removeItem('user');
+            navigate('/');
+        } else {
+            navigate('/');
+        }
+
     };
 
     const handleToggleOffcanvas = () => {
@@ -75,11 +87,11 @@ const NavigationNew = ({isLoggedIn, setIsLoggedIn}) => {
                             {dropdownItems.map(({title, href}) => {
                                     return (
                                         <React.Fragment key={title}>
-                                            {href === "/" ? (
+                                            {href === "/home" ? (
                                                 <NavDropdown.Item
-                                                    href={`/#${section}`}
+                                                    href={`${href}#${section}`}
                                                     to={{
-                                                        pathname: '/',
+                                                        pathname: `${href}`,
                                                         hash: `#${section}`,
                                                         state: {scrollToSection: true},
                                                     }}
@@ -99,7 +111,7 @@ const NavigationNew = ({isLoggedIn, setIsLoggedIn}) => {
                         <Nav.Item key={section}>
                             <NavLink
                                 to={{
-                                    pathname: isExternalSection ? `/${section}` : '/',
+                                    pathname: isExternalSection ? `/${section}` : '/home',
                                     hash: isExternalSection ? '' : `#${section}`,
                                     state: {scrollToSection: true},
                                 }}

@@ -32,10 +32,7 @@ function Home() {
 
     return (
         <div>
-            <div>
-                <IntroSection id="intro-section"/>
-            </div>
-
+            <IntroSection id="intro-section"/>
             <TimelineSection id="timeline-info" />
             <PhotoSliderSection id="photoSlider" />
             <AccommodationsSection id="accommodations" />

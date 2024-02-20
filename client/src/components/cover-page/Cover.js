@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import styles from "./Cover.module.css";
 import LoginModal from "./LoginModal";
-import {useNavigate} from "react-router-dom";
 
-const Cover = ({setIsLoggedIn}) => {
+const Cover = () => {
     const [showModal, setShowModal] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -28,7 +27,7 @@ const Cover = ({setIsLoggedIn}) => {
                         <p className="lead">
                             <a className={`btn btn-light ${styles["custom-btn"]} btn-lg m-2`} data-mdb-ripple-init href="#"
                                role="button" onClick={handleShow}>Se connecter</a>
-                            <LoginModal  showModal={showModal} handleClose={handleClose} setIsLoggedIn={setIsLoggedIn} />
+                            <LoginModal  showModal={showModal} handleClose={handleClose} />
                         </p>
                     </main>
 

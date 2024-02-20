@@ -4,7 +4,7 @@ const navigationItems = [
         section: 'timeline-info', header: 'Infos', dropdownItems: [
             {
                 title: "Agenda",
-                href: "/",
+                href: "/home",
             },
             {
                 title: "Détails itinéraires",
@@ -16,7 +16,7 @@ const navigationItems = [
         section: 'accommodations', header: 'Hébergements', dropdownItems: [
             {
                 title: "Types",
-                href: "/"
+                href: "/home",
             },
             {
                 title: "Détails hébergements",
