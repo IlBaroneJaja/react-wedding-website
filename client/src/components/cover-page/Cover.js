@@ -13,6 +13,9 @@ const Cover = () => {
     }
     const handleClose = () => setShowModal(false);
 
+    const year = new Date().getFullYear();
+    const date = year === 2024 ? "2024" : `2024-${year}`;
+
     return (
         <div className="h-100" data-bs-theme="dark">
             <div id="intro" className={`${styles.intro} ${styles.bgImage} d-flex text-center text-bg-dark`}>
@@ -25,15 +28,16 @@ const Cover = () => {
                         <h1 className="mb-3">Mariage</h1>
                         <h1 className="mb-5">Yasmina & Alessandro</h1>
                         <p className="lead">
-                            <a className={`btn btn-light ${styles["custom-btn"]} btn-lg m-2`} data-mdb-ripple-init href="#"
+                            <a className={`btn btn-light ${styles["custom-btn"]} btn-lg m-2`} data-mdb-ripple-init
+                               href="#"
                                role="button" onClick={handleShow}>Se connecter</a>
-                            <LoginModal  showModal={showModal} handleClose={handleClose} />
+                            <LoginModal showModal={showModal} handleClose={handleClose}/>
                         </p>
                     </main>
 
                     <footer className="mt-auto text-white-50">
-                        <p>Cover template for <a href="https://getbootstrap.com/" className="text-white">Bootstrap</a>,
-                            by <a href="https://twitter.com/mdo" className="text-white">@mdo</a>.</p>
+                        <p> COPYRIGHT &copy;{date} <a href="https://www.mariage-yasmina-alessandro.be"
+                                                      className="text-white">Yasmina & Alessandro</a> - ALL RIGHTS RESERVED.</p>
                     </footer>
                 </div>
             </div>
