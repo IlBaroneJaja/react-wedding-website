@@ -11,78 +11,78 @@ import {FaMapMarked} from "react-icons/fa";
 import useLocalStorage from "../../../utils/LocalStorageUtil";
 
 const TimelineSection = React.forwardRef(({id}, ref) => {
-    const featureData = [
-        generateFeatureDataItem(
-            weddingSignature,
-            "Mariage civil",
-            "13h30 - 14h30",
-            "Pl. Albert Ier 2, 1400 Nivelles",
-            "",
-            "https://maps.app.goo.gl/QYokwRJQTkn8r23x7",
-            <FaMapMarked/>,
-            "",
-            "/itineraryDetails#castleTitle",
-            <CgDetailsMore/>
-        ),
-        generateFeatureDataItem(
-            church,
-            "Mariage religieux",
-            "14h30 - 16h",
-            "Grand'Place 4, 1400 Nivelles",
-            "",
-            "https://maps.app.goo.gl/K8ZSwspxg4TmsnV27",
-            <FaMapMarked/>,
-            "",
-            "/itineraryDetails#municipalityHeading",
-            <CgDetailsMore/>
-        ),
-        generateFeatureDataItem(
-            castle,
-            "Réception",
-            "17h - 23h",
-            "Rue Omer Lion, 7181 Seneffe",
-            "",
-            "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
-            <FaMapMarked/>,
-            "",
-            "/itineraryDetails#municipalityHeading",
-            <CgDetailsMore/>
-        ),
-        generateFeatureDataItem(
-            party,
-            "Soirée",
-            <Fragment>23h - <CgInfinity/></Fragment>,
-            "Rue Omer Lion, 7181 Seneffe",
-            "",
-            "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
-            <FaMapMarked/>,
-            "",
-            "/itineraryDetails#municipalityHeading",
-            <CgDetailsMore/>
-        ),
-    ];
-    // const featureDataFiltered = [...featureData];
-
     const [guestInfo, setGuestInfo] = useLocalStorage("guestInfo", "");
     const [isOnlyChurchGuest, setIsOnlyChurchGuest] = useState(true);
     const [featureDataFiltered, setFeatureDataFiltered] = useState([]);
 
-    useEffect(() => {
-        const setIsOnlyChurchGuestFlag = () => {
-            setIsOnlyChurchGuest(guestInfo?.guest?.onlyChurchGuest);
-        };
+    const setIsOnlyChurchGuestFlag = (isOnlyChurchGuest) => {
+        setIsOnlyChurchGuest(isOnlyChurchGuest);
+    };
 
-        const filterFeatureCardsBasedOnGuestType = () => {
+
+
+    useEffect(() => {
+        const featureData = [
+            generateFeatureDataItem(
+                weddingSignature,
+                "Mariage civil",
+                "13h30 - 14h30",
+                "Pl. Albert Ier 2, 1400 Nivelles",
+                "",
+                "https://maps.app.goo.gl/QYokwRJQTkn8r23x7",
+                <FaMapMarked/>,
+                "",
+                "/itineraryDetails#castleTitle",
+                <CgDetailsMore/>
+            ),
+            generateFeatureDataItem(
+                church,
+                "Mariage religieux",
+                "14h30 - 16h",
+                "Grand'Place 4, 1400 Nivelles",
+                "",
+                "https://maps.app.goo.gl/K8ZSwspxg4TmsnV27",
+                <FaMapMarked/>,
+                "",
+                "/itineraryDetails#municipalityHeading",
+                <CgDetailsMore/>
+            ),
+            generateFeatureDataItem(
+                castle,
+                "Réception",
+                "17h - 23h",
+                "Rue Omer Lion, 7181 Seneffe",
+                "",
+                "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
+                <FaMapMarked/>,
+                "",
+                "/itineraryDetails#municipalityHeading",
+                <CgDetailsMore/>
+            ),
+            generateFeatureDataItem(
+                party,
+                "Soirée",
+                <Fragment>23h - <CgInfinity/></Fragment>,
+                "Rue Omer Lion, 7181 Seneffe",
+                "",
+                "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
+                <FaMapMarked/>,
+                "",
+                "/itineraryDetails#municipalityHeading",
+                <CgDetailsMore/>
+            ),
+        ];
+        const filterFeatureCardsBasedOnGuestType = (isOnlyChurchGuestFlag) => {
             let filteredData = [...featureData];
-            if (isOnlyChurchGuest) {
+            if (isOnlyChurchGuestFlag) {
                 filteredData.shift();
             }
 
             setFeatureDataFiltered(filteredData);
         };
 
-        setIsOnlyChurchGuestFlag();
-        filterFeatureCardsBasedOnGuestType();
+        setIsOnlyChurchGuestFlag(guestInfo?.guest?.onlyChurchGuest);
+        filterFeatureCardsBasedOnGuestType(guestInfo?.guest?.onlyChurchGuest);
     }, [guestInfo?.guest?.onlyChurchGuest]);
 
     return (

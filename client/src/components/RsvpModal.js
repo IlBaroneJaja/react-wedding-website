@@ -14,9 +14,6 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, 
     const [emailError, setEmailError] = useState('');
     const [validated, setValidated] = useState(false);
 
-    const navigate = useNavigate();
-    const {isLoggedIn, login, logout} = useContext(AuthContext);
-
     const [guest, setGuest] = useState(null);
     const [guestError, setGuestError] = useState('');
 
@@ -32,7 +29,6 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, 
 
                 if ('success' === data.message) {
                     localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))
-                    console.log('API call successful', data);
                     setGuest(data);
 
                 } else {
@@ -113,7 +109,6 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, 
 
             if (response.status === 200) {
                 localStorage.setItem('guestInfo', JSON.stringify(updatedGuestInfo));
-                console.log('API call successful', updatedGuestInfo);
                 setGuest(updatedGuestInfo);
 
             } else {

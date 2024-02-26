@@ -1,4 +1,4 @@
-.itineraryMoreDetailsPageContent  {
+.itineraryMoreDetailsPageContent {
     height: auto;
     width: 100%;
     min-height: 100vh;
@@ -14,27 +14,17 @@
 /* Apply margin and padding to direct children of .itineraryMoreDetailsPageContent */
 .itineraryMoreDetailsPageContent :is(h1,h2,h3,h4,h5) {
     padding-top: 20px; /* Adjust the padding as needed */
-    padding-left: 50px;
-}
-
-.itineraryMoreDetailsPageContent :is(div,span,p)  {
-    padding-left: 50px;
-    padding-top: 20px;
-    padding-bottom: 10px;
 }
 
 .itineraryMoreDetailsPageContent :is(iframe,img) {
-    padding-left: 50px;
-    padding-right: 50px;
-    width: 100%;
-
+    max-width: 100%;
+    padding: 20px 0;
 }
 
 .directionImage {
-    padding-top: 20px;
     padding-bottom: 50px;
-    width: 80%;
-    max-width: 80%;
+    width: 100%;
+    max-width: 100%;
     display: block;
     height: auto;
 }
@@ -48,12 +38,16 @@
     height: auto;
 }
 
+@media screen and (orientation: portrait) {
+    .churchImage {
+        height: 100%;
+        width: auto;
+    }
+
+}
+
 .videoClass {
     padding-top: 20px;
     padding-bottom: 20px;
     margin-left: 0 !important;
-}
-
-.collapsibleContent {
-
 }

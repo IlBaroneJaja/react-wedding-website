@@ -27,7 +27,6 @@ const IntroSection = React.forwardRef(({id}, ref) => {
 
             if ('success' === data.message) {
                 localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))
-                console.log('API call successful', data);
                 setGuest(data);
                 handleConfirmationSiteDone(data.guest.confirmationSiteDone);
             } else {
