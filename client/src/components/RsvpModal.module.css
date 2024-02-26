@@ -1,0 +1,17 @@
+.navbar .nav-link {
+    color: #fff !important;
+}
+
+.modal {
+    z-index: 9999999; /* or a higher value */
+}
+
+.modalParagraph {
+    text-align: justify;
+    font-size: 14px;
+}
+
+.label {
+    font-weight: bold;
+}
+

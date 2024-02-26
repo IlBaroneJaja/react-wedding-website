@@ -1,18 +1,51 @@
-{
-  "users": [
+[
     {
-      "firstName": "Alessandro",
-      "lastName": "Vassalli",
-      "email": "vassallialessandro@gmail.com",
-      "password": "$2b$10$BjQOgfA66NECrXLB4U.XH.BsmldhnUKGuQmA3mG/dvVTBPi7IMafm",
-      "allergyInfo": "None"
+        "firstName": "Alessandro",
+        "lastName": "Vassalli",
+        "email": "vassallialessandro@gmail.com",
+        "password": "$2b$10$BjQOgfA66NECrXLB4U.XH.BsmldhnUKGuQmA3mG/dvVTBPi7IMafm",
+        "allergyInfo": "None",
+        "guestList": [
+            {
+                "firstName": "Alessandro",
+                "lastName": "Vassalli",
+                "confirmed": true
+            },
+            {
+                "firstName": "Yasmina",
+                "lastName": "Najib",
+                "confirmed": true
+            },
+            {
+                "firstName": "Yasmina",
+                "lastName": "Najib",
+                "confirmed": false
+            }
+        ],
+        "comments": "",
+        "confirmationSiteDone": false,
+        "onlyChurchGuest": true
     },
     {
-      "firstName": "Yasmina",
-      "lastName": "Najib",
-      "email": "yasmina94.najib@gmail.com",
-      "password": "$2b$10$jP4Ucm4fvv9t2uqv0L1eEuYgVZwQzv.MHFar3hPOG0M/0qY6yd5d6",
-      "allergyInfo": "None"
+        "firstName": "Yasmina",
+        "lastName": "Najib",
+        "email": "yasmina94.najib@gmail.com",
+        "password": "$2b$10$jP4Ucm4fvv9t2uqv0L1eEuYgVZwQzv.MHFar3hPOG0M/0qY6yd5d6",
+        "allergyInfo": "None",
+        "guestList": [
+            {
+                "firstName": "Yasmina",
+                "lastName": "Najib",
+                "confirmed": true
+            },
+            {
+                "firstName": "Alessandro",
+                "lastName": "Vassalli",
+                "confirmed": true
+            }
+        ],
+        "comments": "",
+        "confirmationSiteDone": false,
+        "onlyChurchGuest": true
     }
-  ]
-}
+]

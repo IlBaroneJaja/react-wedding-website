@@ -69,7 +69,6 @@ const LoginModal = ({showModal, handleClose}) => {
     };
 
     const checkAccountExists = (callback) => {
-        console.log("This is my env variable: " + env.REACT_APP_API_URL + " and " + env.REACT_APP_CHECK_ACCOUNT_ENDPOINT)
         fetch(`${env.REACT_APP_API_URL}${env.REACT_APP_CHECK_ACCOUNT_ENDPOINT}`, {
             method: 'POST',
             headers: {

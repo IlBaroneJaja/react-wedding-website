@@ -6,13 +6,10 @@ import path from 'node:path';
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import cors from "cors";
-import {JSONFilePreset} from "lowdb/node";
 import {config} from "dotenv";
-
+import find, {updateGuest} from "./services/mongoService.js";
 
 const env = config();
-
-const db = await JSONFilePreset('database.json', { users: [] })
 
 const app = express();
 
@@ -21,11 +18,12 @@ const jwtSecretKey = process.env.SECRET_JWT;
 
 if (process.env.NODE_ENV === 'production') {
     app.use(enforceHttps());
+
 }
 
 app.use(cors());
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({extended: true}))
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -38,20 +36,20 @@ app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
-app.post('/auth', (req, res) => {
-    const { email, password } = req.body
+app.post('/auth', async(req, res) => {
+    const {email, password} = req.body
 
     // Look up the user entry in the database
-    const { users } = db.data;
-    const results = users.filter((user) => email === user.email);
+    const query = { email };
+    const documents = await find('weddingDb', 'users', query);
 
 
     // If found, compare the hashed passwords and generate the JWT token for the user
-    if (results.length === 1) {
-        const user = results[0];
+    if (documents.length === 1) {
+        const user = documents[0];
         bcrypt.compare(password, user.password, function (_err, result) {
             if (!result) {
-                return res.status(401).json({ message: 'Invalid password' })
+                return res.status(401).json({message: 'Invalid password'})
             } else {
                 let loginData = {
                     email,
@@ -63,14 +61,13 @@ app.post('/auth', (req, res) => {
                 };
 
                 const token = jwt.sign(loginData, jwtSecretKey, options)
-                res.status(200).json({ message: 'success', token })
+                res.status(200).json({message: 'success', token})
             }
         })
         // If no user is found, hash the given password and create a new entry in the auth db with the email and hashed password
-    }
-    else if (results.length === 0) {
+    } else if (documents.length === 0) {
         bcrypt.hash(password, 10, function (_err, hash) {
-            console.log({ email, password: hash })
+            console.log({email, password: hash})
             // db.get('users').push({ email, password: hash }).write()
             //
             // let loginData = {
@@ -79,7 +76,7 @@ app.post('/auth', (req, res) => {
             // }
             //
             // const token = jwt.sign(loginData, jwtSecretKey)
-            res.status(404).json({ status: 'not found', message: 'error' })
+            res.status(404).json({status: 'not found', message: 'error'})
         })
     }
 })
@@ -91,29 +88,80 @@ app.post('/verify', (req, res) => {
     try {
         const verified = jwt.verify(authToken, jwtSecretKey)
         if (verified) {
-            return res.status(200).json({ status: 'logged in', message: 'success' })
+            return res.status(200).json({status: 'logged in', message: 'success'})
         } else {
             // Access Denied
-            return res.status(401).json({ status: 'invalid auth', message: 'error' })
+            return res.status(401).json({status: 'invalid auth', message: 'error'})
         }
     } catch (error) {
         // Access Denied
-        return res.status(401).json({ status: 'invalid auth', message: 'error' })
+        return res.status(401).json({status: 'invalid auth', message: 'error'})
     }
 })
 
 // An endpoint to see if there's an existing account for a given email address
-app.post('/check-account', (req, res) => {
-    const { email } = req.body
-
+app.post('/check-account', async (req, res) => {
     console.log(req.body);
-    const { users } = db.data;
-    const results = users.filter((user) => email === user.email);
+    const {email} = req.body;
 
-    if (results.length === 1) {
-        res.status(200).json({status: 'account verified', message:`User ${email} exists`, userExists: results.length === 1});
+    const query = { email };
+    const documents = await find('weddingDb', 'users', query);
+
+    if (documents.length === 1) {
+        res.status(200).json({
+            status: 'account verified',
+            message: `User ${email} exists`,
+            userExists: documents.length === 1
+        });
     } else {
-        res.status(404).json({status: 'account does not exist', message:`User ${email} is not found`, userExists: results.length === 1});
+        res.status(404).json({
+            status: 'account does not exist',
+            message: `User ${email} is not found`,
+            userExists: documents.length === 1
+        });
+    }
+})
+
+app.post('/guest', async (req, res) => {
+    try {
+        console.log(req.body);
+        const {email} = req.body;
+        const query = { email };
+        const documents = await find('weddingDb', 'users', query);
+
+        if (documents.length === 1) {
+            res.status(200).json({guest: documents[0], message: 'success'});
+        } else {
+            res.status(404).json({
+                status: 'account does not exist',
+                message: `User ${email} is not found`,
+                userExists: documents.length === 1
+            });
+        }
+    } catch (error) {
+        console.error('Error connecting to the database:', error);
+        res.status(500).send('Internal Server Error');
+    }
+})
+
+app.put('/guest', async (req, res) => {
+    try {
+        console.log(req.body);
+        const {email, guestList, comments, allergyInfo, confirmationSiteDone} = req.body;
+        const query = { email };
+        const documents = await updateGuest('weddingDb', 'users', query, guestList, comments, allergyInfo, confirmationSiteDone);
+
+        if (documents.matchedCount === 0) {
+            res.status(404).json({
+                status: 'could not update guest info',
+                message: `User ${email} is not found or problem occurred while updating`
+            });
+        } else {
+            res.status(200).json({message: 'updated successfully'});
+        }
+    } catch (error) {
+        console.error('Error connecting to the database:', error);
+        res.status(500).send('Internal Server Error');
     }
 })
 

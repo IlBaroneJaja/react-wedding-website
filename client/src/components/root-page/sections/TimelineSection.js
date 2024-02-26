@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import styles from "./TimelineSection.module.css"
 import weddingSignature from "../../../images/wedding_signature.jpg";
 import church from "../../../images/collegiale_nivelles_square.jpg";
@@ -8,6 +8,7 @@ import withScroll from '../../WithScroll';
 import FeatureCards, {generateFeatureDataItem} from "../../../utils/FeatureCards";
 import {CgDetailsMore, CgInfinity} from "react-icons/cg";
 import {FaMapMarked} from "react-icons/fa";
+import useLocalStorage from "../../../utils/LocalStorageUtil";
 
 const TimelineSection = React.forwardRef(({id}, ref) => {
     const featureData = [
@@ -18,11 +19,10 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
             "Pl. Albert Ier 2, 1400 Nivelles",
             "",
             "https://maps.app.goo.gl/QYokwRJQTkn8r23x7",
-            <FaMapMarked />,
+            <FaMapMarked/>,
             "",
             "/itineraryDetails#castleTitle",
-            <CgDetailsMore />
-
+            <CgDetailsMore/>
         ),
         generateFeatureDataItem(
             church,
@@ -31,10 +31,10 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
             "Grand'Place 4, 1400 Nivelles",
             "",
             "https://maps.app.goo.gl/K8ZSwspxg4TmsnV27",
-            <FaMapMarked />,
+            <FaMapMarked/>,
             "",
             "/itineraryDetails#municipalityHeading",
-            <CgDetailsMore />
+            <CgDetailsMore/>
         ),
         generateFeatureDataItem(
             castle,
@@ -43,30 +43,53 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
             "Rue Omer Lion, 7181 Seneffe",
             "",
             "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
-            <FaMapMarked />,
+            <FaMapMarked/>,
             "",
             "/itineraryDetails#municipalityHeading",
-            <CgDetailsMore />
+            <CgDetailsMore/>
         ),
         generateFeatureDataItem(
             party,
             "Soirée",
-            <Fragment>23h - <CgInfinity /></Fragment>,
+            <Fragment>23h - <CgInfinity/></Fragment>,
             "Rue Omer Lion, 7181 Seneffe",
             "",
             "https://maps.app.goo.gl/mK2fjZWn3TByGbuK8",
-            <FaMapMarked />,
+            <FaMapMarked/>,
             "",
             "/itineraryDetails#municipalityHeading",
-            <CgDetailsMore />
+            <CgDetailsMore/>
         ),
     ];
+    // const featureDataFiltered = [...featureData];
+
+    const [guestInfo, setGuestInfo] = useLocalStorage("guestInfo", "");
+    const [isOnlyChurchGuest, setIsOnlyChurchGuest] = useState(true);
+    const [featureDataFiltered, setFeatureDataFiltered] = useState([]);
+
+    useEffect(() => {
+        const setIsOnlyChurchGuestFlag = () => {
+            setIsOnlyChurchGuest(guestInfo?.guest?.onlyChurchGuest);
+        };
+
+        const filterFeatureCardsBasedOnGuestType = () => {
+            let filteredData = [...featureData];
+            if (isOnlyChurchGuest) {
+                filteredData.shift();
+            }
+
+            setFeatureDataFiltered(filteredData);
+        };
+
+        setIsOnlyChurchGuestFlag();
+        filterFeatureCardsBasedOnGuestType();
+    }, [guestInfo?.guest?.onlyChurchGuest]);
 
     return (
         <section ref={ref} id={id} className={styles.stickyTimelineBackground}>
             <div className="container px-4 py-3" id="timelineContainer">
                 <h2 className="mt-3 mb-5 border-bottom text-center">Agenda des festivités</h2>
-                <FeatureCards featureCardsProps={featureData}/>
+                <FeatureCards featureCardsProps={featureDataFiltered}/>
             </div>
         </section>
     );

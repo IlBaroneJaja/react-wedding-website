@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -12,7 +12,6 @@ import {AuthContext} from "./components/authentication/AuthProvider";
 import env from "react-dotenv";
 
 function App() {
-    // const [isLoggedIn, setIsLoggedIn] = useState(false);
     const { isLoggedIn, login, logout } = useContext(AuthContext);
 
     useEffect(() => {
@@ -36,10 +35,13 @@ function App() {
             .then((r) => {
                 if ('success' === r.message) {
                     login();
+                } else {
+                    localStorage.removeItem('user');
+                    logout();
                 }
 
             })
-    }, [])
+    }, [login, logout])
 
     return (
         <Router>
@@ -57,7 +59,7 @@ function App() {
                 </>
             ) : (
                 <Routes>
-                    <Route path="/" element={<Cover />} />
+                    <Route path="*" element={<Cover />} />
                 </Routes>
             )}
         </Router>
