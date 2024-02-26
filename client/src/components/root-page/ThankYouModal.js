@@ -4,9 +4,13 @@ import thankYouModalBg from "../../images/thankyouBackground.jpg";
 
 const ThankYouModal = ({showThankYouModal, setShowThankYouModal}) => {
     const modalStyle = {
-        backgroundImage: `url(${thankYouModalBg})`, // Set the background image
-        backgroundSize: "cover", // Cover the entire modal
-        backgroundRepeat: "no-repeat", // No repeating of the background image
+        zIndex: 10000000 //more than the rsvp modal
+    };
+
+    const bodyStyle = {
+        backgroundImage: `url(${thankYouModalBg})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
     };
 
     return <Modal
@@ -16,12 +20,12 @@ const ThankYouModal = ({showThankYouModal, setShowThankYouModal}) => {
         centered
         show={showThankYouModal}
         onHide={() => setShowThankYouModal(false)}
-        // style={modalStyle}
+        style={modalStyle}
     >
         <Modal.Header closeButton>
             <Modal.Title>Merci !</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={modalStyle}>
+        <Modal.Body>
 
             <div style={{fontSize: "48px", fontFamily: "kalam, cursive", color: "#A9B388"}}>
                 Nous vous remercions pour votre confirmation et avons déjà hâte de célébrer ce jour si spécial à vos

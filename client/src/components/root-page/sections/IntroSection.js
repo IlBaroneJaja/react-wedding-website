@@ -5,6 +5,7 @@ import RsvpModal from "../../RsvpModal";
 import {Heart, HeartPulse} from "react-bootstrap-icons";
 import {FaRegHeart} from "react-icons/fa";
 import fetchGuestData from "../../../services/fetchUserData";
+import ThankYouModal from "../ThankYouModal";
 
 
 // Event Itineraries Content
@@ -15,6 +16,7 @@ const IntroSection = React.forwardRef(({id}, ref) => {
 
     const [showRsvpModal, setShowRsvpModal] = useState(false);
     const [confirmationSiteDone, setConfirmationSiteDone] = useState(false);
+    const [showThankYouModal, setShowThankYouModal] = useState(false);
 
 
     useEffect(() => {
@@ -54,14 +56,18 @@ const IntroSection = React.forwardRef(({id}, ref) => {
                     className={`btn btn-light text-white btn-lg px-4 gap-3 ${styles.rsvpButton}`}>Confirmer
                 présence
             </button>
-            <RsvpModal showRsvpModal={showRsvpModal} handleRsvpClose={handleRsvpClose}
-                       handleConfirmationSiteDone={handleConfirmationSiteDone}/>
+            <RsvpModal
+                showRsvpModal={showRsvpModal}
+                handleRsvpClose={handleRsvpClose}
+                handleConfirmationSiteDone={handleConfirmationSiteDone}
+                setShowThankYouModal={setShowThankYouModal}
+            />
         </div>
     );
 
     const htmlContentWhenConfirmed = (
         <div style={{color: "orange"}}>
-            <h3> Merci pour votre confirmation ! <FaRegHeart /></h3>
+            <h3> Merci pour votre confirmation ! <FaRegHeart/></h3>
         </div>
     );
 
@@ -79,6 +85,11 @@ const IntroSection = React.forwardRef(({id}, ref) => {
                         htmlContentWhenConfirmed
                         : htmlContentWhenNotConfirmedYet
                     }
+
+                    <ThankYouModal
+                        showThankYouModal={showThankYouModal}
+                        setShowThankYouModal={setShowThankYouModal}
+                    />
                 </div>
             </div>
         </section>

@@ -6,10 +6,9 @@ import {AuthContext} from "./authentication/AuthProvider";
 import env from "react-dotenv";
 import Guest from "./root-page/Guest";
 import ConfirmationModal from "./ConfirmationModal";
-import ThankYouModal from "./root-page/ThankYouModal";
 import fetchGuestData from "../services/fetchUserData";
 
-const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone}) => {
+const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, setShowThankYouModal}) => {
     const loggedInUser = JSON.parse(localStorage.getItem("user"));
     const [email, setEmail] = useState(loggedInUser?.email);
     const [emailError, setEmailError] = useState('');
@@ -25,38 +24,9 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone})
     const [allergyInfo, setAllergyInfo] = useState('');
 
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
-    const [showThankYouModal, setShowThankYouModal] = useState(false);
 
 
     useEffect(() => {
-            // const getGuestData = async () => {
-            //     try {
-            //
-            //         const response = await fetch(`${env.REACT_APP_API_URL}${env.REACT_APP_GET_GUEST_ENDPOINT}`, {
-            //             method: 'POST',
-            //             headers: {
-            //                 'Content-Type': 'application/json',
-            //             },
-            //             body: JSON.stringify({email}),
-            //         });
-            //         const data = await response.json();
-            //
-            //         if ('success' === data.message) {
-            //             localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))
-            //             console.log('API call successful', data);
-            //             setGuest(data);
-            //
-            //         } else {
-            //             setGuestError("Invité non trouvé");
-            //         }
-            //
-            //     } catch
-            //         (error) {
-            //         console.error('API call error', error);
-            //         // Handle error scenarios
-            //     }
-            // };
-
             if (showRsvpModal) {
                 const data = fetchGuestData(email);
 
@@ -68,8 +38,8 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone})
                 } else {
                     setGuestError("Invité non trouvé");
                 }
-
             }
+
         }, [email, showRsvpModal]
     )
     ;
@@ -78,15 +48,19 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone})
         return true;
     }
 
-    const handleConfirmationYes = () => {
+    const handleConfirmationYes = async () => {
         setShowConfirmationModal(false);
         handleConfirmationSiteDone(true);
 
-        updateGuestData().then(() => {
-                handleRsvpClose();
-                setShowThankYouModal(true);
-            }
-        );
+        try {
+            await updateGuestData();
+            handleRsvpClose();
+        } catch (error) {
+            console.error('Error updating guest data:', error);
+            // Handle error scenarios, such as showing an error message or logging the error.
+        } finally {
+            setShowThankYouModal(true);
+        }
 
     };
 
@@ -162,7 +136,6 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone})
 
         if (validateInput()) {
             setValidated(true);
-
             setShowConfirmationModal(true);
 
         } else {
@@ -305,10 +278,6 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone})
                 setShowConfirmationModal={setShowConfirmationModal}
                 handleConfirmationNo={handleConfirmationNo}
                 handleConfirmationYes={handleConfirmationYes}
-            />
-            <ThankYouModal
-                showThankYouModal={showThankYouModal}
-                setShowThankYouModal={setShowThankYouModal}
             />
         </>
     );
