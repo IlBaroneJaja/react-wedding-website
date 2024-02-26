@@ -14,7 +14,7 @@ import image3 from "../images/shooting_photo/shooting_marche_escaliers.JPG";
 import image4 from "../images/shooting_photo/shooting_parc_au_dessus.JPG";
 
 
-function Home() {
+function Home({guestInfo}) {
     const location = useLocation();
     const targetSectionRef = useRef(null);
 
@@ -32,8 +32,8 @@ function Home() {
 
     return (
         <div>
-            <IntroSection id="intro-section"/>
-            <TimelineSection id="timeline-info" />
+            <IntroSection id="intro-section" guestInfo={guestInfo} />
+            <TimelineSection id="timeline-info" guestInfo={guestInfo} />
             <PhotoSliderSection id="photoSlider" />
             <AccommodationsSection id="accommodations" />
             <FixedImage2Section id="fixed-image" image={image2} index={2} />

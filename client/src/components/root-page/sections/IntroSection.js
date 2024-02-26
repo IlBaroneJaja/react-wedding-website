@@ -2,14 +2,13 @@ import React, {useEffect, useState} from 'react';
 import styles from "./IntroSection.module.css";
 import withScroll from "../../WithScroll";
 import RsvpModal from "../../RsvpModal";
-import {Heart, HeartPulse} from "react-bootstrap-icons";
 import {FaRegHeart} from "react-icons/fa";
-import fetchGuestData from "../../../services/fetchUserData";
+import fetchGuestData from "../../../services/ApiService";
 import ThankYouModal from "../ThankYouModal";
 
 
 // Event Itineraries Content
-const IntroSection = React.forwardRef(({id}, ref) => {
+const IntroSection = React.forwardRef(({id, guestInfo}, ref) => {
     const [email, setEmail] = useState("");
     const [guest, setGuest] = useState(null);
     const [guestError, setGuestError] = useState('');
@@ -20,23 +19,15 @@ const IntroSection = React.forwardRef(({id}, ref) => {
 
 
     useEffect(() => {
-        const getGuestData = async () => {
-            const loggedInUser = JSON.parse(localStorage.getItem("user"));
-            setEmail(loggedInUser.email);
-            const data = await fetchGuestData(loggedInUser.email);
+        const guestData = JSON.parse(localStorage.getItem("guestInfo"));
 
-            if ('success' === data.message) {
-                localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))
-                setGuest(data);
-                handleConfirmationSiteDone(data.guest.confirmationSiteDone);
-            } else {
-                setGuestError("Invité non trouvé");
-            }
+        if (guestData && guestData.guest) {
+            localStorage.setItem('guestInfo', JSON.stringify({guest: guestData.guest}))
+            setGuest(guestData);
+            handleConfirmationSiteDone(guestData.guest.confirmationSiteDone);
+        } else {
+            setGuestError("Invité non trouvé");
         }
-
-        getGuestData();
-
-
     }, [email]);
 
 

@@ -6,7 +6,7 @@ import {AuthContext} from "./authentication/AuthProvider";
 import env from "react-dotenv";
 import Guest from "./root-page/Guest";
 import ConfirmationModal from "./ConfirmationModal";
-import fetchGuestData from "../services/fetchUserData";
+import fetchGuestData from "../services/ApiService";
 
 const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, setShowThankYouModal}) => {
     const loggedInUser = JSON.parse(localStorage.getItem("user"));

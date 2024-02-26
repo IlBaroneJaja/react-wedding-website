@@ -37,13 +37,13 @@
 
 /* Place the container to the left */
 .left-2 {
-    padding: 0px 40px 20px 0px;
+    padding: 0 40px 20px 0;
     left: 0;
 }
 
 /* Place the container to the right */
 .right-2 {
-    padding: 0px 0px 20px 40px;
+    padding: 0 0 20px 40px;
     left: 50%;
 }
 
