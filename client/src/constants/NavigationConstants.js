@@ -24,10 +24,10 @@ const navigationItems = [
             }
         ]
     },
-    {section: 'our-story', header: 'Notre histoire', isExternalSection: true},
-    {section: 'gift-registries', header: 'Liste de mariage', isExternalSection: false},
     {section: 'dress-code', header: 'Dress code', isExternalSection: false},
+    {section: 'gift-registries', header: 'Cadeaux', isExternalSection: false},
     {section: 'rsvps', header: "RSVP's", isExternalSection: false},
+    {section: 'our-story', header: 'Notre histoire', isExternalSection: true},
 ];
 
 export default navigationItems;
