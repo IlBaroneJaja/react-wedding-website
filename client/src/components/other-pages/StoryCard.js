@@ -11,7 +11,7 @@ const StoryCard = ({image, imageAlt, title, date, content, orientation}) => {
                     <MDBCardImage
                         src={image}
                         alt={imageAlt}
-                        style={{height: "400px", objectFit: "cover"}}
+                        style={{height: "100%", objectFit: "cover"}}
                         position="top"
                     />
                     <MDBCardBody className='p-4'>

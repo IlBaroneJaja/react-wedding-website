@@ -71,9 +71,10 @@ function App() {
                     <NavigationNew/>
                     <Routes>
                         <Route path="/home" element={<Home guestInfo={guestInfo}/>}/>
-                        <Route path="/itineraryDetails" element={<ItineraryMoreDetailsPage/>}/>
-                        <Route path="/accommodationsDetails" element={<AccommodationsMoreDetailsPage/>}/>
-                        <Route path="/our-story" element={<StoryPage/>}/>
+                        <Route path="/itineraryDetails" element={<ItineraryMoreDetailsPage guestInfo={guestInfo}/>}/>
+                        <Route path="/accommodationsDetails"
+                               element={<AccommodationsMoreDetailsPage guestInfo={guestInfo}/>}/>
+                        <Route path="/our-story" element={<StoryPage guestInfo={guestInfo}/>}/>
                         {/* Add more routes for additional pages */}
                     </Routes>
                     <Footer/>

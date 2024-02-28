@@ -3,14 +3,12 @@ import styles from "./IntroSection.module.css";
 import withScroll from "../../WithScroll";
 import RsvpModal from "../../RsvpModal";
 import {FaRegHeart} from "react-icons/fa";
-import fetchGuestData from "../../../services/ApiService";
 import ThankYouModal from "../ThankYouModal";
 
 
 // Event Itineraries Content
 const IntroSection = React.forwardRef(({id, guestInfo}, ref) => {
     const [email, setEmail] = useState("");
-    const [guest, setGuest] = useState(null);
     const [guestError, setGuestError] = useState('');
 
     const [showRsvpModal, setShowRsvpModal] = useState(false);
@@ -22,8 +20,6 @@ const IntroSection = React.forwardRef(({id, guestInfo}, ref) => {
         const guestData = JSON.parse(localStorage.getItem("guestInfo"));
 
         if (guestData && guestData.guest) {
-            localStorage.setItem('guestInfo', JSON.stringify({guest: guestData.guest}))
-            setGuest(guestData);
             handleConfirmationSiteDone(guestData.guest.confirmationSiteDone);
         } else {
             setGuestError("Invité non trouvé");
