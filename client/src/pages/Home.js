@@ -37,9 +37,9 @@ function Home({guestInfo}) {
             <PhotoSliderSection id="photoSlider" />
             <AccommodationsSection id="accommodations" />
             <FixedImage2Section id="fixed-image" image={image2} index={2} />
-            <GiftRegistriesSection id="gift-registries" />
-            <FixedImage2Section id="fixed-image" image={image3} index={3} />
             <DressCodeSection id="dress-code" />
+            <FixedImage2Section id="fixed-image" image={image3} index={3} />
+            <GiftRegistriesSection id="gift-registries" />
             <FixedImage2Section id="fixed-image" image={image4} index={4} />
             <RsvpSection id="rsvps" />
             <Countdown id="count-down"/>

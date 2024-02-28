@@ -1,3 +1,5 @@
-.dressCodeBgImage {
-    background-image: url('../../../images/shooting_photo/shooting_parc_au_dessus.JPG');
+.dressCodeSection {
+    min-height: 100vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }
