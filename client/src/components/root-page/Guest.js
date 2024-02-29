@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Form, InputGroup} from "react-bootstrap";
 
-const Guest = ({firstName, lastName, confirmed = true, index, onUpdateConfirmation}) => {
+const Guest = ({customId, firstName, lastName, confirmed = true, index, onUpdateConfirmation}) => {
     const [isCheckmarkActive, setCheckmarkActive] = useState(confirmed);
     const [isCrossActive, setCrossActive] = useState(!confirmed);
 
@@ -23,6 +23,8 @@ const Guest = ({firstName, lastName, confirmed = true, index, onUpdateConfirmati
         <>
             <InputGroup className="mb-2">
                 <Form.Control
+                    id={`${customId}FormGuestFirstName${index}`}
+                    name={`${customId}FormGuestFirstName${index}`}
                     disabled
                     value={firstName}
                     placeholder="Prénom Invité"
@@ -30,6 +32,8 @@ const Guest = ({firstName, lastName, confirmed = true, index, onUpdateConfirmati
 
                 />
                 <Form.Control
+                    id={`${customId}FormGuestLastName${index}`}
+                    name={`${customId}FormGuestLastName${index}`}
                     disabled
                     value={lastName}
                     placeholder="Nom Invité"

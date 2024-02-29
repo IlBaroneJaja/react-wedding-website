@@ -1,0 +1,16 @@
+.floatingImage {
+    max-width: 100%;
+    width: 400px;
+    height: 100%;
+    object-fit: cover;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 20px;
+}
+
+.imageTextContainer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: auto;
+    width: 100%;
+}

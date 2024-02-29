@@ -22,7 +22,7 @@ function App() {
     useEffect(() => {
         const getGuestData = async () => {
             const loggedInUser = JSON.parse(localStorage.getItem("user"));
-            const data = await fetchGuestData(loggedInUser.email);
+            const data = await fetchGuestData(loggedInUser?.email);
 
             if ('success' === data.message) {
                 localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))

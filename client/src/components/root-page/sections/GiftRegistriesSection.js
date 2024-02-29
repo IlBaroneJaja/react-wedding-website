@@ -1,5 +1,5 @@
 import React from 'react';
-import sharedStyles from "../../../index.module.css";
+import styles from "./GiftRegistriesSection.module.css";
 import withScroll from "../../WithScroll";
 import gifts from "../../../images/svg/gifts.svg";
 import sneezingMan from "../../../images/svg/sneezing-man.svg";
@@ -7,14 +7,11 @@ import sneezingMan from "../../../images/svg/sneezing-man.svg";
 
 const GiftRegistriesSection = React.forwardRef(({id}, ref) => {
     return (
-        <section ref={ref} id={id} className={sharedStyles.otherSections}>
-
+        <section ref={ref} id={id} className={styles.giftSection}>
             <h1 style={{textAlign: "center", paddingTop: "30px"}}>Liste de cadeaux</h1>
             <div className="container my-5">
                 <div className="p-5 text-center bg-body-transparent rounded-3">
                     <img src={gifts} className="mb-4" width="80px" height="80px" alt="cadeaux"/>
-                    {/*<h1 className="text-body-emphasis">Cadeaux et attentions</h1>*/}
-
                     <p className="col-lg-8 mx-auto fs-5 text-muted">
                         Notre plus cadeau est évidemment de vous avoir à nos côtés lors de cette magnifique journée.
                         Toutefois, si vous souhaitez contribuer à la concrétisation de nos futurs projets, plutôt

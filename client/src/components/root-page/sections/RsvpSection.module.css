@@ -1,0 +1,15 @@
+.rsvpButton {
+    background-color: rgba(37, 140, 31, 0.5) !important;
+    color: white !important;
+    border: 1px solid white;
+}
+
+.rsvpSection {
+    height: auto;
+    padding-top: 1vh;
+    padding-bottom: 50px;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import {Modal} from "react-bootstrap";
 import thankYouModalBg from "../../images/thankyouBackground.jpg";
 
-const ThankYouModal = ({showThankYouModal, setShowThankYouModal}) => {
+const ThankYouModal = ({customId, showThankYouModal, setShowThankYouModal}) => {
     const modalStyle = {
         zIndex: 10000000 //more than the rsvp modal
     };
@@ -14,6 +14,7 @@ const ThankYouModal = ({showThankYouModal, setShowThankYouModal}) => {
     };
 
     return <Modal
+        id={`${customId}ThankYouModal`}
         size="lg"
         backdrop="static"
         keyboard={false}
@@ -22,17 +23,17 @@ const ThankYouModal = ({showThankYouModal, setShowThankYouModal}) => {
         onHide={() => setShowThankYouModal(false)}
         style={modalStyle}
     >
-        <Modal.Header closeButton>
+        <Modal.Header id={`${customId}ThankYouModalHeader`} closeButton>
             <Modal.Title>Merci !</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body id={`${customId}ThankYouModalBody`}>
 
             <div style={{fontSize: "48px", fontFamily: "kalam, cursive", color: "#A9B388"}}>
                 Nous vous remercions pour votre confirmation et avons déjà hâte de célébrer ce jour si spécial à vos
                 côtés.
             </div>
         </Modal.Body>
-        <Modal.Footer style={{fontSize: "28px", fontFamily: "kalam, cursive", color: "#A9B388"}}>
+        <Modal.Footer id={`${customId}ThankYouModalFooter`} style={{fontSize: "28px", fontFamily: "kalam, cursive", color: "#A9B388"}}>
             Yasmina & Alessandro
         </Modal.Footer>
     </Modal>

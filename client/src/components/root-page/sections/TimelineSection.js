@@ -3,7 +3,7 @@ import styles from "./TimelineSection.module.css"
 import weddingSignature from "../../../images/wedding_signature.jpg";
 import church from "../../../images/collegiale_nivelles_square.jpg";
 import castle from "../../../images/chateau_la_rocq_square.jpg";
-import party from "../../../images/party_square.jpg";
+import party from "../../../images/party_square2.jpg";
 import withScroll from '../../WithScroll';
 import FeatureCards, {generateFeatureDataItem} from "../../../utils/FeatureCards";
 import {CgDetailsMore, CgInfinity} from "react-icons/cg";

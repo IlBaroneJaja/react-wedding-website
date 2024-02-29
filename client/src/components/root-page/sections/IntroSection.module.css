@@ -40,7 +40,8 @@
     }
 }
 .rsvpButton {
-    background-color: rgba(37, 140, 31, 0.5) !important;
+    /* background-color: rgba(195, 208, 194, 0.5) !important; */
+    background-color: rgba(83, 168, 152, 0.5) !important;
     color: white !important;
     border: 1px solid white;
 }

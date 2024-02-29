@@ -1,14 +1,13 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Button, Modal, Form, FloatingLabel, Row, Col, InputGroup} from 'react-bootstrap';
+/* eslint-disable jsx-a11y/control-has-associated-label */
+import React, {useEffect, useState} from 'react';
+import {Button, Modal, Form, FloatingLabel, Row, Col} from 'react-bootstrap';
 import styles from "./RsvpModal.module.css";
-import {useNavigate} from "react-router-dom";
-import {AuthContext} from "./authentication/AuthProvider";
 import env from "react-dotenv";
-import Guest from "./root-page/Guest";
+import Guest from "./Guest";
 import ConfirmationModal from "./ConfirmationModal";
-import fetchGuestData from "../services/ApiService";
+import fetchGuestData from "../../services/ApiService";
 
-const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, setShowThankYouModal}) => {
+const RsvpModal = ({customId, showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, setShowThankYouModal}) => {
     const loggedInUser = JSON.parse(localStorage.getItem("user"));
     const [email, setEmail] = useState(loggedInUser?.email);
     const [emailError, setEmailError] = useState('');
@@ -24,21 +23,26 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, 
 
 
     useEffect(() => {
+        const fetchData = async () => {
             if (showRsvpModal) {
-                const data = fetchGuestData(email);
+                const data = await fetchGuestData(email);
 
                 if ('success' === data.message) {
                     localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))
                     setGuest(data);
+                    setAllergyInfo(data.guest.allergyInfo);
+                    setComments(data.guest.comments);
 
                 } else {
                     setGuestError("Invité non trouvé");
                 }
             }
+        }
+
+        fetchData();
 
         }, [email, showRsvpModal]
-    )
-    ;
+    );
 
     const validateInput = () => {
         return true;
@@ -175,30 +179,39 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, 
                     </div>
                     <Form noValidate validated={validated} onSubmit={handleConfirmation}>
                         <Row className="my-3">
-                            <Form.Group as={Col} controlId="formConfirmation">
-                                <Form.Group controlId="formFirstName">
-                                    <Form.Label className={styles.label}>Prénom</Form.Label>
-                                    <Form.Control placeholder="Nom" value={guestInfo?.firstName} disabled/>
+                            <Form.Group as={Col}>
+                                <Form.Group>
+                                    <Form.Label htmlFor={`${customId}FormFirstNameInput`}
+                                                id={`${customId}FormFirstNameLabel`}
+                                                className={styles.label}>Prénom</Form.Label>
+                                    <Form.Control id={`${customId}FormFirstNameInput`} placeholder="Nom"
+                                                  value={guestInfo?.firstName} disabled/>
                                 </Form.Group>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formConfirmation">
-                                <Form.Group controlId="formLastName">
-                                    <Form.Label className={styles.label}>Nom</Form.Label>
-                                    <Form.Control placeholder="Nom" value={guestInfo?.lastName} disabled/>
+                            <Form.Group as={Col}>
+                                <Form.Group>
+                                    <Form.Label htmlFor={`${customId}FormLastNameInput`}
+                                                id={`${customId}FormLastNameLabel`}
+                                                className={styles.label}>Nom</Form.Label>
+                                    <Form.Control id={`${customId}FormLastNameInput`} placeholder="Nom"
+                                                  value={guestInfo?.lastName} disabled/>
                                 </Form.Group>
                             </Form.Group>
                         </Row>
 
-                        <Form.Group controlId="formConfirmation" className="mb-3">
-                            <Form.Label className={styles.label}>Email</Form.Label>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor={`${customId}FormEmailInput`} id={`${customId}FormEmailLabel`}
+                                        className={styles.label}>Email</Form.Label>
                             <FloatingLabel
-                                controlId="floatingEmail"
+                                htmlFor={`${customId}FormEmailInput`}
+                                id={`${customId}formEmailFloatingLabel`}
                                 label="Addresse email"
                                 className="mb-3 text-dark"
                             >
                                 <Form.Control
                                     disabled
+                                    id={`${customId}FormEmailInput`}
                                     type="email"
                                     placeholder="Entrez votre adresse email"
                                     value={guestInfo?.email}
@@ -213,8 +226,10 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, 
                             </FloatingLabel>
                         </Form.Group>
 
-                        <Form.Group controlId="formConfirmation" className="mb-3">
-                            <Form.Label className={styles.label}>Liste invités</Form.Label>
+                        <Form.Group className="mb-3">
+                            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                            <Form.Label htmlFor={`${customId}FormGuestFirstName0`} id={`${customId}FormGuestListLabel`}
+                                        className={styles.label}>Liste invités</Form.Label>
                             <div className={styles.modalParagraph}>
                                 Voici la liste des invités pour l'adresse mail donnée. Confirmez chacune des
                                 présences en sélectionnant le bouton "V" (présent) ou "X" (absent).
@@ -222,6 +237,7 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, 
                             <br/>
                             {guestInfo?.guestList?.length >= 0 && guestInfo?.guestList.map((user, index) =>
                                 <Guest
+                                    customId={customId}
                                     className="mt-3"
                                     key={index}
                                     index={index}
@@ -233,33 +249,43 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, 
                             )}
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="exampleForm.allergyInfo">
-                            <Form.Label className={styles.label}>Info allergies/intolérances</Form.Label>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor={`${customId}FormAllergyInfoInput`}
+                                        id={`${customId}FormAllergyInfoLabel`} className={styles.label}>Info
+                                allergies/intolérances</Form.Label>
                             <FloatingLabel
-                                controlId="floatingCommentsTextArea"
+                                htmlFor={`${customId}FormAllergyInfoInput`}
                                 label="Allergies/intolérances"
                                 className="mb-3 text-dark"
                             >
-                                <Form.Control name="allergyArea" as="textarea" placeholder="Readonly input here..."
-                                              rows={4}
-                                              style={{height: '100px'}} onChange={handleTextAreaChange}>
-                                    {guestInfo?.allergyInfo}
+                                <Form.Control
+                                    id={`${customId}FormAllergyInfoInput`}
+                                    name="allergyArea"
+                                    as="textarea"
+                                    placeholder="Readonly input here..."
+                                    rows={4}
+                                    value={allergyInfo}
+                                    style={{height: '100px'}} onChange={handleTextAreaChange} >
                                 </Form.Control>
                             </FloatingLabel>
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="exampleForm.comments">
-                            <Form.Label className={styles.label}>Commentaires</Form.Label>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor={`${customId}FormCommentsInput`} id={`${customId}FormCommentsLabel`}
+                                        className={styles.label}>Commentaires</Form.Label>
                             <FloatingLabel
-                                controlId="floatingCommentsTextArea"
+                                htmlFor={`${customId}FormCommentsInput`}
                                 label="Commentaires, souhaits, questions..."
                                 className="mb-3 text-dark"
                             >
-                                <Form.Control name="commentsArea" as="textarea" placeholder="Readonly input here..."
-                                              rows={4}
-                                              style={{height: '100px'}} onChange={handleTextAreaChange}>
-                                    {guestInfo?.comments}
-                                </Form.Control>
+                                <Form.Control
+                                    id={`${customId}FormCommentsInput`}
+                                    name="commentsArea"
+                                    as="textarea"
+                                    placeholder="Readonly input here..."
+                                    rows={4}
+                                    value={comments}
+                                    style={{height: '100px'}} onChange={handleTextAreaChange}/>
                             </FloatingLabel>
                         </Form.Group>
 
@@ -279,3 +305,4 @@ const RsvpModal = ({showRsvpModal, handleRsvpClose, handleConfirmationSiteDone, 
 }
 
 export default RsvpModal;
+/* eslint-enable jsx-a11y/control-has-associated-label */
