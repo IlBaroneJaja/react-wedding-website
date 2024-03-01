@@ -5,6 +5,7 @@ import withScroll from "../WithScroll";
 import {MDBContainer} from "mdb-react-ui-kit";
 import storyElements from "../../constants/StoryConstants";
 import StoryCard from "./StoryCard";
+import UnderlinedHeader from "../UnderlinedHeader";
 
 const StoryComponent = React.forwardRef(({id}, ref) => {
     return (
@@ -14,7 +15,7 @@ const StoryComponent = React.forwardRef(({id}, ref) => {
 
             </section>
             <section ref={ref} id={id}>
-                <h1 style={{paddingTop: "30px", textAlign: "center"}}>Notre histoire</h1>
+                <UnderlinedHeader title="Notre histoire" />
                 <MDBContainer fluid className='py-5' style={{backgroundColor: "#fdf9f4"}}>
                     <div className={styles['main-timeline-2']}>
                         {storyElements.map(item => {

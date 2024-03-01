@@ -21,25 +21,26 @@ const RsvpModal = ({customId, showRsvpModal, handleRsvpClose, handleConfirmation
 
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
+    const confirmationContent = "Avez-vous bien encodé vos présences avant de confirmer? Une fois le formulaire envoyé, il ne sera plus possible de renvoyer une seconde fois.";
 
     useEffect(() => {
-        const fetchData = async () => {
-            if (showRsvpModal) {
-                const data = await fetchGuestData(email);
+            const fetchData = async () => {
+                if (showRsvpModal) {
+                    const data = await fetchGuestData(email);
 
-                if ('success' === data.message) {
-                    localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))
-                    setGuest(data);
-                    setAllergyInfo(data.guest.allergyInfo);
-                    setComments(data.guest.comments);
+                    if ('success' === data.message) {
+                        localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))
+                        setGuest(data);
+                        setAllergyInfo(data.guest.allergyInfo);
+                        setComments(data.guest.comments);
 
-                } else {
-                    setGuestError("Invité non trouvé");
+                    } else {
+                        setGuestError("Invité non trouvé");
+                    }
                 }
             }
-        }
 
-        fetchData();
+            fetchData();
 
         }, [email, showRsvpModal]
     );
@@ -265,7 +266,7 @@ const RsvpModal = ({customId, showRsvpModal, handleRsvpClose, handleConfirmation
                                     placeholder="Readonly input here..."
                                     rows={4}
                                     value={allergyInfo}
-                                    style={{height: '100px'}} onChange={handleTextAreaChange} >
+                                    style={{height: '100px'}} onChange={handleTextAreaChange}>
                                 </Form.Control>
                             </FloatingLabel>
                         </Form.Group>
@@ -295,6 +296,7 @@ const RsvpModal = ({customId, showRsvpModal, handleRsvpClose, handleConfirmation
             </Modal>
 
             <ConfirmationModal
+                content={confirmationContent}
                 showConfirmationModal={showConfirmationModal}
                 setShowConfirmationModal={setShowConfirmationModal}
                 handleConfirmationNo={handleConfirmationNo}

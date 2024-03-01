@@ -36,11 +36,11 @@ app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
-app.post('/auth', async(req, res) => {
+app.post('/auth', async (req, res) => {
     const {email, password} = req.body
 
     // Look up the user entry in the database
-    const query = { email };
+    const query = {email};
     const documents = await find('weddingDb', 'users', query);
 
 
@@ -104,7 +104,7 @@ app.post('/check-account', async (req, res) => {
     console.log(req.body);
     const {email} = req.body;
 
-    const query = { email };
+    const query = {email};
     const documents = await find('weddingDb', 'users', query);
 
     if (documents.length === 1) {
@@ -126,7 +126,7 @@ app.post('/guest', async (req, res) => {
     try {
         console.log(req.body);
         const {email} = req.body;
-        const query = { email };
+        const query = {email};
         const documents = await find('weddingDb', 'users', query);
 
         if (documents.length === 1) {
@@ -147,9 +147,27 @@ app.post('/guest', async (req, res) => {
 app.put('/guest', async (req, res) => {
     try {
         console.log(req.body);
-        const {email, guestList, comments, allergyInfo, confirmationSiteDone} = req.body;
-        const query = { email };
-        const documents = await updateGuest('weddingDb', 'users', query, guestList, comments, allergyInfo, confirmationSiteDone);
+        const {
+            email,
+            guestList,
+            comments,
+            allergyInfo,
+            confirmationSiteDone,
+            confirmationRoomBooking,
+            roomBooking
+        } = req.body;
+        const query = {email};
+        const documents = await updateGuest(
+            'weddingDb',
+            'users',
+            query,
+            guestList,
+            comments,
+            allergyInfo,
+            confirmationSiteDone,
+            confirmationRoomBooking,
+            roomBooking
+        );
 
         if (documents.matchedCount === 0) {
             res.status(404).json({

@@ -4,11 +4,12 @@ import withScroll from "../../WithScroll";
 import bride from "../../../images/svg/bride-with-veil-medium-skin-tone-svgrepo-com.svg";
 import groom from "../../../images/svg/groom-svgrepo-com.svg";
 import suite from "../../../images/svg/suit-1-svgrepo-com.svg";
+import UnderlinedHeader from "../../UnderlinedHeader";
 
 const DressCodeSection = React.forwardRef(({id}, ref) => {
     return (
         <section ref={ref} id={id} className={styles.dressCodeSection}>
-            <h1 style={{textAlign: "center", paddingTop: "30px"}}>Dress code de la journée</h1>
+            <UnderlinedHeader title="Dress code de la journée" />
             <div className="container px-4 py-5">
                 <div className="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
                     <div className="col d-flex flex-column align-items-start gap-2">

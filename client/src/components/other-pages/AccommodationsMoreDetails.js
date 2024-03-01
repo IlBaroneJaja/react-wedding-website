@@ -1,20 +1,31 @@
-import React, {useState} from "react";
+import React, {Fragment, useState} from "react";
 import {Element} from "react-scroll";
 import styles from "./AccommodationsMoreDetails.module.css";
 import withScroll from "../WithScroll";
 import FloatingImageContainer from "./FloatingImageContainer";
 import imagesContainerHebergementChateau from "../../constants/AccommodationsMoreDetailsConstants";
 import BookRoomModal from "./BookRoomModal";
+import UnderlinedHeader from "../UnderlinedHeader";
+import ThankYouModal from "../root-page/ThankYouModal";
 
 const AccommodationsMoreDetails = React.forwardRef(({id}, ref) => {
     const [roomBooked, setRoomBooked] = useState(false);
     const [showBookRoomModal, setShowBookRoomModal] = useState(false);
+    const [showThankYouRoomBookingModal, setShowThankYouRoomBookingModal] = useState(false);
 
+    const thankYouRoomBookingContent = <Fragment>
+        Nous avons bien reçu votre demande de réservation. Nous vous reviendrons au plus vite concernant les
+        disponibilités.
+    </Fragment>;
 
     const handleBookRoomModal = () => {
         setShowBookRoomModal(true);
     }
     const handleBookRoomModalClose = () => setShowBookRoomModal(false);
+
+    const handleConfirmationRoomBooking = (isConfirmed) => {
+        setRoomBooked(isConfirmed)
+    }
 
     return (
         <>
@@ -23,7 +34,7 @@ const AccommodationsMoreDetails = React.forwardRef(({id}, ref) => {
             </section>
             <Element name="accommodationsMoreDetails">
                 <section ref={ref} id={id} className={styles.accommodationsMoreDetailsPageContent}>
-                    <h1 style={{textAlign: "center", paddingTop: "30px"}}>Hébergement du château</h1>
+                    <UnderlinedHeader title="Hébergement du château"/>
                     <FloatingImageContainer titleId="castleTitle" titleContent="Chambres du château"
                                             containerElements={imagesContainerHebergementChateau}/>
 
@@ -38,7 +49,16 @@ const AccommodationsMoreDetails = React.forwardRef(({id}, ref) => {
                         <BookRoomModal
                             customId="bookRoomModal"
                             showBookRoomModal={showBookRoomModal}
-                            handleBookRoomClose={handleBookRoomModalClose}/>
+                            handleBookRoomClose={handleBookRoomModalClose}
+                            handleConfirmationRoomBooking={handleConfirmationRoomBooking}
+                            setShowThankYouModal={setShowThankYouRoomBookingModal}
+                        />
+
+                        <ThankYouModal
+                            customId="bookRoomThankYouModal"
+                            thankYouContent={thankYouRoomBookingContent}
+                            showThankYouModal={showThankYouRoomBookingModal}
+                            setShowThankYouModal={setShowThankYouRoomBookingModal}/>
                     </div>
                 </section>
             </Element>

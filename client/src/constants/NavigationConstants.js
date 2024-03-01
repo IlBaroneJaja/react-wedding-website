@@ -22,8 +22,6 @@ const navigationItems = [
         ]
     },
     {section: 'rsvps', header: "RSVP's", isExternalSection: false},
-
-    // {section: 'our-story', header: 'Notre histoire', isExternalSection: true},
 ];
 
 export default navigationItems;

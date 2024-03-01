@@ -6,6 +6,7 @@ import airbnbLogo from "../../../images/airbnb_logo_light2.png";
 import FeatureCards, {generateFeatureDataItem} from "../../../utils/FeatureCards";
 import {FaMapMarked} from "react-icons/fa";
 import {CgDetailsMore} from "react-icons/cg";
+import UnderlinedHeader from "../../UnderlinedHeader";
 
 const AccommodationsSection = React.forwardRef(({id}, ref) => {
     const featureData = [
@@ -36,8 +37,8 @@ const AccommodationsSection = React.forwardRef(({id}, ref) => {
     ];
     return (
         <section ref={ref} id={id} className={` ${styles.section}`}>
-            <div className="container px-4 py-3" id="timelineContainer">
-                <h2 className="mt-3 mb-5 border-bottom text-center">Liste des hébergements</h2>
+            <UnderlinedHeader title="Liste des hébergements" />
+            <div className="container px-4 py-5" id="timelineContainer">
                 <FeatureCards featureCardsProps={featureData}/>
             </div>
         </section>

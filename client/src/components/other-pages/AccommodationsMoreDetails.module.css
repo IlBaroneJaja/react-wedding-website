@@ -40,3 +40,8 @@
     color: white !important;
     border: 1px solid white;
 }
+
+.dropdown-menu {
+    position: relative !important;
+    top: auto !important;
+}

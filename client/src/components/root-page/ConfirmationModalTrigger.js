@@ -1,10 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import ThankYouModal from './ThankYouModal';
 import {FaRegHeart} from "react-icons/fa";
 import styles from "./sections/IntroSection.module.css";
 import RsvpModal from "./RsvpModal";  // Import your modal component
 
-const ConfirmationModalTrigger = ({customId, confirmationNotYetDoneText, confirmationSiteDone, onConfirmationUpdate}) => {
+const ConfirmationModalTrigger = ({
+                                      customId,
+                                      thankYouConfirmationContent,
+                                      confirmationNotYetDoneText,
+                                      confirmationSiteDone,
+                                      onConfirmationUpdate
+                                  }) => {
     const [guestError, setGuestError] = useState('');
 
     const [showRsvpModal, setShowRsvpModal] = useState(false);
@@ -57,6 +63,7 @@ const ConfirmationModalTrigger = ({customId, confirmationNotYetDoneText, confirm
         <div className={`mx-auto text-center pb-5 ${styles.customButtonDiv}`}>
             {confirmationSiteDone ? htmlContentWhenConfirmed : htmlContentWhenNotConfirmedYet}
             <ThankYouModal
+                thankYouContent={thankYouConfirmationContent}
                 customId={customId}
                 showThankYouModal={showThankYouModal}
                 setShowThankYouModal={setShowThankYouModal}

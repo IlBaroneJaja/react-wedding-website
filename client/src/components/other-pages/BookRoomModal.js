@@ -1,16 +1,17 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, {useEffect, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import {Button, Modal, Form, FloatingLabel, Row} from 'react-bootstrap';
 import styles from "./BookRoomModal.module.css";
 import env from "react-dotenv";
 import ConfirmationModal from "../root-page/ConfirmationModal";
 import fetchGuestData from "../../services/ApiService";
+import isNumber from "../../utils/ValidationUtil";
 
 const BookRoomModal = ({
                            customId,
                            showBookRoomModal,
                            handleBookRoomClose,
-                           handleConfirmationSiteDone,
+                           handleConfirmationRoomBooking,
                            setShowThankYouModal
                        }) => {
     const loggedInUser = JSON.parse(localStorage.getItem("user"));
@@ -18,11 +19,21 @@ const BookRoomModal = ({
     const [emailError, setEmailError] = useState('');
     const [roomNb, setRoomNb] = useState(0);
     const [roomNbError, setRoomNbError] = useState('');
+    const [roomType, setRoomType] = useState('double');
     const [validated, setValidated] = useState(false);
-
     const [guest, setGuest] = useState(null);
     const [guestError, setGuestError] = useState('');
+    const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
+
+    const confirmationContent =
+        <Fragment>
+            Voulez-vous confirmer votre demande de réservation pour les chambres suivantes:
+            <ul>
+                <li><span className="fw-bold">Nombre:</span> {roomNb} x</li>
+                <li><span className="fw-bold">Type de chambre:</span> {roomType}</li>
+            </ul>
+        </Fragment>
 
     useEffect(() => {
             const fetchData = async () => {
@@ -49,17 +60,19 @@ const BookRoomModal = ({
             return false;
         }
 
-        if (roomNb < 0 || roomNb > 3) {
+        if (!isNumber(roomNb) || roomNb < 0 || roomNb > 3) {
             setRoomNbError('Nombre de chambres invalide. Le nombre de chambres par groupe est limité à 3');
             return false;
         }
 
+        // validation succeeds without error : validated = true
         return true;
     }
 
+
     const handleConfirmationYes = async () => {
-        // setShowConfirmationModal(false);
-        // handleConfirmationSiteDone(true);
+        setShowConfirmationModal(false);
+        handleConfirmationRoomBooking(true);
 
         try {
             await updateGuestData();
@@ -74,34 +87,13 @@ const BookRoomModal = ({
     };
 
     const handleConfirmationNo = () => {
-        // setShowConfirmationModal(false);
-    };
-
-    const handleUpdateConfirmation = (index, newConfirmationValue) => {
-        const guestInfo = JSON.parse(localStorage.getItem("guestInfo"));
-
-        if (guestInfo && guestInfo.guest && guestInfo.guest.guestList?.length > 0) {
-            guestInfo.guest.guestList[index].confirmed = newConfirmationValue;
-        }
-
-        setGuest(prev => {
-            const updatedGuest = {...prev};
-            if (updatedGuest && updatedGuest.guest && updatedGuest.guest.guestList?.length > 0) {
-                updatedGuest.guest.guestList[index].confirmed = newConfirmationValue;
-            }
-            return updatedGuest;
-        });
-
-        localStorage.setItem('guestInfo', JSON.stringify(guestInfo))
+        setShowConfirmationModal(false);
     };
 
     const updateGuestData = async () => {
         try {
             // Update local storage guest info
             const updatedGuestInfo = JSON.parse(localStorage.getItem("guestInfo"));
-            const updatedGuest = updatedGuestInfo.guest;
-
-            // updatedGuest.confirmationSiteDone = true;
 
             const response = await fetch(`${env.REACT_APP_API_URL}${env.REACT_APP_GET_GUEST_ENDPOINT}`, {
                 method: 'PUT',
@@ -109,11 +101,11 @@ const BookRoomModal = ({
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    email: email,
-                    guestList: updatedGuest.guestList,
-                    comments: updatedGuest.comments,
-                    allergyInfo: updatedGuest.allergyInfo,
-                    confirmationSiteDone: updatedGuest.confirmationSiteDone
+                    confirmationRoomBooking: true,
+                    roomBooking: {
+                        type: roomType,
+                        number: roomNb
+                    }
                 }),
             });
 
@@ -127,8 +119,7 @@ const BookRoomModal = ({
                 setGuestError("Invité non trouvé");
             }
 
-        } catch
-            (error) {
+        } catch (error) {
             console.error('API call error', error);
             // Handle error scenarios
         }
@@ -143,7 +134,7 @@ const BookRoomModal = ({
 
         if (validateInput()) {
             setValidated(true);
-            // setShowConfirmationModal(true);
+            setShowConfirmationModal(true);
 
         } else {
             setValidated(false);
@@ -153,17 +144,11 @@ const BookRoomModal = ({
         event.preventDefault();
     };
 
-    const handleTextAreaChange = (event) => {
-        const {name, value} = event.target;
+    const handleSelectChange = (event) => {
+        const newValue = event.target.value;
+        setRoomType(newValue);
+    };
 
-        // if (name === "commentsArea") {
-        //     setComments(value);
-        // } else if (name === "allergyArea") {
-        //     setAllergyInfo(value);
-        // }
-    }
-
-    const guestInfo = JSON.parse(localStorage.getItem('guestInfo'))?.guest;
     return (
         <>
             <Modal show={showBookRoomModal} size="lg" onHide={handleBookRoomClose} backdrop="static" keyboard={false}
@@ -184,6 +169,19 @@ const BookRoomModal = ({
                     <Form noValidate validated={validated} onSubmit={handleConfirmation}>
                         <Row className="my-3">
                             <Form.Group className="mb-3">
+                                <Form.Label htmlFor={`${customId}FormRoomType`} id={`${customId}FormRoomTypeLabel`}
+                                            className={styles.label}>Type de chambres</Form.Label>
+
+                                <Form.Select
+                                    onChange={handleSelectChange}
+                                    id={`${customId}FormRoomType`}
+                                    aria-label="Default select example">
+                                    <option value="1">Double</option>
+                                    <option value="2">Simple</option>
+                                </Form.Select>
+
+                            </Form.Group>
+                            <Form.Group className="mb-3">
                                 <Form.Label htmlFor={`${customId}FormRoomNbInput`} id={`${customId}FormRoomNbInput`}
                                             className={styles.label}>Nombre de chambres</Form.Label>
                                 <FloatingLabel
@@ -194,38 +192,41 @@ const BookRoomModal = ({
                                 >
                                     <Form.Control
                                         id={`${customId}FormRoomNbInput`}
-                                        type="email"
                                         placeholder="Entrez le nombre de chambres"
                                         autoFocus
                                         isInvalid={!!roomNbError}
-                                        onChange={(e) => setEmail(e.target.value)}
+                                        onChange={(e) => {
+                                            const newRoomNbValue = +e.target.value;
+                                            setRoomNb(newRoomNbValue);
+
+                                            if (!isNumber(newRoomNbValue) || newRoomNbValue < 0 || newRoomNbValue > 3) {
+                                                setRoomNbError('Nombre de chambres invalide. Le nombre de chambres par groupe est limité à 3');
+                                                setValidated(false);
+                                            } else {
+                                                setRoomNbError('');
+                                                setValidated(true);
+                                            }
+                                        }}
                                     />
-                                    {!roomNbError &&
-                                        <Form.Control.Feedback>Nombre invalide. Veuillez introduire un nombre entre 0 et 3.</Form.Control.Feedback>}
+
+                                    {!roomNbError && <Form.Control.Feedback type="valid">Valide</Form.Control.Feedback>}
                                     {roomNbError &&
-                                        <Form.Control.Feedback type="invalid">{roomNbError}</Form.Control.Feedback>}
+                                        <Form.Control.Feedback type="invalid">Nombre invalide. Veuillez introduire un
+                                            nombre entre 0 et 3.</Form.Control.Feedback>}
                                 </FloatingLabel>
-                            </Form.Group>
-                            <Form.Group className="mb-3">
-                                <Form.Label htmlFor={`${customId}FormRoomType`} id={`${customId}FormRoomTypeLabel`}
-                                            className={styles.label}>Type de chambres</Form.Label>
-
-                                <Form.Select id={`${customId}FormRoomType`} aria-label="Default select example">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                </Form.Select>
-
                             </Form.Group>
                         </Row>
 
-                        <Button variant="success" type="submit">Envoyer demande de réservation</Button>
+                        <Button variant="success" type="submit">Envoyer demande de
+                            réservation</Button>
                     </Form>
                 </Modal.Body>
             </Modal>
 
             <ConfirmationModal
-                // showConfirmationModal={showConfirmationModal}
-                // setShowConfirmationModal={setShowConfirmationModal}
+                content={confirmationContent}
+                showConfirmationModal={showConfirmationModal}
+                setShowConfirmationModal={setShowConfirmationModal}
                 handleConfirmationNo={handleConfirmationNo}
                 handleConfirmationYes={handleConfirmationYes}
             />

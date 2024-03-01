@@ -146,7 +146,7 @@ const NavigationNew = () => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item href="#/profile">Profile</Dropdown.Item>
+                                <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                                 <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
@@ -168,6 +168,18 @@ const NavigationNew = () => {
                         <Nav className="justify-content-end flex-grow-1">
                             {createNavigationBody(navigationItems, handleOffcanvasLinkClick)}
                         </Nav>
+                        <div style={{ position: 'absolute', bottom: 0, left: 0, marginBottom: '1rem', marginLeft: '1rem' }}>
+                            <Dropdown align="end" drop="up">
+                                <Dropdown.Toggle id="userDropdownOffCanvas" className="btn" variant="transparent">
+                                    <RiShieldUserFill />
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu align="right">
+                                    <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </div>
                         <div style={{ position: 'absolute', bottom: 0, right: 0, marginBottom: '1rem', marginRight: '1rem' }}>
                             <button className="btn btn-outline-danger ml-auto" onClick={handleLogout}>
                                 <RiLogoutBoxLine /> Logout

@@ -11,6 +11,7 @@ import Cover from "./components/cover-page/Cover";
 import {AuthContext} from "./components/authentication/AuthProvider";
 import fetchGuestData, {verifyTokenValidity} from "./services/ApiService";
 import useLocalStorage from "./utils/LocalStorageUtil";
+import ProfilePage from "./components/other-pages/ProfilePage";
 
 function App() {
     const {isLoggedIn, login, logout} = useContext(AuthContext);
@@ -75,6 +76,7 @@ function App() {
                         <Route path="/accommodationsDetails"
                                element={<AccommodationsMoreDetailsPage guestInfo={guestInfo}/>}/>
                         <Route path="/our-story" element={<StoryPage guestInfo={guestInfo}/>}/>
+                        <Route path="/profile" element={<ProfilePage guestInfo={guestInfo}/>}/>
                         {/* Add more routes for additional pages */}
                     </Routes>
                     <Footer/>

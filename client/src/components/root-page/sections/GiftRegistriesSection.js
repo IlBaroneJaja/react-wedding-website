@@ -3,12 +3,13 @@ import styles from "./GiftRegistriesSection.module.css";
 import withScroll from "../../WithScroll";
 import gifts from "../../../images/svg/gifts.svg";
 import sneezingMan from "../../../images/svg/sneezing-man.svg";
+import UnderlinedHeader from "../../UnderlinedHeader";
 
 
 const GiftRegistriesSection = React.forwardRef(({id}, ref) => {
     return (
         <section ref={ref} id={id} className={styles.giftSection}>
-            <h1 style={{textAlign: "center", paddingTop: "30px"}}>Liste de cadeaux</h1>
+            <UnderlinedHeader title="Liste de cadeaux" />
             <div className="container my-5">
                 <div className="p-5 text-center bg-body-transparent rounded-3">
                     <img src={gifts} className="mb-4" width="80px" height="80px" alt="cadeaux"/>

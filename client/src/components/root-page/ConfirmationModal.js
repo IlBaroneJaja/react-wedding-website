@@ -2,6 +2,7 @@ import React from "react";
 import {Button, Modal} from "react-bootstrap";
 
 const ConfirmationModal = ({
+                               content,
                                showConfirmationModal,
                                setShowConfirmationModal,
                                handleConfirmationNo,
@@ -23,8 +24,7 @@ const ConfirmationModal = ({
             <Modal.Title>Confirmation</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            Avez-vous bien encodé vos présences avant de confirmer? Une fois le formulaire envoyé,
-            il ne sera plus possible de renvoyer une seconde fois.
+            {content}
         </Modal.Body>
         <Modal.Footer>
             <Button variant="danger" onClick={handleConfirmationNo}>

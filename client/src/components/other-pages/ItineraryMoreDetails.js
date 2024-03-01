@@ -9,6 +9,7 @@ import imagesContainerChateauLaRocq, {
     imagesContainerCollegiale,
     imagesContainerCommune, imagesContainerParking
 } from "../../constants/ItineraryMoreDetailsConstants";
+import UnderlinedHeader from "../UnderlinedHeader";
 
 
 const ItineraryMoreDetails = React.forwardRef(({id}, ref) => {
@@ -27,8 +28,7 @@ const ItineraryMoreDetails = React.forwardRef(({id}, ref) => {
         <Element name="itineraryMoreDetails">
             <section ref={ref} id={id} className={styles.itineraryMoreDetailsPageContent}>
                 <div style={{paddingLeft: "50px", paddingRight: "50px", paddingTop: "20px", paddingBottom: "10px"}}>
-                    <h1 style={{textAlign: "center"}}>Infos: accès lieux de la journée</h1>
-
+                    <UnderlinedHeader title="Infos: accès lieux de la journée" />
                     {!isOnlyChurchGuest && (
                         <FloatingImageContainer titleId="municipalityHeading" titleContent="Accès commune de Nivelles"
                                                 containerElements={imagesContainerCommune}/>

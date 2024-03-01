@@ -33,7 +33,16 @@ const find = async (dbName, collectionName, query) => {
     }
 };
 
-const updateGuest = async (dbName, collectionName, filter, newGuestList, comments, allergyInfo, confirmationSiteDone) => {
+const updateGuest = async (
+    dbName,
+    collectionName,
+    filter,
+    newGuestList,
+    comments,
+    allergyInfo,
+    confirmationSiteDone,
+    confirmationRoomBooking,
+    roomBooking) => {
     const client = new MongoClient(MONGODB_URI, {
         serverApi: {
             version: ServerApiVersion.v1,
@@ -54,7 +63,9 @@ const updateGuest = async (dbName, collectionName, filter, newGuestList, comment
                     'guestList': newGuestList,
                     'comments': comments,
                     'allergyInfo': allergyInfo,
-                    'confirmationSiteDone': confirmationSiteDone
+                    'confirmationSiteDone': confirmationSiteDone,
+                    'confirmationRoomBooking': confirmationRoomBooking,
+                    'roomBooking': roomBooking
                 }
             }
         );
