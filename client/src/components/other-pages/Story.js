@@ -10,10 +10,6 @@ import UnderlinedHeader from "../UnderlinedHeader";
 const StoryComponent = React.forwardRef(({id}, ref) => {
     return (
         <>
-            <section id="story-intro-parallax"
-                     className={` d-flex align-items-start justify-content-center ${styles.introSection} ${styles.parallaxEffect}`}>
-
-            </section>
             <section ref={ref} id={id}>
                 <UnderlinedHeader title="Notre histoire" />
                 <MDBContainer fluid className='py-5' style={{backgroundColor: "#fdf9f4"}}>

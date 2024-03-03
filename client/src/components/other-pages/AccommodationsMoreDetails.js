@@ -35,7 +35,7 @@ const AccommodationsMoreDetails = React.forwardRef(({id}, ref) => {
             <Element name="accommodationsMoreDetails">
                 <section ref={ref} id={id} className={styles.accommodationsMoreDetailsPageContent}>
                     <UnderlinedHeader title="Hébergement du château"/>
-                    <FloatingImageContainer titleId="castleTitle" titleContent="Chambres du château"
+                    <FloatingImageContainer titleId="castleTitle" titleContent="Chambres du domaine"
                                             containerElements={imagesContainerHebergementChateau}/>
 
                     <div className="d-flex justify-content-center my-5">

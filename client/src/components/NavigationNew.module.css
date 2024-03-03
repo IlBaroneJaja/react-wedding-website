@@ -1,5 +1,5 @@
 .navbar * {
-    font-family: 'kalam', cursive;
+    font-family: 'Quattrocento', cursive;
     /*font-weight: bold;*/
     color: white;
 }
@@ -10,7 +10,7 @@
 }
 
 .namesContainer  {
-    font-family: 'kalam', cursive;
+    font-family: 'Quattrocento', cursive;
     /*font-weight: bold;*/
     color: white;
     display: flex;

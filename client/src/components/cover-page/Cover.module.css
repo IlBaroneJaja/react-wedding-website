@@ -33,7 +33,7 @@ body {
 }
 
 .cover-container {
-    max-width: 42em;
+    /*max-width: 42em;*/
 }
 
 /*
@@ -66,5 +66,9 @@ body {
 
 .modal {
     z-index: 9999999; /* or a higher value */
+}
+
+.coverHeader {
+    font-size: 4em;
 }
 

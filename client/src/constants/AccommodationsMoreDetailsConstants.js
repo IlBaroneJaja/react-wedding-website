@@ -6,7 +6,7 @@ import styles from "../components/root-page/sections/IntroSection.module.css";
 
 const contentImageHebergementChateau = <Fragment>
     <p>
-        Le château de la Rocq dispose de 17 chambres avec lit double et 2 chambres avec lit simple qui
+        Le château de la Rocq dispose au total de 17 chambres avec lit double et 2 chambres avec lit simple qui
         sont mis à notre disposition pour la nuit du mariage du 3 au 4 mai 2024.
     </p>
     <p>
@@ -19,8 +19,9 @@ const contentImageHebergementChateau = <Fragment>
 const contentImageChambreChateau = <Fragment>
     <p>
         En cas de demande de réservation d'une chambre, nous souhaiterions recevoir votre réponse pour
-        le <span style={{padding: 0, fontWeight: "bold", color: "#ce6a00", textDecoration: "underline"}}>1er avril 2024</span> au plus tard. En ce qui concerne le mode de paiement des chambres, nous
+        le <span style={{padding: 0, fontWeight: "bold", color: "#EE8923", textDecoration: "underline"}}>1er avril 2024</span> au plus tard. En ce qui concerne le mode de paiement des chambres, nous
         reviendrons vers vous pour fournir les détails.<br/><br/>
+        <i style={{color: "#EE8923"}}><u>Note:</u> 8 chambres doubles sur les 17 sont déjà réservées !</i>
     </p>
 </Fragment>
 

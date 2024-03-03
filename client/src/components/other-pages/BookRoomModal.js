@@ -28,7 +28,7 @@ const BookRoomModal = ({
 
     const confirmationContent =
         <Fragment>
-            Voulez-vous confirmer votre demande de réservation pour les chambres suivantes:
+            Êtes-vous sûr de vouloir confirmer votre demande de réservation pour les chambres suivantes ?
             <ul>
                 <li><span className="fw-bold">Nombre:</span> {roomNb} x</li>
                 <li><span className="fw-bold">Type de chambre:</span> {roomType}</li>
@@ -162,8 +162,7 @@ const BookRoomModal = ({
                 </Modal.Header>
                 <Modal.Body>
                     <div style={{fontSize: '14px', textAlign: "justify"}}>
-                        Indiquez ci-dessous le nombre de chambres que vous souhaitez réserver, ainsi que
-                        le type de chambre, nous reviendrons vers vous pour les disponibilités restantes,
+                        Indiquez ci-dessous le nombre et le type de chambres que vous souhaitez réserver, nous reviendrons vers vous pour les disponibilités restantes,
                         et la confirmation de réservation.
                     </div>
                     <Form noValidate validated={validated} onSubmit={handleConfirmation}>

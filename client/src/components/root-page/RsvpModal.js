@@ -21,7 +21,7 @@ const RsvpModal = ({customId, showRsvpModal, handleRsvpClose, handleConfirmation
 
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
-    const confirmationContent = "Avez-vous bien encodé vos présences avant de confirmer? Une fois le formulaire envoyé, il ne sera plus possible de renvoyer une seconde fois.";
+    const confirmationContent = "Avez-vous bien encodé vos présences avant de confirmer ? Une fois le formulaire envoyé, il ne sera plus possible de le renvoyer une seconde fois.";
 
     useEffect(() => {
             const fetchData = async () => {
@@ -169,14 +169,10 @@ const RsvpModal = ({customId, showRsvpModal, handleRsvpClose, handleConfirmation
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div style={{fontSize: '14px', textAlign: "justify"}}>
-                        Nous sommes ravis que vous ayez répondu présents à notre Save The Date il y a de cela
-                        quelques
-                        mois.
-                        Mais le temps passe très vite, et nous voudrions vous demander une dernière fois de
-                        confirmer
-                        votre présence,
-                        et/ou celles des personnes qui vous accompagnent.
+                    <div style={{textAlign: "justify"}}>
+                        Nous sommes ravis que vous ayez répondu présents à notre <i>Save The Date</i> il y a
+                        quelques mois. Mais le temps passe très vite, et nous voudrions vous demander une dernière fois
+                        de confirmer votre présence, et/ou celles des personnes qui vous accompagnent.
                     </div>
                     <Form noValidate validated={validated} onSubmit={handleConfirmation}>
                         <Row className="my-3">
@@ -231,8 +227,8 @@ const RsvpModal = ({customId, showRsvpModal, handleRsvpClose, handleConfirmation
                             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                             <Form.Label htmlFor={`${customId}FormGuestFirstName0`} id={`${customId}FormGuestListLabel`}
                                         className={styles.label}>Liste invités</Form.Label>
-                            <div className={styles.modalParagraph}>
-                                Voici la liste des invités pour l'adresse mail donnée. Confirmez chacune des
+                            <div style={{textAlign: "justify"}}>
+                                Voici la liste des invités pour l'adresse mail donnée. Veuillez confirmer chacune des
                                 présences en sélectionnant le bouton "V" (présent) ou "X" (absent).
                             </div>
                             <br/>
@@ -252,11 +248,11 @@ const RsvpModal = ({customId, showRsvpModal, handleRsvpClose, handleConfirmation
 
                         <Form.Group className="mb-3">
                             <Form.Label htmlFor={`${customId}FormAllergyInfoInput`}
-                                        id={`${customId}FormAllergyInfoLabel`} className={styles.label}>Info
-                                allergies/intolérances</Form.Label>
+                                        id={`${customId}FormAllergyInfoLabel`} className={styles.label}>Régimes
+                                alimentaires</Form.Label>
                             <FloatingLabel
                                 htmlFor={`${customId}FormAllergyInfoInput`}
-                                label="Allergies/intolérances"
+                                label="Régimes alimentaires, allergies, intolérances..."
                                 className="mb-3 text-dark"
                             >
                                 <Form.Control

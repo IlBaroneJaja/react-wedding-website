@@ -129,7 +129,7 @@ const NavigationNew = () => {
 
     return (
         <Navbar expand="lg" variant="light" bg="light" fixed="top" expanded={false} className={`${styles.customNavbar} position-sticky top-0`}
-                style={{paddingTop: 0, paddingBottom: 0, fontFamily: "kalam, cursive"}}>
+                style={{paddingTop: 0, paddingBottom: 0}}>
             <Container fluid>
                 <Navbar.Brand href="#">
                     <div className={styles.namesContainer}>
@@ -159,7 +159,6 @@ const NavigationNew = () => {
                     id="offcanvasNavbar"
                     fixed="top"
                     onExited={handleOffcanvasExited}
-                    style={{fontFamily: "kalam, cursive"}}
                 >
                     <Offcanvas.Header closeButton>
                         <Offcanvas.Title>Sections</Offcanvas.Title>

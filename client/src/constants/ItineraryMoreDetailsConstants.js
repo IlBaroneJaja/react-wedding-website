@@ -9,9 +9,8 @@ import entreePrincipaleCommune from "../images/entree_principale_commune.png";
 import carteParkingNivelles from "../images/carte_parking_nivelles.png"
 
 const contentImageParking1 = <Fragment>
-    Les places de parking sont limitées à Nivelles. À proximité cependant, vous pourrez
-    trouver les parkings suivants:
-    <ul style={{ listStylePosition: "inside", paddingLeft: "20px" }}>
+    Les places de parking sont limitées à Nivelles. Cependant, vous trouverez les parkings suivants, à proximité:
+    <ul style={{listStylePosition: "inside", paddingLeft: "20px"}}>
         <li>Parking de la commune, 50 places (payant) &nbsp;
             <a target="_blank" href="https://maps.app.goo.gl/mK2fjZWn3TByGbuK8"
                rel="noreferrer">(adresse)</a>
@@ -30,11 +29,8 @@ const contentImageParking1 = <Fragment>
         </li>
     </ul>
 
-    Plus d'infos sur les règles de stationnement sur le site de la commune de
-    Nivelles:&nbsp;
-    <a target="_blank"
-       href="https://www.nivelles.be/ma-commune/vos-services-administratifs/mobilite/pcmn-stationnement/stationnement"
-       rel="noreferrer">ici</a>
+    <i style={{color: "#EE8923"}}><u>Note:</u> Étant donné les distances à pied qui peuvent séparer la Collégiale des parkings, nous vous conseillons
+        de déposer au préalable vos proches au plus proche du lieu de célébration, avant d'aller vous garer.</i>
 </Fragment>;
 
 const imagesContainerParking = [
@@ -49,18 +45,18 @@ const imagesContainerParking = [
 ];
 
 
-
 const contentImageCommune1 = <Fragment>
     La commune où nous célébrerons notre mariage civil se situe sur la place Albert
-    Ier.<br/>
+    Ier.<br/><br/>
     Adresse: <a target="_blank" href="https://maps.app.goo.gl/QYokwRJQTkn8r23x7"
                 rel="noreferrer">Pl.
-    Albert Ier 2, 1400 Nivelles</a><br/>
+    Albert Ier 2, 1400 Nivelles</a><br/><br/>
+    Pour les possibilités de parking aux alentours, voir <a href="#parkingInfo" rel="noreferrer">ici</a> plus bas.
 </Fragment>;
 
 const contentImageCommune2 = <Fragment>
-    L'entrée de la commune pour le mariage civil se fera par la porte latérale du bâtiment comme indiqué sur la photo
-    en jaune. La salle se trouve directement sur la droite, en rentrant.
+    L'entrée de la commune pour le mariage civil se fera par la porte latérale du bâtiment comme indiqué en jaune sur la
+    photo. La salle se trouve directement sur la droite, en rentrant.
 </Fragment>;
 
 const imagesContainerCommune = [
@@ -85,16 +81,15 @@ const imagesContainerCommune = [
 const contentImageCollegiale1 = <Fragment>
     La collégiale Sainte-Gertrude où nous célébrerons notre mariage religieux se situe juste à côté
     de
-    la commune de Nivelles, sur la grand-place de la ville.<br/>
+    la commune de Nivelles, sur la grand-place de la ville.<br/><br/>
     Adresse: <a target="_blank" href="https://maps.app.goo.gl/K8ZSwspxg4TmsnV27" rel="noreferrer">
     Grand'Place 4, 1400 Nivelles</a><br/><br/>
-    Pour les possibilités de parking aux alentours, voir ici plus bas.
+    Pour les possibilités de parking aux alentours, voir <a href="#parkingInfo" rel="noreferrer">ici</a> plus bas.
 </Fragment>;
 
 const contentImageCollegiale2 = <Fragment>
     Depuis les récents travaux de la collégiale, l'entrée de droite n'est plus accessible. Celle de
-    gauche est donc devenue l'entrée principale des visiteurs.<br/><br/>
-    Pour les possibilités de parking aux alentours, voir ici plus bas.
+    gauche est donc devenue l'entrée principale des visiteurs.
 </Fragment>;
 
 const imagesContainerCollegiale = [
@@ -119,28 +114,24 @@ const imagesContainerCollegiale = [
 
 const contentImageLaRocq1 = <Fragment>
     L’adresse du Château de la Rocq est « Rue Omer Lion à 7181 Seneffe ». Toutefois,
-    nous vous conseillons de ne pas encoder cette adresse ou « Château de la Rocq »
-    dans votre GPS au risque que celui-ci vous fasse passer par un sentier boueux et
+    nous vous recommandons de ne pas encoder cette adresse dans votre GPS ou « Château de la Rocq »,
+    au risque que celui-ci vous fasse passer par un sentier boueux et
     utilisé par les chevaux (c’est l’expérience qui parle).
     <br/><br/>
     L’accès le plus facile que nous vous conseillons se fait via la rue:&nbsp;
+    « Ham de la Rocq » à 7181 Arquennes. <br/><br/>
+    Pour y accéder, vous pouvez introduire
     <a target="_blank" href="https://maps.app.goo.gl/hsqcKdNehXRwzgyn6"
-       rel="noreferrer">Ham de
-        la Rocq à 7181 Arquennes</a>.
-    <br/><br/>
-    Pour y accéder, nous vous conseillons d’encoder ce point de repère sur votre GSP
-    qui est situé au croisement entre la rue Ham de la Rocq, l’avenue du vignoble et
+       rel="noreferrer"> ce point de repère </a>
+    sur votre GSP qui est situé au croisement entre la rue Ham de la Rocq, l’avenue du vignoble et
     la rue Omer Lion. À ce croisement, vous y retrouverez le panneau d’indication
-    blanc du château de la Rocq.
+    blanc repris sur la photo.
 </Fragment>;
 
 const contentImageLaRocq2 = <Fragment>
     Ensuite, vous croiserez un autre panneau à l’entrée du domaine qui vous
-    indiquera de prendre à gauche pour accéder au château de la Rocq. Il ne reste
-    plus
-    qu'à longer le chemin jusqu'à atteindre l'entrée du château.
-    Le parking est situé à l’arrière du château en le longeant par la droite comme
-    indiqué sur le plan ci-dessous.
+    indiquera de prendre à gauche pour accéder au château de la Rocq. Il ne vous reste
+    plus qu'à longer le chemin jusqu'à atteindre l'entrée du château.
 </Fragment>
 
 const contentImageLaRocq3 = <Fragment>

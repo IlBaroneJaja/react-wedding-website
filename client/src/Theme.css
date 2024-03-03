@@ -1,5 +1,5 @@
 body {
-    font-family: 'kalam', cursive;
+    font-family: 'Quattrocento', cursive;
     color: black;
 }
 
@@ -9,19 +9,21 @@ html {
 }
 
 h1 {
-    font-family: 'kalam', cursive;
+    font-family: 'Quattrocento', cursive;
     font-weight: bold;
 }
 
 h2, h3, h4, h5 {
-    font-family: 'kalam', cursive;
+    font-family: 'Quattrocento', cursive;
     font-weight: bold;
 }
 
 p {
-    font-size: 1.167em;
-    font-weight: 100;
-    font-family: 'JetBrains+Mono', cursive;
+    font-size: 1em;
+    font-weight: 600;
+    font-family: 'Raleway', cursive;
+    /*color: #6c757d;*/
+
 }
 
 iframe {

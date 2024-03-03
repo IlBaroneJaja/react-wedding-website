@@ -26,17 +26,21 @@ const ItineraryMoreDetails = React.forwardRef(({id}, ref) => {
 
     return (
         <Element name="itineraryMoreDetails">
+            <section id="story-intro-parallax"
+                     className={` d-flex align-items-start justify-content-center ${styles.itineraryMoreDetailsSection} ${styles.parallaxEffect}`}>
+
+            </section>
             <section ref={ref} id={id} className={styles.itineraryMoreDetailsPageContent}>
                 <div style={{paddingLeft: "50px", paddingRight: "50px", paddingTop: "20px", paddingBottom: "10px"}}>
-                    <UnderlinedHeader title="Infos: accès lieux de la journée" />
+                    <UnderlinedHeader title="Accès aux lieux de l'événément" />
                     {!isOnlyChurchGuest && (
-                        <FloatingImageContainer titleId="municipalityHeading" titleContent="Accès commune de Nivelles"
+                        <FloatingImageContainer titleId="municipalityHeading" titleContent="Commune de Nivelles"
                                                 containerElements={imagesContainerCommune}/>
                     )}
 
-                    <FloatingImageContainer titleId="churchHeading" titleContent="Accès Collégiale Sainte-Gertrude"
+                    <FloatingImageContainer titleId="churchHeading" titleContent="Collégiale Sainte-Gertrude"
                                             containerElements={imagesContainerCollegiale}/>
-                    <FloatingImageContainer titleId="castleTitle" titleContent="Accès Château de la Rocq"
+                    <FloatingImageContainer titleId="castleTitle" titleContent="Château de la Rocq"
                                             containerElements={imagesContainerChateauLaRocq}/>
                     <FloatingImageContainer titleId="parkingInfo" titleContent="Parkings de Nivelles"
                     containerElements={imagesContainerParking}/>

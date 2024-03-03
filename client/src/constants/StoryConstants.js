@@ -5,7 +5,7 @@ import emmenagementNivelles from "../images/story/emmenagement_nivelles_cartons.
 import demandeElbe from "../images/story/demande_en_mariage_ile_elbe.jpg"
 import travaux_anvers from "../images/story/travaux_airbnb_anvers.jpg";
 import travaux_gilly4 from "../images/story/travaux_gilly_4.jpg";
-import mariage from "../images/shooting_photo/shooting_photo_couverture_site.JPG"
+import mariage from "../images/story/mariage_suite.jpg";
 
 const storyElements = [
     {
@@ -18,7 +18,7 @@ const storyElements = [
             },
             type: "IMAGE"
         },
-        cardDetailedText: "C’est lors de l’été 2020 que nous avons eu la chance de faire connaissance et de nous rencontrer pour la première fois lors d’une belle journée d’été à la Place Flagey de Bruxelles. Un premier rendez-vous mémorable qui ne fut évidemment pas le dernier…",
+        cardDetailedText: "C'est lors de l’été 2020 que nous avons eu la chance de nous rencontrer et de faire connaissance, pour la première fois à la Place Flagey de Bruxelles. Un premier rendez-vous mémorable qui ne fut évidemment pas le dernier…",
         orientation: "left"
     },
     {
@@ -70,7 +70,7 @@ const storyElements = [
             },
             type: "IMAGE"
         },
-        cardDetailedText: "C’est lors de notre voyage à l’île d’Elbe pour célébrer nos deux ans qu’Alessandro décida de faire le grand saut et de faire sa demande en mariage dans un petit coin de paradis au bord de mer. Evidemment, la réponse fut un grand OUI avec beaucoup d’émotions.",
+        cardDetailedText: "Pour célébrer nos 2 ans, Alessandro décida de faire le grand saut en faisant sa demande en mariage. Cela s'est déroulé sur l'île d’Elbe dans un petit coin de paradis au bord de la mer. Évidemment, la réponse fut un grand « OUI! » avec beaucoup d’émotions.",
         orientation: "left"
     },
     {
@@ -87,7 +87,7 @@ const storyElements = [
         orientation: "right"
     },
     {
-        title: "Septembre 2023",
+        title: "Été 2023",
         cardTitle: "Deuxième projet commun - Rénovation d'une maison",
         media: {
             name: "Commune",
@@ -96,7 +96,7 @@ const storyElements = [
             },
             type: "IMAGE"
         },
-        cardDetailedText: "Le second projet immobilier ne se fit pas attendre trop longtemps puisqu’en été 2023 nous sommes occupés du lancement d’une colocation à Charleroi. Cette nouvelle expérience nous a conduit à découvrir les « joies » des travaux de rénovation en couple. Un autre challenge qui nous a davantage soudés dans les moments plus compliqués comme dans les moments de célébration et d’accomplissement.",
+        cardDetailedText: "Le second projet immobilier ne se fit pas attendre trop longtemps puisqu’en été 2023, nous nous sommes occupés du lancement d’une colocation à Charleroi. Cette nouvelle expérience nous a conduit à découvrir les « joies » des travaux de rénovation en couple. Un autre challenge qui nous a davantage soudés dans les moments plus compliqués comme dans les moments de célébration et d’accomplissement.",
         orientation: "left"
     },
     {

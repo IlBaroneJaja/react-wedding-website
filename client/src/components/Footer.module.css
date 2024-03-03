@@ -1,19 +1,20 @@
 /* footer.css */
 .footer {
-    padding-bottom: 1.4em;
-    padding-top: 1.4em;
+    padding-bottom: 1em;
+    padding-top: 1em;
     text-align: center;
     position: relative;
     bottom: 0;
     width: 100%;
     background-color: #A9B388;
+    font-family: "Quattrocento", cursive;
 }
 
 .copyright {
-    font-size: 1em;
+    font-size: 0.8em;
     text-align: center;
 }
 
 .weddingPhrase {
-    font-size: 1.5em;
+    font-size: 0.8em;
 }

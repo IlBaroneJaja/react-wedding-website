@@ -20,7 +20,6 @@
     z-index: 1;
     justify-content: left;
     text-align: left;
-    font-family: 'JetBrains+Mono', cursive;
     padding-bottom: 50px;
     padding-right: 50px;
     padding-left: 50px;
@@ -36,9 +35,9 @@
 }
 
 .bookRoomButton {
-    background-color: rgba(37, 140, 31, 0.5) !important;
+    background-color: rgb(169, 179, 136) !important;
     color: white !important;
-    border: 1px solid white;
+    border: 3px solid white;
 }
 
 .dropdown-menu {

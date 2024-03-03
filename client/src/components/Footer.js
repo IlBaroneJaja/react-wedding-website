@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className={`${styles.footer} ${sharedStyles.footer}`}>
             <div className={styles.weddingPhrase}>
-                #YasminaWillSayIDo
+                03.05.2024 - Château de la Rocq
             </div>
             <div className={styles.copyright}>
                 COPYRIGHT &copy;{date} MARIAGE-YASMINA-ALESSANDRO.BE - ALL RIGHTS RESERVED.

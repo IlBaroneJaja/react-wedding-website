@@ -25,9 +25,9 @@ const Cover = () => {
                     <header className="mb-auto"></header>
 
                     <main className="px-3">
-                        <h1 className="mb-3">Mariage</h1>
-                        <h1 className="mb-5">Yasmina & Alessandro</h1>
-                        <p className="lead">
+                        <h1 className={`mb-3 ${styles.coverHeader}`}>Mariage</h1>
+                        <h1 className={`mb-3 ${styles.coverHeader}`}>Yasmina & Alessandro</h1>
+                        <p className="lead text-center">
                             <a className={`btn btn-light ${styles["custom-btn"]} btn-lg m-2`} data-mdb-ripple-init
                                href="#"
                                role="button" onClick={handleShow}>Se connecter</a>
@@ -35,7 +35,7 @@ const Cover = () => {
                         </p>
                     </main>
 
-                    <footer className="mt-auto text-white-50">
+                    <footer className="mt-auto text-white-50 mx-auto">
                         <p> COPYRIGHT &copy;{date} <a href="https://www.mariage-yasmina-alessandro.be"
                                                       className="text-white">Yasmina & Alessandro</a> - ALL RIGHTS RESERVED.</p>
                     </footer>

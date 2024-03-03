@@ -4,6 +4,7 @@ const navigationItems = [
     {section: 'accommodations', header: 'Hébergements', isExternalSection: false},
     {section: 'dress-code', header: 'Dress code', isExternalSection: false},
     {section: 'gift-registries', header: 'Cadeaux', isExternalSection: false},
+    {section: 'rsvps', header: "RSVP's", isExternalSection: false},
     {
         section: 'infos', header: 'Infos',  isExternalSection: true, dropdownItems: [
             {
@@ -13,15 +14,10 @@ const navigationItems = [
             {
                 title: "Détails hébergements",
                 href: "/accommodationsDetails"
-            },
-            {
-                title: "Notre histoire",
-                href: "/our-story"
-            },
-
+            }
         ]
     },
-    {section: 'rsvps', header: "RSVP's", isExternalSection: false},
+    {section: 'our-story', header: "Notre histoire", isExternalSection: true},
 ];
 
 export default navigationItems;

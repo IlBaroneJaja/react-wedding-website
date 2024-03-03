@@ -1,7 +1,7 @@
 .rsvpButton {
-    background-color: rgba(37, 140, 31, 0.5) !important;
+    background-color: rgb(169, 179, 136) !important;
     color: white !important;
-    border: 1px solid white;
+    border: 3px solid white;
 }
 
 .rsvpSection {

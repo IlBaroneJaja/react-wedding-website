@@ -29,8 +29,8 @@ export const generateFeatureDataItem = (pictureUrl, title, content1, content2, l
         header: { title, headerBackgroundColor: "#A9B388" },
         content: (
             <Fragment>
-                <p>{content1}</p>
-                <p>{content2}</p>
+                <p style={{textAlign: "center"}}>{content1}</p>
+                <p style={{textAlign: "center"}}>{content2}</p>
             </Fragment>
         ),
         link1: {
