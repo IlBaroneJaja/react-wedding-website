@@ -30,7 +30,7 @@ const contentImageParking1 = <Fragment>
     </ul>
 
     <i style={{color: "#EE8923"}}><u>Note:</u> Étant donné les distances à pied qui peuvent séparer la Collégiale des parkings, nous vous conseillons
-        de déposer au préalable vos proches au plus proche du lieu de célébration, avant d'aller vous garer.</i>
+        de déposer au préalable vos proches au plus près du lieu de célébration, avant d'aller vous garer.</i>
 </Fragment>;
 
 const imagesContainerParking = [

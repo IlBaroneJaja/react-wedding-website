@@ -2,7 +2,7 @@
     font-family: 'Quattrocento', cursive;
     font-size: 5em;
     /*font-weight: bold;*/
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     color: #ffffff;
 
     @media screen and (max-width: 768px) {
