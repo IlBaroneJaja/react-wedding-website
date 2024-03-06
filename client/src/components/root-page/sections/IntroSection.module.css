@@ -1,23 +1,20 @@
-.introTitle {
-    font-family: 'Quattrocento', cursive;
-    font-size: 5em;
-    /*font-weight: bold;*/
-    /*white-space: nowrap;*/
-    color: #ffffff;
-
-    @media screen and (max-width: 768px) {
-        /* font divided by 1.5 */
-        font-size: 4em; /* Adjust the font size for smaller screens */
-
-    }
-}
-
 .introSection {
     width: 100%;
     min-height: 100vh;
     height: auto;
     position: relative;
     overflow: hidden;
+}
+
+.introContainer {
+}
+
+.introTitle {
+    font-family: 'Quattrocento', cursive;
+    font-size: 5em;
+    /*font-weight: bold;*/
+    /*white-space: nowrap;*/
+    color: #ffffff;
 }
 
 .introContent {
@@ -29,18 +26,18 @@
 }
 
 .weddingLocation {
-    font-family: 'kalam', cursive;
-    font-size: 1.4rem;
-    font-weight: bold;
+    color: #ffffff;
     text-align: center;
-    color: #000000;
+    font-weight: 100;
+    font-family: 'Quattrocento', cursive;
+    font-size: 24pt;
 }
 
-.customButtonDiv {
-    @media screen and (max-width: 1000px) and (orientation: landscape) {
-        margin-top: 6rem;
-    }
-}
+/*.customButtonDiv {*/
+/*    @media screen and (max-width: 1000px) and (orientation: landscape) {*/
+/*        margin-top: 6rem;*/
+/*    }*/
+/*}*/
 .rsvpButton {
     background-color: rgba(169, 179, 136, 0.5) !important;
     color: white !important;
@@ -59,17 +56,198 @@
 
 }
 
-@media (max-width: 576px) and (orientation: portrait) {
-    .mb-3 {
-        margin-bottom: 3rem; /* Adjust as needed */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .introTitle {
+        font-size: 3.5em;
+    }
+
+    .introContent, .weddingLocation {
+        font-size: 14pt;
+    }
+
+    .rsvpButton {
+        font-size: 14pt !important;
     }
 }
 
-@media (max-width: 576px) and (orientation: landscape) {
-    .mt-auto {
-        margin-top: 3rem; /* Adjust as needed */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .introTitle {
+        font-size: 3.5em;
     }
-    .pb-3 {
-        padding-bottom: 3rem; /* Adjust as needed */
+
+    .introContent, .weddingLocation {
+        font-size: 18pt;
+    }
+
+    .rsvpButton {
+        font-size: 14pt !important;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .introTitle {
+        font-size: 4.5em;
+        padding-top: 30px;
+    }
+
+    .introContent, .weddingLocation {
+        font-size: 20pt;
+    }
+
+    .rsvpButton {
+        font-size: 14pt !important;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .introTitle {
+        font-size: 5.2em;
+        padding-top: 30px;
+    }
+
+    .introContent, .weddingLocation {
+        font-size: 20pt;
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .introTitle {
+        font-size: 5em;
+        padding-top: 20px !important;
+    }
+
+    .introContent, .weddingLocation {
+        font-size: 20pt;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .introTitle {
+        font-size: 8em;
+        padding-top: 50px !important;
+    }
+
+    .introContent, .weddingLocation {
+        font-size: 30pt;
+        /*padding: 10px 0;*/
+    }
+
+    .rsvpButton {
+        font-size: 24pt !important;
+    }
+
+
+}
+
+
+/* Height query medias */
+
+@media only screen and (max-height: 799px) {
+    .introContainer {
+        margin: 0;
+        padding: 0;
+    }
+    .introTitle {
+        padding-top: 0;
+    }
+    .introContent {
+        padding-bottom: 0;
+    }
+
+    .weddingLocation {
+        padding-bottom: 0;
+    }
+}
+
+@media only screen and (min-height: 800px) {
+    .introContent {
+        padding-top: 10px;
+        font-size: 20pt;
+    }
+
+    .weddingLocation {
+        padding-bottom: 50px;
+        font-size: 20pt;
+    }
+
+    .rsvpButton {
+        font-size: 20pt !important;
+    }
+
+    .introTitle {
+        /*padding-top: 50px !important;*/
+        font-size: 3em;
+    }
+}
+
+@media only screen and (min-height: 900px) {
+    .introContent {
+        padding-top: 30px;
+        padding-bottom: 10px;
+        font-size: 20pt;
+    }
+
+    .weddingLocation {
+        padding-bottom: 20px;
+        font-size: 20pt;
+    }
+
+    .rsvpButton {
+        font-size: 20pt !important;
+    }
+
+    .introTitle {
+        /*padding-top: 50px !important;*/
+        font-size: 3.5em;
+    }
+}
+
+@media only screen and (min-height: 1100px) {
+    .introContent {
+        padding-top: 30px;
+        padding-bottom: 10px;
+        font-size: 30pt;
+    }
+
+    .weddingLocation {
+        padding-bottom: 50px;
+        font-size: 30pt;
+    }
+
+    .rsvpButton {
+        font-size: 30pt !important;
+    }
+
+    .introTitle {
+        padding-top: 50px !important;
+        font-size: 6em;
+    }
+}
+
+@media only screen and (min-height: 1400px) {
+    .introContent {
+        padding-top: 50px;
+        padding-bottom: 10px;
+        font-size: 30pt;
+    }
+
+    .weddingLocation {
+        padding-bottom: 50px;
+        font-size: 30pt;
+    }
+
+    .rsvpButton {
+        font-size: 30pt !important;
+    }
+
+    .introTitle {
+        padding-top: 50px !important;
+        font-size: 7em;
     }
 }

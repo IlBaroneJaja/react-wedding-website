@@ -35,8 +35,8 @@ const Cover = () => {
                         </p>
                     </main>
 
-                    <footer className="mt-auto text-white-50 mx-auto">
-                        <p> COPYRIGHT &copy;{date} <a href="https://www.mariage-yasmina-alessandro.be"
+                    <footer className="mt-auto text-white-50 text-center">
+                        <p className={styles.footerText}> COPYRIGHT &copy;{date} <a href="https://www.mariage-yasmina-alessandro.be"
                                                       className="text-white">Yasmina & Alessandro</a> - ALL RIGHTS RESERVED.</p>
                     </footer>
                 </div>

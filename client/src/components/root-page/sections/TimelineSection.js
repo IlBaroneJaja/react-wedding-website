@@ -40,7 +40,7 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
                 church,
                 "Mariage religieux",
                 "14h30 - 16h",
-                "Collégiale Sainte Gertrude",
+                "Collégiale Sainte-Gertrude",
                 "",
                 "https://maps.app.goo.gl/K8ZSwspxg4TmsnV27",
                 <FaMapMarked/>,

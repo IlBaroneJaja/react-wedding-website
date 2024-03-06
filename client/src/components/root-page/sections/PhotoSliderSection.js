@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import styles from "./PhotoSliderSection.module.css";
 
 import swiperPhoto1 from '../../../images/shooting_photo/shooting_porte_chateau.JPG';
-import swiperPhoto2 from '../../../images/shooting_photo/shooting_pose_mur.JPG';
+import swiperPhoto2 from '../../../images/shooting_photo/shooting_photo_couverture_site.JPG';
 import swiperPhoto3 from '../../../images/shooting_photo/shooting_regard_enlace.jpg';
 import swiperPhoto4 from '../../../images/shooting_photo/shooting_saut_allee_bois.jpg';
 

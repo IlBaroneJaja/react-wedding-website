@@ -27,7 +27,7 @@ const ItinerariesSection = React.forwardRef(({id}, ref) => {
                             <MultiActionAreaCard
                                 title="Commune de Nivelles"
                                 image={municipalityImage}
-                                content="L'hôtel de ville se situe sur la place Albert Ier, à côté de la collégiale Sainte Gertrude"
+                                content="L'hôtel de ville se situe sur la place Albert Ier, à côté de la collégiale Sainte-Gertrude"
                                 // TODO add anchor in the page and scroll smooth to that anchor
                                 url="/itineraryDetails"
                                 isTargetBlank={false}

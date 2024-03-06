@@ -60,7 +60,7 @@ const ConfirmationModalTrigger = ({
     );
 
     return (
-        <div className={`mx-auto text-center pb-5 ${styles.customButtonDiv}`}>
+        <div className={`mx-auto text-center ${styles.customButtonDiv}`}>
             {confirmationSiteDone ? htmlContentWhenConfirmed : htmlContentWhenNotConfirmedYet}
             <ThankYouModal
                 thankYouContent={thankYouConfirmationContent}

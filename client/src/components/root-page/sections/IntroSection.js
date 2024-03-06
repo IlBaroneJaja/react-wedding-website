@@ -15,16 +15,17 @@ const IntroSection = React.forwardRef(({id, guestInfo, confirmationSiteDone, onC
         <section ref={ref} id={id}
                  className={` d-flex align-items-start justify-content-center ${styles.introSection} ${styles.parallaxEffect}`}>
             <div className="d-flex flex-column justify-content-between align-items-center" >
-                <div className="pt-3 mx-auto text-center" style={{marginTop: "100px"}}>
-                    <h1 className={`my-3 ${styles.introTitle}`}>Yasmina & Alessandro</h1>
+                <div className={`mx-auto text-center ${styles.introContainer}`}>
+                    <h1 className={`mt-3 ${styles.introTitle}`}>Yasmina & Alessandro</h1>
                     <h4 className={`my-4 ${styles.introContent}`}>3 mai 2024</h4>
-                    <h4 className={`my-4 ${styles.introContent}`}>Château de la Rocq</h4>
+                    <h4 className={`my-4 ${styles.weddingLocation}`}>Château de la Rocq</h4>
+                    <ConfirmationModalTrigger
+                        customId="introConfirmation"
+                        thankYouConfirmationContent={thankYouConfirmationContent}
+                        confirmationSiteDone={confirmationSiteDone}
+                        onConfirmationUpdate={onConfirmationUpdate}/>
                 </div>
-                <ConfirmationModalTrigger
-                    customId="introConfirmation"
-                    thankYouConfirmationContent={thankYouConfirmationContent}
-                    confirmationSiteDone={confirmationSiteDone}
-                    onConfirmationUpdate={onConfirmationUpdate}/>
+
             </div>
         </section>
     );

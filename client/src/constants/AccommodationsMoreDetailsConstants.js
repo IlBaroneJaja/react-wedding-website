@@ -7,7 +7,7 @@ import styles from "../components/root-page/sections/IntroSection.module.css";
 const contentImageHebergementChateau = <Fragment>
     <p>
         Le château de la Rocq dispose au total de 17 chambres avec lit double et 2 chambres avec lit simple qui
-        sont mis à notre disposition pour la nuit du mariage du 3 au 4 mai 2024.
+        sont mises à disposition pour la nuit du mariage du 3 au 4 mai 2024.
     </p>
     <p>
         La location d'une chambre (simple ou double) est de 135 € HTVA. Le prix comprend le petit
