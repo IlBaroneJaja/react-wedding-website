@@ -57,7 +57,7 @@ const storyElements = [
             },
             type: "IMAGE"
         },
-        cardDetailedText: "Après 1 an et demi de voyages et de belles aventures à deux, nous avions fait le constat que le temps passé ensemble n’était tout simplement pas assez suffisant. Nous avons donc décidé qu’il était temps de quitter nos colocations respectives afin de pouvoir vivre dans notre petit cocoon à deux. Une nouvelle aventure qui commença.",
+        cardDetailedText: "Après 1 an et demi de voyages et de belles aventures à deux, nous avions fait le constat que le temps passé ensemble n’était tout simplement pas assez suffisant. Nous avons donc décidé qu’il était temps de quitter nos colocations respectives afin de pouvoir vivre dans notre petit cocon à deux. Une nouvelle aventure qui commença.",
         orientation: "right"
     },
     {
@@ -70,7 +70,7 @@ const storyElements = [
             },
             type: "IMAGE"
         },
-        cardDetailedText: "Pour célébrer nos 2 ans, Alessandro décida de faire le grand saut en faisant sa demande en mariage. Cela s'est déroulé sur l'île d’Elbe dans un petit coin de paradis au bord de la mer. Évidemment, la réponse fut un grand « OUI! » avec beaucoup d’émotions.",
+        cardDetailedText: "Pour célébrer nos 2 ans, Alessandro décida de faire le grand saut en me demandant en mariage. Comme nous aimions la proximité avec l'eau, il choisit sans hésitation l'île d’Elbe, en Italie. Une fois arrivés sur place, nous sommes partis à bord d'un petit bateau en direction d'une crique impossible à atteindre par les terres. C'est à cet endroit qu'il fit sa demande, et évidemment, la réponse fût un grand « OUI ! » dans un moment rempli d’émotions.",
         orientation: "left"
     },
     {

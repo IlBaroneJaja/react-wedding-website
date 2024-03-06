@@ -12,7 +12,7 @@ const RsvpSection = React.forwardRef(({id, confirmationSiteDone, onConfirmationU
             formulaire contenant les dernières informations qui nous sont parvenues via notre<i> Save The Date</i>. Veuillez
             vérifier s'il vous plaît si celles-ci sont toujours correctes.
         </p>
-        <p className="col-lg-8 mx-auto fs-5" style={{color: "#EE8923"}}><u>Date limite:</u> 1er avril 2024</p>
+        <p className="col-lg-8 mx-auto fs-5 pb-3" style={{color: "#EE8923"}}><u>Date limite:</u> 1er avril 2024</p>
     </Fragment>;
 
     const thankYouConfirmationContent = <Fragment>
@@ -30,7 +30,7 @@ const RsvpSection = React.forwardRef(({id, confirmationSiteDone, onConfirmationU
                                               confirmationNotYetDoneText={confirmationNotYetDone}
                                               confirmationSiteDone={confirmationSiteDone}
                                               onConfirmationUpdate={onConfirmationUpdate}/>
-                    <img src={clock} className="mb-4" width="80px" height="80px" alt="cadeaux"/>
+                    <img src={clock} className="mt-4" width="80px" height="80px" alt="cadeaux"/>
                 </div>
             </div>
             <hr/>

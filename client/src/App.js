@@ -25,7 +25,7 @@ function App() {
             const loggedInUser = JSON.parse(localStorage.getItem("user"));
             const data = await fetchGuestData(loggedInUser?.email);
 
-            if ('success' === data.message) {
+            if ('success' === data?.message) {
                 localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))
             } else {
                 setGuestError("Invité non trouvé");
@@ -36,7 +36,7 @@ function App() {
         const verifyToken = async (user) => {
             const data = await verifyTokenValidity(user)
 
-            if ('success' === data.message) {
+            if ('success' === data?.message) {
                 login();
             } else {
                 localStorage.removeItem('user');

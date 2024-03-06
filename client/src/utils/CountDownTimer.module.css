@@ -23,13 +23,13 @@
 }
 
 .countDownSection {
-    height: 40vh;
+    height: 30vh;
     color: #000000;
     position: relative;
     background-color: #fdf9f4;
     outline: none;
     font-size: 1.2em;
-    min-height: 40vh; /* Set a minimum height to cover the viewport */
+    min-height: 30vh; /* Set a minimum height to cover the viewport */
     max-width: 100%; /* Ensure the container takes up the full width of the screen */
     box-sizing: border-box; /* Include padding and border in the total width/height of the element */
     margin: 0; /* Remove any default margin */

@@ -40,7 +40,7 @@ const BookRoomModal = ({
                 if (showBookRoomModal) {
                     const data = await fetchGuestData(email);
 
-                    if ('success' === data.message) {
+                    if ('success' === data?.message) {
                         localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))
                         setGuest(data);
                     } else {

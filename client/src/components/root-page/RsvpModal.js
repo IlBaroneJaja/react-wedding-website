@@ -28,7 +28,7 @@ const RsvpModal = ({customId, showRsvpModal, handleRsvpClose, handleConfirmation
                 if (showRsvpModal) {
                     const data = await fetchGuestData(email);
 
-                    if ('success' === data.message) {
+                    if ('success' === data?.message) {
                         localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))
                         setGuest(data);
                         setAllergyInfo(data.guest.allergyInfo);

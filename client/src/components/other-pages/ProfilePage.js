@@ -18,16 +18,19 @@ import checkMark from "../../images/svg/checkmark.svg";
 import crossSign from "../../images/svg/cross-sign.svg";
 
 const ProfilePage = React.forwardRef(({id, guestInfo}, ref) => {
-    const guestListFragment = <Fragment>
-        <ol>
-            {guestInfo?.guest.guestList?.map(guest => {
-                return <Fragment>
-                    <li>{guest.firstName} {guest.lastName}</li>
-                </Fragment>;
+    const guestListFragment = (
+        <>
+            <ol>
+                {guestInfo?.guest.guestList?.map((guest, index) => {
+                    return <Fragment key={index}>
+                        <li>{guest.firstName} {guest.lastName}</li>
+                    </Fragment>;
 
-            })}
-        </ol>
-    </Fragment>
+                })}
+            </ol>
+        </>
+    );
+
     return (
         <>
             <section ref={ref} id={id}>

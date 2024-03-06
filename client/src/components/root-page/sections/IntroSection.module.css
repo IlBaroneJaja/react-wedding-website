@@ -33,13 +33,14 @@
     font-size: 24pt;
 }
 
-/*.customButtonDiv {*/
-/*    @media screen and (max-width: 1000px) and (orientation: landscape) {*/
-/*        margin-top: 6rem;*/
-/*    }*/
-/*}*/
-.rsvpButton {
+.introConfirmation_rsvpButton {
     background-color: rgba(169, 179, 136, 0.5) !important;
+    color: white !important;
+    border: 3px solid white;
+}
+
+.rsvpConfirmation_rsvpButton {
+    background-color: rgb(169, 179, 136) !important;
     color: white !important;
     border: 3px solid white;
 }
@@ -66,7 +67,7 @@
         font-size: 14pt;
     }
 
-    .rsvpButton {
+    .introConfirmation_rsvpButton {
         font-size: 14pt !important;
     }
 }
@@ -81,7 +82,7 @@
         font-size: 18pt;
     }
 
-    .rsvpButton {
+    .introConfirmation_rsvpButton {
         font-size: 14pt !important;
     }
 }
@@ -97,7 +98,7 @@
         font-size: 20pt;
     }
 
-    .rsvpButton {
+    .introConfirmation_rsvpButton {
         font-size: 14pt !important;
     }
 }
@@ -138,7 +139,7 @@
         /*padding: 10px 0;*/
     }
 
-    .rsvpButton {
+    .introConfirmation_rsvpButton {
         font-size: 24pt !important;
     }
 
@@ -176,7 +177,7 @@
         font-size: 20pt;
     }
 
-    .rsvpButton {
+    .introConfirmation_rsvpButton {
         font-size: 20pt !important;
     }
 
@@ -198,7 +199,7 @@
         font-size: 20pt;
     }
 
-    .rsvpButton {
+    .introConfirmation_rsvpButton {
         font-size: 20pt !important;
     }
 
@@ -220,7 +221,7 @@
         font-size: 30pt;
     }
 
-    .rsvpButton {
+    .introConfirmation_rsvpButton {
         font-size: 30pt !important;
     }
 
@@ -242,7 +243,7 @@
         font-size: 30pt;
     }
 
-    .rsvpButton {
+    .introConfirmation_rsvpButton {
         font-size: 30pt !important;
     }
 

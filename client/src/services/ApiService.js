@@ -2,6 +2,10 @@ import env from "react-dotenv";
 
 const fetchGuestData = async (email) => {
     try {
+        if (!email) {
+            return null;
+        }
+
         const response = await fetch(`${env.REACT_APP_API_URL}${env.REACT_APP_GET_GUEST_ENDPOINT}`, {
             method: 'POST',
             headers: {
@@ -18,6 +22,10 @@ const fetchGuestData = async (email) => {
 
 const verifyTokenValidity = async (user) => {
     try {
+        if (!user) {
+            return null;
+        }
+
         const response = await fetch(`${env.REACT_APP_API_URL}${env.REACT_APP_VERIFY_ENDPOINT}`, {
             method: 'POST',
             headers: {

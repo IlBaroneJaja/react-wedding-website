@@ -2,7 +2,7 @@ import React, {Fragment, useEffect, useState} from 'react';
 import ThankYouModal from './ThankYouModal';
 import {FaRegHeart} from "react-icons/fa";
 import styles from "./sections/IntroSection.module.css";
-import RsvpModal from "./RsvpModal";  // Import your modal component
+import RsvpModal from "./RsvpModal";
 
 const ConfirmationModalTrigger = ({
                                       customId,
@@ -40,7 +40,7 @@ const ConfirmationModalTrigger = ({
         <div>
             {confirmationNotYetDoneText}
             <button type="button" onClick={handleRsvpModal}
-                    className={`btn btn-light text-white btn-lg px-4 gap-3 ${styles.rsvpButton}`}>Confirmer
+                    className={`btn btn-light text-white btn-lg px-4 gap-3 ${styles[`${customId}_rsvpButton`]}`}>Confirmer
                 présence
             </button>
             <RsvpModal
