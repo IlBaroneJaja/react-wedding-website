@@ -51,7 +51,6 @@ function App() {
         // If the token/email does not exist, mark the user as logged out
         if (!user || !user.token) {
             logout();
-            return;
         }
 
         // Verify the token and fetch the guest information early in the component tree.
@@ -65,6 +64,10 @@ function App() {
             })
     }, [login, logout]);
 
+    if (!isUserDataLoaded) {
+        return null;
+    }
+
     return (
         <Router>
             {isUserDataLoaded && isLoggedIn ? (
@@ -77,7 +80,7 @@ function App() {
                                element={<AccommodationsMoreDetailsPage guestInfo={guestInfo}/>}/>
                         <Route path="/our-story" element={<StoryPage guestInfo={guestInfo}/>}/>
                         <Route path="/profile" element={<ProfilePage guestInfo={guestInfo}/>}/>
-                        {/* Add more routes for additional pages */}
+                        <Route path="*" element={<Cover/>}/>
                     </Routes>
                     <Footer/>
                 </>
