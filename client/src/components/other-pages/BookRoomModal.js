@@ -95,7 +95,7 @@ const BookRoomModal = ({
             // Update local storage guest info
             const updatedGuestInfo = JSON.parse(localStorage.getItem("guestInfo"));
 
-            const response = await fetch(`${env.REACT_APP_API_URL}${env.REACT_APP_GET_GUEST_ENDPOINT}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}${process.env.REACT_APP_GET_GUEST_ENDPOINT}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

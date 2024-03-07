@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "cd server && set NODE_ENV=production && set PORT=3000 && node server.js --optimize_for_size --max-old-space-size=1024 --inspect",
-    "heroku-postbuild": "cd client && npm install && npm run build && (cd ../server && npm install)"
+    "heroku-postbuild": "set NODE_ENV=production && cd client && npm install && npm run build && (cd ../server && npm install)"
   },
   "dependencies": {
     "concurrently": "^6.5.1",

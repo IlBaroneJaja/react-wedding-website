@@ -64,7 +64,7 @@ const LoginModal = ({showModal, handleClose}) => {
     };
 
     const checkAccountExists = (callback) => {
-        fetch(`${env.REACT_APP_API_URL}${env.REACT_APP_CHECK_ACCOUNT_ENDPOINT}`, {
+        fetch(`${process.env.REACT_APP_API_URL}${process.env.REACT_APP_CHECK_ACCOUNT_ENDPOINT}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const LoginModal = ({showModal, handleClose}) => {
 
 // Log in a user using email and password
     const authenticateUser = () => {
-        fetch(`${env.REACT_APP_API_URL}${env.REACT_APP_AUTH_ENDPOINT}`, {
+        fetch(`${process.env.REACT_APP_API_URL}${process.env.REACT_APP_AUTH_ENDPOINT}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ const fetchGuestData = async (email) => {
             return null;
         }
 
-        const response = await fetch(`${env.REACT_APP_API_URL}${env.REACT_APP_GET_GUEST_ENDPOINT}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}${process.env.REACT_APP_GET_GUEST_ENDPOINT}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const verifyTokenValidity = async (user) => {
             return null;
         }
 
-        const response = await fetch(`${env.REACT_APP_API_URL}${env.REACT_APP_VERIFY_ENDPOINT}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}${process.env.REACT_APP_VERIFY_ENDPOINT}`, {
             method: 'POST',
             headers: {
                 'jwt-token': user.token,
