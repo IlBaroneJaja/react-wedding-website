@@ -43,7 +43,7 @@ function Home({guestInfo}) {
             <IntroSection id="intro-section" ref={introSectionRef} guestInfo={guestInfo}
                           confirmationSiteDone={confirmationSiteDone}
                           onConfirmationUpdate={handleConfirmationUpdate}/>
-            <TimelineSection id="timeline-info" guestInfo={guestInfo}/>
+            <TimelineSection id="timeline-info" guestData={guestInfo}/>
             <PhotoSliderSection id="photoSlider"/>
             <AccommodationsSection id="accommodations"/>
             <FixedImage2Section id="fixed-image" image={image2} index={2}/>

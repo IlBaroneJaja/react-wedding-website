@@ -32,11 +32,6 @@ const LoginModal = ({showModal, handleClose}) => {
             return false;
         }
 
-
-        // if (password.length < 7) {
-        //     setPasswordError('The password must be 8 characters or longer');
-        // }
-
         return true;
     }
 

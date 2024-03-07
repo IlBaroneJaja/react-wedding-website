@@ -9,9 +9,9 @@ import NavigationNew from "./components/NavigationNew";
 import StoryPage from "./components/other-pages/Story";
 import Cover from "./components/cover-page/Cover";
 import {AuthContext} from "./components/authentication/AuthProvider";
-import fetchGuestData, {verifyTokenValidity} from "./services/ApiService";
 import useLocalStorage from "./utils/LocalStorageUtil";
 import ProfilePage from "./components/other-pages/ProfilePage";
+import {GuestInfoContext} from "./GuestInfoContext";
 
 function App() {
     const {isLoggedIn, login, logout} = useContext(AuthContext);
@@ -19,58 +19,11 @@ function App() {
     const [user, setUser] = useLocalStorage("user", "");
     const [guestInfo, setGuestInfo] = useLocalStorage("guestInfo", "");
     const [guestError, setGuestError] = useState('');
-
-    useEffect(() => {
-        const getGuestData = async () => {
-            const loggedInUser = JSON.parse(localStorage.getItem("user"));
-            const data = await fetchGuestData(loggedInUser?.email);
-
-            if ('success' === data?.message) {
-                localStorage.setItem('guestInfo', JSON.stringify({guest: data.guest}))
-            } else {
-                setGuestError("Invité non trouvé");
-            }
-        }
-
-        // If the token exists, verify it with the auth server to see if it is valid
-        const verifyToken = async (user) => {
-            const data = await verifyTokenValidity(user)
-
-            if ('success' === data?.message) {
-                login();
-            } else {
-                localStorage.removeItem('user');
-                logout();
-            }
-        }
-
-
-        // Fetch the user email and token from local storage
-        const user = JSON.parse(localStorage.getItem('user'));
-
-        // If the token/email does not exist, mark the user as logged out
-        if (!user || !user.token) {
-            logout();
-        }
-
-        // Verify the token and fetch the guest information early in the component tree.
-        verifyToken(user)
-            .then(() => getGuestData())
-            .then(() => {
-                setIsUserDataLoaded(true);
-            })
-            .catch((error) => {
-                console.error('API call error', error);
-            })
-    }, [login, logout]);
-
-    if (!isUserDataLoaded) {
-        return null;
-    }
+    const guestInfoFromContext = useContext(GuestInfoContext);
 
     return (
         <Router>
-            {isUserDataLoaded && isLoggedIn ? (
+            { isLoggedIn ? (
                 <>
                     <NavigationNew/>
                     <Routes>
