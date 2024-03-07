@@ -23,6 +23,7 @@ const NavigationNew = () => {
         logout();
         if (user) {
             localStorage.removeItem('user');
+            localStorage.removeItem('guestInfo');
             navigate('/');
         } else {
             navigate('/');

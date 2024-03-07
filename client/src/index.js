@@ -5,12 +5,15 @@ import './Theme.css';
 import reportWebVitals from './reportWebVitals';
 import App from "./App";
 import {AuthProvider} from "./components/authentication/AuthProvider";
+import GuestInfoProvider from "./GuestInfoContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <AuthProvider>
-            <App/>
+            <GuestInfoProvider>
+                <App/>
+            </GuestInfoProvider>
         </AuthProvider>
     </React.StrictMode>
 );

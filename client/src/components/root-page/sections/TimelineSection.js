@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment, useContext, useEffect, useState} from 'react';
 import styles from "./TimelineSection.module.css"
 import weddingSignature from "../../../images/wedding_signature.jpg";
 import church from "../../../images/collegiale_nivelles_square.jpg";
@@ -10,17 +10,17 @@ import {CgDetailsMore, CgInfinity} from "react-icons/cg";
 import {FaMapMarked} from "react-icons/fa";
 import useLocalStorage from "../../../utils/LocalStorageUtil";
 import UnderlinedHeader from "../../UnderlinedHeader";
+import { GuestInfoContext } from "../../../GuestInfoContext";
 
-const TimelineSection = React.forwardRef(({id}, ref) => {
+const TimelineSection = React.forwardRef(({id, guestData}, ref) => {
     const [guestInfo, setGuestInfo] = useLocalStorage("guestInfo", "");
     const [isOnlyChurchGuest, setIsOnlyChurchGuest] = useState(true);
     const [featureDataFiltered, setFeatureDataFiltered] = useState([]);
+    const guestInfoFromContext = useContext(GuestInfoContext);
 
     const setIsOnlyChurchGuestFlag = (isOnlyChurchGuest) => {
         setIsOnlyChurchGuest(isOnlyChurchGuest);
     };
-
-
 
     useEffect(() => {
         const featureData = [
@@ -82,9 +82,13 @@ const TimelineSection = React.forwardRef(({id}, ref) => {
             setFeatureDataFiltered(filteredData);
         };
 
-        setIsOnlyChurchGuestFlag(guestInfo?.guest?.onlyChurchGuest);
-        filterFeatureCardsBasedOnGuestType(guestInfo?.guest?.onlyChurchGuest);
-    }, [guestInfo?.guest?.onlyChurchGuest]);
+        setIsOnlyChurchGuestFlag(guestInfoFromContext?.guest?.onlyChurchGuest);
+        filterFeatureCardsBasedOnGuestType(guestInfoFromContext?.guest?.onlyChurchGuest);
+    }, [guestInfoFromContext?.guest?.onlyChurchGuest]);
+
+    // if (!guestInfo || !guestInfo.guest) {
+    //     return null;
+    // }
 
     return (
         <section ref={ref} id={id} className={styles.stickyTimelineBackground}>
