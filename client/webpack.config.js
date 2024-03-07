@@ -1,10 +1,13 @@
 // webpack.config.js
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const dotenv = require('dotenv');
 
+const env = dotenv.config().parsed;
 module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
 
@@ -12,8 +15,12 @@ module.exports = (env, argv) => {
         entry: './src/index.js', // Update with your entry file
         output: {
             filename: 'bundle.js',
-            path: path.resolve(__dirname, 'client', 'build'),
+            path: path.resolve(__dirname, 'build'),
         },
+        devServer: {
+            historyApiFallback: true,
+        },
+        devtool: 'source-map',
         // Your other configuration settings...
 
         optimization: {
@@ -63,23 +70,23 @@ module.exports = (env, argv) => {
                     test: /\.(png|svg|jpg|jpeg|gif)$/i,
                     type: 'asset/resource',
                 },
-                {
-                    test: /\.(png|jpe?g|gif|svg)$/i,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                outputPath: 'images',
-                            },
-                        },
-                        {
-                            loader: 'image-webpack-loader',
-                            options: {
-                                disable: !isProduction,
-                            },
-                        },
-                    ],
-                },
+                // {
+                //     test: /\.(png|jpe?g|gif|svg)$/i,
+                //     use: [
+                //         {
+                //             loader: 'file-loader',
+                //             options: {
+                //                 outputPath: 'images',
+                //             },
+                //         },
+                //         {
+                //             loader: 'image-webpack-loader',
+                //             options: {
+                //                 disable: !isProduction,
+                //             },
+                //         },
+                //     ],
+                // },
             ],
         },
 
@@ -88,6 +95,12 @@ module.exports = (env, argv) => {
                 template: './public/index.html', // Path to your HTML template
                 filename: 'index.html', // Output HTML file
             }),
+            new webpack.DefinePlugin({
+                'process.env': JSON.stringify(env),
+            }),
         ],
+        resolve: {
+            extensions: ['.js', '.jsx'],
+        },
     };
 };
