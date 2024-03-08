@@ -12,7 +12,7 @@ const GiftRegistriesSection = React.forwardRef(({id}, ref) => {
             <div className="container my-2">
                 <div className="p-5 text-center bg-body-transparent rounded-3">
                     <p className="col-lg-8 mx-auto fs-5">
-                        Notre plus cadeau est évidemment de vous avoir à nos côtés lors de cette magnifique journée.
+                        Notre plus beau cadeau est évidemment de vous avoir à nos côtés lors de cette magnifique journée.
                         Toutefois, si vous souhaitez contribuer à la concrétisation de nos futurs projets (notamment
                         notre voyage en lune de miel),
                         plutôt que fleurir notre maison (qui en plus génèrera une petite
