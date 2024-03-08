@@ -95,6 +95,7 @@ app.post('/verify', (req, res) => {
         }
     } catch (error) {
         // Access Denied
+        console.error('Invalid authentication');
         return res.status(401).json({status: 'invalid auth', message: 'error'})
     }
 })
@@ -105,20 +106,25 @@ app.post('/check-account', async (req, res) => {
     const {email} = req.body;
 
     const query = {email};
-    const documents = await find('weddingDb', 'users', query);
+    try {
+        const documents = await find('weddingDb', 'users', query);
 
-    if (documents.length === 1) {
-        res.status(200).json({
-            status: 'account verified',
-            message: `User ${email} exists`,
-            userExists: documents.length === 1
-        });
-    } else {
-        res.status(404).json({
-            status: 'account does not exist',
-            message: `User ${email} is not found`,
-            userExists: documents.length === 1
-        });
+        if (documents.length === 1) {
+            res.status(200).json({
+                status: 'account verified',
+                message: `User ${email} exists`,
+                userExists: documents.length === 1
+            });
+        } else {
+            res.status(404).json({
+                status: 'account does not exist',
+                message: `User ${email} is not found`,
+                userExists: documents.length === 1
+            });
+        }
+    } catch (error) {
+        console.error('Error connecting to the database:', error);
+        res.status(500).send('Internal Server Error');
     }
 })
 

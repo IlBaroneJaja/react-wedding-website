@@ -28,6 +28,8 @@ const find = async (dbName, collectionName, query) => {
         const database = client.db(dbName);
         const collection = database.collection(collectionName);
         return await collection.find(query).toArray();
+    } catch (error) {
+        console.log("Error in network while accessing the db: ", error.message);
     } finally {
         await client.close();
     }

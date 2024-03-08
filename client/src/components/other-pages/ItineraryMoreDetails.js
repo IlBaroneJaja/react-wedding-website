@@ -1,5 +1,5 @@
 // ItineraryMoreDetails.js
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styles from './ItineraryMoreDetails.module.css'
 import {Element} from 'react-scroll';
 import withScroll from "../WithScroll";
@@ -11,18 +11,17 @@ import imagesContainerChateauLaRocq, {
 } from "../../constants/ItineraryMoreDetailsConstants";
 import UnderlinedHeader from "../UnderlinedHeader";
 
-
-const ItineraryMoreDetails = React.forwardRef(({id}, ref) => {
+const ItineraryMoreDetails = React.forwardRef(({id, guestInfoData, guestInfoFromContext}, ref) => {
     const [guestInfo, setGuestInfo] = useLocalStorage("guestInfo", "");
     const [isOnlyChurchGuest, setIsOnlyChurchGuest] = useState(true);
 
     useEffect(() => {
         const setIsOnlyChurchGuestFlag = () => {
-            setIsOnlyChurchGuest(guestInfo?.guest?.onlyChurchGuest);
+            setIsOnlyChurchGuest(guestInfoFromContext?.guest?.onlyChurchGuest);
         };
 
         setIsOnlyChurchGuestFlag();
-    }, [guestInfo]);
+    }, [guestInfo, guestInfoFromContext]);
 
     return (
         <Element name="itineraryMoreDetails">

@@ -14,7 +14,7 @@ import image3 from "../images/shooting_photo/shooting_marche_escaliers.JPG";
 import image4 from "../images/shooting_photo/shooting_parc_au_dessus.JPG";
 
 
-function Home({guestInfo}) {
+function Home({guestInfo, guestInfoFromContext}) {
     const location = useLocation();
     const targetSectionRef = useRef(null);
     const introSectionRef = useRef();
@@ -43,7 +43,7 @@ function Home({guestInfo}) {
             <IntroSection id="intro-section" ref={introSectionRef} guestInfo={guestInfo}
                           confirmationSiteDone={confirmationSiteDone}
                           onConfirmationUpdate={handleConfirmationUpdate}/>
-            <TimelineSection id="timeline-info" guestData={guestInfo}/>
+            <TimelineSection id="timeline-info" guestData={guestInfo} guestInfoFromContext={guestInfoFromContext}/>
             <PhotoSliderSection id="photoSlider"/>
             <AccommodationsSection id="accommodations"/>
             <FixedImage2Section id="fixed-image" image={image2} index={2}/>

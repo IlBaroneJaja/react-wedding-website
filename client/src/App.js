@@ -15,11 +15,8 @@ import {GuestInfoContext} from "./GuestInfoContext";
 
 function App() {
     const {isLoggedIn, login, logout} = useContext(AuthContext);
-    const [isUserDataLoaded, setIsUserDataLoaded] = useState(false);
-    const [user, setUser] = useLocalStorage("user", "");
     const [guestInfo, setGuestInfo] = useLocalStorage("guestInfo", "");
-    const [guestError, setGuestError] = useState('');
-    const guestInfoFromContext = useContext(GuestInfoContext);
+    const {guestData, isUserDataLoaded} = useContext(GuestInfoContext);
 
     return (
         <Router>
@@ -27,8 +24,8 @@ function App() {
                 <>
                     <NavigationNew/>
                     <Routes>
-                        <Route path="/home" element={<Home guestInfo={guestInfo}/>}/>
-                        <Route path="/itineraryDetails" element={<ItineraryMoreDetailsPage guestInfo={guestInfo}/>}/>
+                        <Route path="/home" element={<Home guestInfo={guestInfo} guestInfoFromContext={guestData}/>}/>
+                        <Route path="/itineraryDetails" element={<ItineraryMoreDetailsPage guestInfo={guestInfo} guestInfoFromContext={guestData}/>}/>
                         <Route path="/accommodationsDetails"
                                element={<AccommodationsMoreDetailsPage guestInfo={guestInfo}/>}/>
                         <Route path="/our-story" element={<StoryPage guestInfo={guestInfo}/>}/>

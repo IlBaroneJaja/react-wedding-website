@@ -19,8 +19,9 @@ module.exports = (env, argv) => {
         },
         devServer: {
             historyApiFallback: true,
+            hot: true,
         },
-        devtool: 'source-map',
+        // devtool: 'source-map',
         // Your other configuration settings...
 
         optimization: {

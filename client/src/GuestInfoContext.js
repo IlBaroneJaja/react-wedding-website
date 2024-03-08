@@ -71,7 +71,7 @@ const GuestInfoProvider = ({children}) => {
     }, [user, logout]);
 
     return (
-        <GuestInfoContext.Provider value={guestData}>
+        <GuestInfoContext.Provider value={{guestData, isUserDataLoaded}}>
             {children}
         </GuestInfoContext.Provider>
     );

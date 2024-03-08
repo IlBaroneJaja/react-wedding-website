@@ -10,13 +10,11 @@ import {CgDetailsMore, CgInfinity} from "react-icons/cg";
 import {FaMapMarked} from "react-icons/fa";
 import useLocalStorage from "../../../utils/LocalStorageUtil";
 import UnderlinedHeader from "../../UnderlinedHeader";
-import { GuestInfoContext } from "../../../GuestInfoContext";
 
-const TimelineSection = React.forwardRef(({id, guestData}, ref) => {
+const TimelineSection = React.forwardRef(({id, guestData, guestInfoFromContext}, ref) => {
     const [guestInfo, setGuestInfo] = useLocalStorage("guestInfo", "");
     const [isOnlyChurchGuest, setIsOnlyChurchGuest] = useState(true);
     const [featureDataFiltered, setFeatureDataFiltered] = useState([]);
-    const guestInfoFromContext = useContext(GuestInfoContext);
 
     const setIsOnlyChurchGuestFlag = (isOnlyChurchGuest) => {
         setIsOnlyChurchGuest(isOnlyChurchGuest);
@@ -84,9 +82,9 @@ const TimelineSection = React.forwardRef(({id, guestData}, ref) => {
 
         setIsOnlyChurchGuestFlag(guestInfoFromContext?.guest?.onlyChurchGuest);
         filterFeatureCardsBasedOnGuestType(guestInfoFromContext?.guest?.onlyChurchGuest);
-    }, [guestInfoFromContext?.guest?.onlyChurchGuest]);
+    }, [guestInfoFromContext]);
 
-    // if (!guestInfo || !guestInfo.guest) {
+    // if (!guestInfoFromContext || !guestInfoFromContext.guest) {
     //     return null;
     // }
 
