@@ -31,6 +31,10 @@ function Home({guestInfo, guestInfoFromContext}) {
                 targetSectionRef.current.scrollIntoView({behavior: 'smooth'});
             }
         }
+
+        if (guestInfoFromContext) {
+            setConfirmationSiteDone(guestInfoFromContext.guest.confirmationSiteDone);
+        }
     }, [location]);
 
 
