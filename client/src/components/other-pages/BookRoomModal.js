@@ -101,6 +101,7 @@ const BookRoomModal = ({
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
+                    email: email,
                     confirmationRoomBooking: true,
                     roomBooking: {
                         type: roomType,
