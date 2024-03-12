@@ -21,7 +21,7 @@ const ProfilePage = React.forwardRef(({id, guestInfo}, ref) => {
     const guestListFragment = (
         <>
             <ol>
-                {guestInfo?.guest.guestList?.map((guest, index) => {
+                {guestInfo?.guest?.guestList?.map((guest, index) => {
                     return <Fragment key={index}>
                         <li>{guest.firstName} {guest.lastName}</li>
                     </Fragment>;
@@ -97,7 +97,7 @@ const ProfilePage = React.forwardRef(({id, guestInfo}, ref) => {
                                                 {guestInfo?.guest.roomBooking && (
                                                     <Fragment>
                                                         <MDBRowDetail header="Type de chambre(s):"
-                                                                      content={guestInfo?.guest.roomBooking.type}/>
+                                                                      content={guestInfo?.guest.roomBooking.type === 1 ? "double" : "simple"}/>
                                                         <MDBRowDetail header="Nombre de chambre(s):"
                                                                       content={guestInfo?.guest.roomBooking.number}/>
                                                     </Fragment>

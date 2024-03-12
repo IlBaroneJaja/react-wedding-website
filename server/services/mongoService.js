@@ -58,18 +58,27 @@ const updateGuest = async (
 
         const database = client.db(dbName);
         const collection = database.collection(collectionName);
+
+        const updateObject = {
+            $set: {
+                'guestList': newGuestList,
+                'comments': comments,
+                'allergyInfo': allergyInfo,
+                'confirmationSiteDone': confirmationSiteDone,
+                'confirmationRoomBooking': confirmationRoomBooking,
+                'roomBooking': roomBooking
+            }
+        };
+
+        const filteredUpdateObject = {
+            $set: {...updateObject.$set}
+        };
+
+        Object.keys(filteredUpdateObject.$set).forEach(key => (filteredUpdateObject.$set[key] == null) && delete filteredUpdateObject.$set[key]);
+
         const result = await collection.updateOne(
             filter,
-            {
-                $set: {
-                    'guestList': newGuestList,
-                    'comments': comments,
-                    'allergyInfo': allergyInfo,
-                    'confirmationSiteDone': confirmationSiteDone,
-                    'confirmationRoomBooking': confirmationRoomBooking,
-                    'roomBooking': roomBooking
-                }
-            }
+            filteredUpdateObject
         );
 
         console.log('Guest list updated successfully.');

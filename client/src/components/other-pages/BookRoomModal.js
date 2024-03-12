@@ -31,7 +31,7 @@ const BookRoomModal = ({
             Êtes-vous sûr de vouloir confirmer votre demande de réservation pour les chambres suivantes ?
             <ul>
                 <li><span className="fw-bold">Nombre:</span> {roomNb} x</li>
-                <li><span className="fw-bold">Type de chambre:</span> {roomType}</li>
+                <li><span className="fw-bold">Type de chambre:</span> {roomType === 1 ? "double" : "simple"}</li>
             </ul>
         </Fragment>
 
