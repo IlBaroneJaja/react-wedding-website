@@ -19,7 +19,8 @@ const BookRoomModal = ({
     const [emailError, setEmailError] = useState('');
     const [roomNb, setRoomNb] = useState(0);
     const [roomNbError, setRoomNbError] = useState('');
-    const [roomType, setRoomType] = useState('double');
+    // roomType 1 = double, roomType 2 = simple
+    const [roomType, setRoomType] = useState(1);
     const [validated, setValidated] = useState(false);
     const [guest, setGuest] = useState(null);
     const [guestError, setGuestError] = useState('');
@@ -31,7 +32,7 @@ const BookRoomModal = ({
             Êtes-vous sûr de vouloir confirmer votre demande de réservation pour les chambres suivantes ?
             <ul>
                 <li><span className="fw-bold">Nombre:</span> {roomNb} x</li>
-                <li><span className="fw-bold">Type de chambre:</span> {roomType === 1 ? "double" : "simple"}</li>
+                <li><span className="fw-bold">Type de chambre:</span> {roomType == 1 ? "double" : "simple"}</li>
             </ul>
         </Fragment>
 
@@ -49,6 +50,8 @@ const BookRoomModal = ({
                 }
             }
 
+            // reset to default value (double) when opening/closing
+            setRoomType(1);
             fetchData();
 
         }, [email, showBookRoomModal]
@@ -163,7 +166,8 @@ const BookRoomModal = ({
                 </Modal.Header>
                 <Modal.Body>
                     <div style={{fontSize: '14px', textAlign: "justify"}}>
-                        Indiquez ci-dessous le nombre et le type de chambres que vous souhaitez réserver, nous reviendrons vers vous pour les disponibilités restantes,
+                        Indiquez ci-dessous le nombre et le type de chambres que vous souhaitez réserver, nous
+                        reviendrons vers vous pour les disponibilités restantes,
                         et la confirmation de réservation.
                     </div>
                     <Form noValidate validated={validated} onSubmit={handleConfirmation}>
