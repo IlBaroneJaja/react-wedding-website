@@ -160,8 +160,8 @@ const BookRoomModal = ({
                 <Modal.Header closeButton>
                     <Modal.Title>
                         Réservation de chambres
-                        <div className={styles.modalParagraph} style={{color: '#ee8923'}}>Dernière limite: 1er avril
-                            !</div>
+                        <div className={styles.modalParagraph} style={{color: '#ee8923'}}>Dernière limite: 1er avril !
+                            (Il reste 1 chambre double libre)</div>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

@@ -21,7 +21,7 @@ const contentImageChambreChateau = <Fragment>
         En cas de demande de réservation d'une chambre, nous souhaiterions recevoir votre réponse pour
         le <span style={{padding: 0, fontWeight: "bold", color: "#EE8923", textDecoration: "underline"}}>1er avril 2024</span> au plus tard. En ce qui concerne le mode de paiement des chambres, nous
         reviendrons vers vous pour fournir les détails.<br/><br/>
-        <i style={{color: "#EE8923"}}><u>Note:</u> 8 chambres doubles sur les 17 sont déjà réservées !</i>
+        <i style={{color: "#EE8923"}}><u>Note:</u> Il reste 1 chambre de disponible ! Faites une demande de réservation sans plus attendre. Nous reviendrons vers vous le plus vite possible. Nous vous conseillons de regarder aux alentours pour les airbnb environnants.</i>
     </p>
 </Fragment>
 
