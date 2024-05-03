@@ -4,6 +4,7 @@ import direction_castle2 from "../images/acces_chateau_2.jpg";
 import direction_parking_chateau from "../images/parking_chateau.png";
 import churchImage from "../images/collegiale_nivelles.jpg";
 import entreePrincipaleEglise from "../images/entree_principale_eglise.png";
+import entreePrincipaleEgliseUpdated from "../images/entree_principale_eglise_updated.png";
 import communeNivelles from "../images/hotel_de_ville_nivelles.jpeg";
 import entreePrincipaleCommune from "../images/entree_principale_commune.png";
 import carteParkingNivelles from "../images/carte_parking_nivelles.png"
@@ -88,8 +89,9 @@ const contentImageCollegiale1 = <Fragment>
 </Fragment>;
 
 const contentImageCollegiale2 = <Fragment>
-    Depuis les récents travaux de la collégiale, l'entrée de droite n'est plus accessible. Celle de
-    gauche est donc devenue l'entrée principale des visiteurs.
+    <b><u style={{color: '#ee8923'}}>Mise à jour du 03/05/2024: </u></b><br/>
+    Depuis les récents travaux de la collégiale, l'entrée de <s>droite</s> gauche n'est plus accessible. Celle de &nbsp;
+    <s>gauche</s> droite est donc devenue l'entrée principale des visiteurs.
 </Fragment>;
 
 const imagesContainerCollegiale = [
@@ -103,7 +105,7 @@ const imagesContainerCollegiale = [
     },
     {
         image: {
-            url: entreePrincipaleEglise,
+            url: entreePrincipaleEgliseUpdated,
             alt: "entrée principale église"
         },
         floatDirection: "right",
